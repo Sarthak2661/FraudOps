@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8d0de3ca14944c5c8e5c",
+  "position": {
+    "x": 980,
+    "y": 28,
+    "z": 4,
+    "height": 86,
+    "width": 260,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_data_quality"
+                    }
+                  },
+                  "Property": "dimension"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_data_quality.dimension",
+              "nativeQueryRef": "dimension",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Quality dimension'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

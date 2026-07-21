@@ -1,0 +1,139 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 621,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.1847511806298,
+            "y": -22.195050904890451
+          },
+          "nodeIndex": "fraudops_reporting vw_alert_operations",
+          "nodeLineageTag": "cf989260-7d56-4b1b-a070-209c50e89e35",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1420.3616394153598,
+            "y": 39
+          },
+          "nodeIndex": "fraudops_reporting vw_analyst_productivity",
+          "nodeLineageTag": "8fef1560-fc7b-44de-9748-9e370b38c002",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": -41.129941727546253
+          },
+          "nodeIndex": "fraudops_reporting vw_case_performance",
+          "nodeLineageTag": "4a20c779-7367-4544-8112-0738cb89a307",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1704.3616394153598,
+            "y": 25
+          },
+          "nodeIndex": "fraudops_reporting vw_daily_fraud_summary",
+          "nodeLineageTag": "6cef773f-5cdf-415c-aa8a-93cb14ebc955",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1186.3616394153598,
+            "y": -25
+          },
+          "nodeIndex": "fraudops_reporting vw_data_quality",
+          "nodeLineageTag": "28ce5b34-b9d5-4f69-bce6-eff3fe5e6549",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 618.36163941535983,
+            "y": -8.8700582724537185
+          },
+          "nodeIndex": "fraudops_reporting vw_fraud_loss",
+          "nodeLineageTag": "4f1646ff-031f-4dc9-88ed-2ec5dc974b8f",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1988.3616394153598,
+            "y": 25
+          },
+          "nodeIndex": "fraudops_reporting vw_model_performance",
+          "nodeLineageTag": "9097c962-daef-44da-abdb-89d5d2ed57a3",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2272.3616394153596,
+            "y": 27
+          },
+          "nodeIndex": "fraudops_reporting vw_rule_performance",
+          "nodeLineageTag": "9cdd694e-5784-4add-96ae-e1eded9bc591",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 902.36163941535983,
+            "y": -11
+          },
+          "nodeIndex": "fraudops_reporting vw_source_to_curated_reconciliation",
+          "nodeLineageTag": "d14d6413-783f-4371-b494-2468ea78b8f1",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

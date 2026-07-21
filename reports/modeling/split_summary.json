@@ -1,0 +1,50 @@
+{
+  "feature_version": "phase4_features_v1",
+  "data_period": {
+    "train": [
+      "2026-05-14T19:47:21+00:00",
+      "2026-06-19T18:37:21+00:00"
+    ],
+    "validation": [
+      "2026-06-19T18:47:21+00:00",
+      "2026-07-02T06:45:21+00:00"
+    ],
+    "final_test_held_out": [
+      "2026-07-02T07:32:21+00:00",
+      "2026-07-13T19:41:21+00:00"
+    ]
+  },
+  "training_record_count": 6000,
+  "validation_record_count": 2000,
+  "final_test_record_count": 2000,
+  "training_fraud_rate": 0.02,
+  "features": [
+    "transaction_amount",
+    "transaction_hour",
+    "is_weekend",
+    "is_card_present",
+    "is_international",
+    "is_new_device",
+    "is_new_merchant",
+    "ip_country_mismatch",
+    "customer_avg_amount_7d",
+    "customer_avg_amount_30d",
+    "amount_to_customer_avg_ratio",
+    "transactions_last_10m",
+    "transactions_last_1h",
+    "amount_last_24h",
+    "unique_countries_last_7d",
+    "time_since_previous_transaction",
+    "distance_from_previous_transaction",
+    "failed_attempts_last_24h",
+    "device_age_days",
+    "customers_on_device_30d",
+    "cards_on_device_30d",
+    "device_transaction_velocity",
+    "device_fraud_rate_history",
+    "merchant_transaction_count_30d",
+    "merchant_fraud_rate_30d",
+    "merchant_chargeback_rate",
+    "merchant_category_risk"
+  ]
+}

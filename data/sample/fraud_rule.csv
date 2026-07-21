@@ -1,0 +1,7 @@
+fraud_rule_id,rule_code,rule_name,description,severity,active
+0aed813f-d5f8-55bd-9cb7-52ce6439f529,CARD_TESTING,Card testing,Small test charges followed by a larger transaction,high,True
+aa261e1e-fb1d-52c6-b90e-2f7a1d978c12,IMPOSSIBLE_TRAVEL,Impossible travel,Country change is unrealistic for the time window,high,True
+9450d6d9-4346-5197-a6c0-354c996517b4,NEW_DEVICE_HIGH_VALUE,New device high value,New device attempts an unusually high amount,medium,True
+ab35fc7d-7fe8-5de1-8d87-eb1c5acb003a,VELOCITY,Transaction velocity,Several transactions occur in a short interval,medium,True
+00940b7a-0dc9-5bda-b676-723fb541fdcb,BEHAVIOR_DEVIATION,Behavior deviation,Amount is far above the customer baseline,medium,True
+342d5b99-eab4-5708-b2d7-1dbec0085593,MERCHANT_BURST,Merchant fraud burst,Merchant receives clustered fraud reports,high,True

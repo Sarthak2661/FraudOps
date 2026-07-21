@@ -1,0 +1,143 @@
+table 'fraudops_reporting vw_model_performance'
+	lineageTag: 9097c962-daef-44da-abdb-89d5d2ed57a3
+
+	column model_name
+		dataType: string
+		lineageTag: 22924b55-1dc7-431e-910d-8cbc5fd3dc4b
+		summarizeBy: none
+		sourceColumn: model_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column version_label
+		dataType: string
+		lineageTag: 7406396c-3cb8-4c12-bdea-b4086452ea8a
+		summarizeBy: none
+		sourceColumn: version_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column promoted
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 632aad06-df5e-47d1-98a8-4f5fda9a06b6
+		summarizeBy: none
+		sourceColumn: promoted
+
+		annotation SummarizationSetBy = Automatic
+
+	column training_started_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2ccead01-c8e3-4f63-b9ec-0cbca958aca7
+		summarizeBy: none
+		sourceColumn: training_started_at
+
+		variation Variation
+			isDefault
+			relationship: 5182bc4a-77ec-4db2-b401-39acc9f5cfb8
+			defaultHierarchy: LocalDateTable_55adf2aa-ea09-4e5d-89c8-9ff0244b714c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column training_completed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c9ea6c28-6d3c-40c9-bbc7-b95dea68adf4
+		summarizeBy: none
+		sourceColumn: training_completed_at
+
+		variation Variation
+			isDefault
+			relationship: e891f7de-aa76-4df1-830a-c11228d6ea85
+			defaultHierarchy: LocalDateTable_a8803af7-ea88-4f70-86db-5cdaf97d4838.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column precision
+		dataType: double
+		lineageTag: dead3109-bc20-4037-bd02-7a2181a26d9a
+		summarizeBy: sum
+		sourceColumn: precision
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column recall
+		dataType: double
+		lineageTag: e5d2db0b-c1e2-4fd0-b6e2-1c014d5d9d1f
+		summarizeBy: sum
+		sourceColumn: recall
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column f1
+		dataType: double
+		lineageTag: 1250c9d3-c509-4183-ad9c-bc4608da559e
+		summarizeBy: sum
+		sourceColumn: f1
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column pr_auc
+		dataType: double
+		lineageTag: 04f2dbba-5bdb-4c5a-8c3b-51daf2a32ab8
+		summarizeBy: sum
+		sourceColumn: pr_auc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column roc_auc
+		dataType: double
+		lineageTag: 52c1ec78-2ddb-4f7e-a970-094853c08daa
+		summarizeBy: sum
+		sourceColumn: roc_auc
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fraud_value_recall
+		dataType: double
+		lineageTag: 2cdf5b0c-73c2-4841-ba44-68cfb59f87fa
+		summarizeBy: sum
+		sourceColumn: fraud_value_recall
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column metrics
+		dataType: string
+		lineageTag: 81d707ce-07bf-44eb-90ae-75639c88189b
+		summarizeBy: none
+		sourceColumn: metrics
+
+		annotation SummarizationSetBy = Automatic
+
+	column artifact_uri
+		dataType: string
+		lineageTag: 1c71f8bc-3b9e-473e-94e4-1c545b4bdaae
+		summarizeBy: none
+		sourceColumn: artifact_uri
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fraudops_reporting vw_model_performance' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_model_performance = Source{[Schema="fraudops_reporting",Item="vw_model_performance"]}[Data]
+				in
+				    fraudops_reporting_vw_model_performance
+
+	annotation PBI_ResultType = Table
+

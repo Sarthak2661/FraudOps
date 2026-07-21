@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "aae1e8cbf57946898722",
+  "position": {
+    "x": 249.85074626865671,
+    "y": 27.761194029850746,
+    "z": 1,
+    "height": 110.14925373134328,
+    "width": 242.68656716417911,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_analyst_productivity"
+                        }
+                      },
+                      "Property": "resolved_cases"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_analyst_productivity.resolved_cases)",
+              "nativeQueryRef": "Sum of resolved_cases"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

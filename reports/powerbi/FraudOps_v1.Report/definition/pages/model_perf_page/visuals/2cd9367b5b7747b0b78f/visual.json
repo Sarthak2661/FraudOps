@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2cd9367b5b7747b0b78f",
+  "position": {
+    "x": 859.70149253731336,
+    "y": 27.761194029850746,
+    "z": 4,
+    "height": 117.31343283582089,
+    "width": 257.0149253731343,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_model_performance"
+                        }
+                      },
+                      "Property": "fraud_value_recall"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_model_performance.fraud_value_recall)",
+              "nativeQueryRef": "Sum of fraud_value_recall"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

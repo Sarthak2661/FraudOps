@@ -1,0 +1,171 @@
+table 'fraudops_reporting vw_data_quality'
+	lineageTag: 28ce5b34-b9d5-4f69-bce6-eff3fe5e6549
+
+	measure 'Pipeline Freshness Hours' = MIN('fraudops_reporting vw_data_quality'[hours_since_refresh])
+		formatString: 0.0
+		lineageTag: 42bc85c0-3bda-471a-b8bd-b694fb0001d3
+
+	measure 'Missing Field Failures' = CALCULATE(SUM('fraudops_reporting vw_data_quality'[failed_records]), 'fraudops_reporting vw_data_quality'[dimension] = "Completeness")
+		formatString: #,0
+		lineageTag: af434d62-d726-42ce-8440-1fbe54dd6c18
+
+	column pipeline_run_id
+		dataType: string
+		lineageTag: aed6edac-bb29-4ae1-882b-92b179a60d01
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_name
+		dataType: string
+		lineageTag: 90a3ab06-bde4-4c9b-9352-d1f631926cc7
+		summarizeBy: none
+		sourceColumn: pipeline_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column started_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 403910ac-c6a9-4503-a318-af98d905ea74
+		summarizeBy: none
+		sourceColumn: started_at
+
+		variation Variation
+			isDefault
+			relationship: f02b6025-cbed-43b7-82b0-77766d2ba0b6
+			defaultHierarchy: LocalDateTable_bc0c047d-562f-461a-aa1f-3db69cb7df45.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column completed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 75d34979-d1c1-4c0c-8e98-1ff3495556c5
+		summarizeBy: none
+		sourceColumn: completed_at
+
+		variation Variation
+			isDefault
+			relationship: e76ab22f-9484-4b02-8dc7-fbf39c596da6
+			defaultHierarchy: LocalDateTable_001db7d9-08f6-4635-8b5d-89174fa64b3f.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column status
+		dataType: string
+		lineageTag: 97628feb-ca2e-4ab4-941a-d0fc265fa5e2
+		summarizeBy: none
+		sourceColumn: status
+
+		annotation SummarizationSetBy = Automatic
+
+	column input_records
+		dataType: int64
+		formatString: 0
+		lineageTag: bd08b8f3-abe2-40f4-a595-240c6b5ab3eb
+		summarizeBy: sum
+		sourceColumn: input_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column accepted_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 20bf05d0-153c-4439-a23c-120626c95e27
+		summarizeBy: sum
+		sourceColumn: accepted_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column rejected_records
+		dataType: int64
+		formatString: 0
+		lineageTag: c97c4dde-eee1-4cf9-a462-03dea1c1f321
+		summarizeBy: sum
+		sourceColumn: rejected_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column duplicate_records
+		dataType: int64
+		formatString: 0
+		lineageTag: fd899a11-39b5-4096-943c-2512006462a1
+		summarizeBy: sum
+		sourceColumn: duplicate_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column rule_code
+		dataType: string
+		lineageTag: ec43d7cc-cfb5-417e-8936-04e93be86b93
+		summarizeBy: none
+		sourceColumn: rule_code
+
+		annotation SummarizationSetBy = Automatic
+
+	column dimension
+		dataType: string
+		lineageTag: ac47ffe4-de6f-478f-b1e9-7e1f8710a89a
+		summarizeBy: none
+		sourceColumn: dimension
+
+		annotation SummarizationSetBy = Automatic
+
+	column description
+		dataType: string
+		lineageTag: 0469f3fe-6799-49bb-b715-45b986a221c3
+		summarizeBy: none
+		sourceColumn: description
+
+		annotation SummarizationSetBy = Automatic
+
+	column total_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 69c7233c-65f6-4d62-a381-7330ba1a0538
+		summarizeBy: sum
+		sourceColumn: total_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column failed_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 707b0eb6-d2d1-402d-a8f8-3b610467c4c7
+		summarizeBy: sum
+		sourceColumn: failed_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column passed
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3fda72f3-5da7-4dfe-a5ce-843e7859f4dd
+		summarizeBy: none
+		sourceColumn: passed
+
+		annotation SummarizationSetBy = Automatic
+
+	column hours_since_refresh
+		dataType: double
+		lineageTag: ec9c62f1-51a0-45c4-9996-e4dc1e77e4b5
+		summarizeBy: sum
+		sourceColumn: hours_since_refresh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'fraudops_reporting vw_data_quality' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_data_quality = Source{[Schema="fraudops_reporting",Item="vw_data_quality"]}[Data]
+				in
+				    fraudops_reporting_vw_data_quality
+
+	annotation PBI_ResultType = Table
+

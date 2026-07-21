@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "38e0de9f17304cd9a571",
+  "position": {
+    "x": 640,
+    "y": 145,
+    "z": 101,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 101
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_data_quality"
+                    }
+                  },
+                  "Property": "rule_code"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_data_quality.rule_code",
+              "nativeQueryRef": "rule_code",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_data_quality"
+                    }
+                  },
+                  "Property": "Missing Field Failures"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_data_quality.Missing Field Failures",
+              "nativeQueryRef": "Missing Field Failures"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Missing field failures'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

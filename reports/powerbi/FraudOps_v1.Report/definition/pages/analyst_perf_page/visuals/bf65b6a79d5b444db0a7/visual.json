@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "bf65b6a79d5b444db0a7",
+  "position": {
+    "x": 739.70149253731336,
+    "y": 27.761194029850746,
+    "z": 3,
+    "height": 110.14925373134328,
+    "width": 254.32835820895522,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "SLA Compliance Rate"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.SLA Compliance Rate",
+              "nativeQueryRef": "SLA Compliance Rate"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

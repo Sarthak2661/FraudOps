@@ -1,0 +1,2 @@
+model_version_id,model_name,version_label,training_started_at,training_completed_at,metrics,artifact_uri,promoted
+907aaeba-7466-5c7d-9c65-1d3263b5975a,fraud-risk-model,rules-baseline-v0,,,"{""note"": ""placeholder before ML phase""}",,False

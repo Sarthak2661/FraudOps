@@ -1,0 +1,118 @@
+table 'fraudops_reporting vw_fraud_loss'
+	lineageTag: 4f1646ff-031f-4dc9-88ed-2ec5dc974b8f
+
+	column transaction_id
+		dataType: string
+		lineageTag: 33f17fcd-4f9c-4d60-9a46-ac001fc92139
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cadf974e-b886-4974-8cbe-67ee5334615e
+		summarizeBy: none
+		sourceColumn: transaction_date
+
+		variation Variation
+			isDefault
+			relationship: 24201f9a-24ac-41a7-8cc8-bb3cf8d1ae22
+			defaultHierarchy: LocalDateTable_528d9b05-d5db-409e-9e66-6ccaec3c3b3e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column customer_id
+		dataType: string
+		lineageTag: 681327b8-a66a-47ed-b9fb-719551c73519
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_id
+		dataType: string
+		lineageTag: e2657db4-e910-43b1-92a8-ce2c87f92441
+		summarizeBy: none
+		sourceColumn: merchant_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column merchant_category
+		dataType: string
+		lineageTag: 56975c60-b22b-4ea8-887e-d72129f6c9ef
+		summarizeBy: none
+		sourceColumn: merchant_category
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: 0d595d1b-b607-4768-9f62-067d8857d4a4
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column fraud_label
+		dataType: string
+		lineageTag: ab7f83fb-b0e2-4865-87fb-91e5f005b27e
+		summarizeBy: none
+		sourceColumn: fraud_label
+
+		annotation SummarizationSetBy = Automatic
+
+	column decision
+		dataType: string
+		lineageTag: 4d01e6ee-74e5-48e0-a478-592a35db467f
+		summarizeBy: none
+		sourceColumn: decision
+
+		annotation SummarizationSetBy = Automatic
+
+	column attempted_fraud_value
+		dataType: double
+		lineageTag: ee3a683e-2c65-49d7-8268-d70e8dcd9d97
+		summarizeBy: sum
+		sourceColumn: attempted_fraud_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column confirmed_fraud_loss
+		dataType: double
+		lineageTag: 09d726a8-171a-4e9b-afe1-3c484fb7aeaa
+		summarizeBy: sum
+		sourceColumn: confirmed_fraud_loss
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prevented_fraud_value
+		dataType: double
+		lineageTag: a6f0381a-ddb5-424c-a662-c5e44ca7ad5e
+		summarizeBy: sum
+		sourceColumn: prevented_fraud_value
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'fraudops_reporting vw_fraud_loss' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_fraud_loss = Source{[Schema="fraudops_reporting",Item="vw_fraud_loss"]}[Data]
+				in
+				    fraudops_reporting_vw_fraud_loss
+
+	annotation PBI_ResultType = Table
+

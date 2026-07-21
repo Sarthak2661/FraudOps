@@ -1,0 +1,201 @@
+merchant_id,merchant_external_id,merchant_name,merchant_category_code,merchant_category,country,city,risk_tier
+7ed8a3c9-568f-5c42-a29f-96009e2a60d2,MERCH-00001,Restaurant Merchant 00001,5812,Restaurant,GB,London,elevated
+a71afe8e-46ab-5d0d-8a50-45f663ab479b,MERCH-00002,Restaurant Merchant 00002,5812,Restaurant,JP,Tokyo,standard
+9a34098a-3b89-5621-8bae-d98ce3c561cd,MERCH-00003,Electronics Merchant 00003,5732,Electronics,DE,Berlin,low
+555196c3-8c08-5a08-943f-cfd5857cee3b,MERCH-00004,Restaurant Merchant 00004,5812,Restaurant,US,New York,low
+5a9b0329-4157-51aa-a229-b0dc7be89d07,MERCH-00005,Fuel Merchant 00005,5541,Fuel,BR,Sao Paulo,standard
+e98499ff-0863-5b5c-b3f7-7c90302046b6,MERCH-00006,ATM Merchant 00006,6011,ATM,FR,Paris,standard
+2d7837d5-a309-5698-a6a9-8f8e8bc26cc8,MERCH-00007,Grocery Merchant 00007,5411,Grocery,US,Miami,elevated
+3ec0b3a9-2cff-5d04-8a8f-a3d5870a52de,MERCH-00008,Fuel Merchant 00008,5541,Fuel,US,New York,standard
+0d6f28a9-7671-5360-9c49-23aa8eae5402,MERCH-00009,Grocery Merchant 00009,5411,Grocery,FR,Paris,standard
+2e285bdf-e2b0-585b-8c29-60b1996a5b3a,MERCH-00010,Gaming Merchant 00010,7995,Gaming,US,New York,standard
+b217b7f2-aa3d-5c3e-ac09-52a8c71e1cb5,MERCH-00011,Gaming Merchant 00011,7995,Gaming,US,San Francisco,standard
+cf57f233-7052-5559-a848-ee53bd387ed9,MERCH-00012,Electronics Merchant 00012,5732,Electronics,BR,Sao Paulo,low
+eae4dfb6-1e41-5dad-af1d-7154d9b9a4f1,MERCH-00013,Travel Merchant 00013,4722,Travel,US,Chicago,standard
+f25f4266-ad4a-5b55-bbe4-efc5441e9711,MERCH-00014,Gaming Merchant 00014,7995,Gaming,GB,London,elevated
+27a28324-6fcd-50ad-8521-7e95b3f76d78,MERCH-00015,Fuel Merchant 00015,5541,Fuel,US,Miami,low
+3c8e654d-e7dd-586c-a298-248e5de31470,MERCH-00016,Fuel Merchant 00016,5541,Fuel,US,New York,standard
+1a2068a6-806a-5fe0-8653-d051b7521cb6,MERCH-00017,Grocery Merchant 00017,5411,Grocery,BR,Sao Paulo,elevated
+10ad0cd6-2f72-5618-8a2c-ff6d7f21e085,MERCH-00018,Fuel Merchant 00018,5541,Fuel,US,New York,standard
+e7e9f6cd-3230-5616-b64e-db70066d1250,MERCH-00019,Grocery Merchant 00019,5411,Grocery,US,Chicago,low
+8a4ad560-ffe7-5e69-80eb-e2b6f9f29514,MERCH-00020,Department Store Merchant 00020,5311,Department Store,US,San Francisco,low
+28f479b1-1c0c-5279-b2e1-b7582cb43f54,MERCH-00021,Fuel Merchant 00021,5541,Fuel,GB,London,elevated
+a71a356a-2682-5909-ad95-3aa5eceff1dc,MERCH-00022,Gaming Merchant 00022,7995,Gaming,US,San Francisco,standard
+9066ff7b-deb0-546f-a720-48224a6e9c17,MERCH-00023,Restaurant Merchant 00023,5812,Restaurant,US,Chicago,low
+9e6b1923-950e-5c7c-ae69-f2cf40d5dbf2,MERCH-00024,Fuel Merchant 00024,5541,Fuel,BR,Sao Paulo,standard
+d14a3dc8-a0ea-5e87-8116-08dcd2c2082a,MERCH-00025,Fuel Merchant 00025,5541,Fuel,GB,London,standard
+ae8d95ca-38e6-5759-98dc-89726e583148,MERCH-00026,Travel Merchant 00026,4722,Travel,CA,Toronto,standard
+a74ce7f5-5d78-524d-822a-acf81c3c6ddc,MERCH-00027,Fuel Merchant 00027,5541,Fuel,CA,Toronto,standard
+4e44fd16-e195-5b77-a246-8e86ab753400,MERCH-00028,Travel Merchant 00028,4722,Travel,CA,Toronto,standard
+2f7f3a9f-d813-53ff-be64-0208ebb7defb,MERCH-00029,Restaurant Merchant 00029,5812,Restaurant,BR,Sao Paulo,low
+abcc702b-40e1-52bb-8a0c-ae1f31afb2e4,MERCH-00030,ATM Merchant 00030,6011,ATM,FR,Paris,low
+c81633df-44e8-5dba-8df3-dcd3efda7e52,MERCH-00031,Electronics Merchant 00031,5732,Electronics,US,Miami,standard
+1b2b9af2-7c6f-51d6-8b90-26768410e44b,MERCH-00032,Fuel Merchant 00032,5541,Fuel,BR,Sao Paulo,standard
+f2f31cc3-9911-5de0-8853-b6f61d925789,MERCH-00033,Fuel Merchant 00033,5541,Fuel,BR,Sao Paulo,low
+4d643cb3-6ff4-5e4a-8ce1-86c9d9fb545d,MERCH-00034,Grocery Merchant 00034,5411,Grocery,US,San Francisco,elevated
+5f3690c3-240c-51b7-b0e8-2c09e6c8d29f,MERCH-00035,ATM Merchant 00035,6011,ATM,DE,Berlin,elevated
+a5693613-4335-5f5c-a77f-6d2c098ea1c3,MERCH-00036,ATM Merchant 00036,6011,ATM,US,New York,standard
+fa6370bc-8ea4-532d-ae53-d5519e15965d,MERCH-00037,Department Store Merchant 00037,5311,Department Store,CA,Toronto,standard
+654cb493-b846-5d94-9e8a-87a6ddd6196f,MERCH-00038,Restaurant Merchant 00038,5812,Restaurant,CA,Toronto,low
+1bc5fc54-2d12-5778-882c-6cf3222d6c15,MERCH-00039,Gaming Merchant 00039,7995,Gaming,JP,Tokyo,standard
+1ab94db4-606d-54dc-b3f7-28a42d4c66a0,MERCH-00040,Gaming Merchant 00040,7995,Gaming,FR,Paris,standard
+61e8c383-05f1-5f72-94f5-01f9dcc61600,MERCH-00041,Fuel Merchant 00041,5541,Fuel,US,Miami,standard
+68f0653c-d52d-50ec-acfe-16d1aa67832d,MERCH-00042,Gaming Merchant 00042,7995,Gaming,SG,Singapore,standard
+58f62c27-e8bb-52d5-9832-2fc393f3e4e7,MERCH-00043,Department Store Merchant 00043,5311,Department Store,SG,Singapore,low
+703b9c16-8ca4-58a6-9b08-06c5af068c5c,MERCH-00044,Grocery Merchant 00044,5411,Grocery,GB,London,elevated
+de11f0f5-535d-53ba-a748-cce3072d1e22,MERCH-00045,Department Store Merchant 00045,5311,Department Store,GB,London,standard
+926675a0-d65e-5af0-998b-59b3fd5ec5d9,MERCH-00046,Fuel Merchant 00046,5541,Fuel,JP,Tokyo,standard
+a3f634c4-a415-5359-9560-c24534968fb9,MERCH-00047,Gaming Merchant 00047,7995,Gaming,GB,London,standard
+6deb3b6e-e1dc-5921-a594-1e91189218ff,MERCH-00048,Restaurant Merchant 00048,5812,Restaurant,US,New York,standard
+d1f69564-dcb4-5135-9649-e793390a8459,MERCH-00049,Department Store Merchant 00049,5311,Department Store,SG,Singapore,standard
+3d888b58-e528-5307-86b7-b8df19330fe0,MERCH-00050,ATM Merchant 00050,6011,ATM,BR,Sao Paulo,standard
+a29e1458-6e10-5705-94fe-728688b4626f,MERCH-00051,Transit Merchant 00051,4111,Transit,JP,Tokyo,low
+599a1719-67c0-5ef0-ae80-92f323611ca5,MERCH-00052,ATM Merchant 00052,6011,ATM,FR,Paris,standard
+5a268c22-88a5-517c-a6f0-9e235becd1f5,MERCH-00053,Electronics Merchant 00053,5732,Electronics,US,Miami,elevated
+122e65cb-85ab-5ecb-8aba-0678b35d02e2,MERCH-00054,Department Store Merchant 00054,5311,Department Store,CA,Toronto,low
+74743853-cf44-53ed-a066-9786672de990,MERCH-00055,Transit Merchant 00055,4111,Transit,US,Miami,low
+91693815-b0ab-5629-b5b7-e6afe4b49a4f,MERCH-00056,Gaming Merchant 00056,7995,Gaming,JP,Tokyo,low
+854324cf-5bd6-5324-bea2-df807c553f07,MERCH-00057,Travel Merchant 00057,4722,Travel,CA,Toronto,low
+db8a0a99-2b26-5168-be7c-90aed021be98,MERCH-00058,Grocery Merchant 00058,5411,Grocery,CA,Toronto,low
+588b1436-0679-5eb7-8c47-d603ae463370,MERCH-00059,Travel Merchant 00059,4722,Travel,JP,Tokyo,standard
+da977a5d-7d82-5da1-a933-66961e398c6f,MERCH-00060,ATM Merchant 00060,6011,ATM,US,San Francisco,standard
+86f01ad0-0a15-590e-b267-2b729685c323,MERCH-00061,Grocery Merchant 00061,5411,Grocery,DE,Berlin,standard
+74e6bc34-8798-5acc-b868-ab9c9069ce44,MERCH-00062,ATM Merchant 00062,6011,ATM,GB,London,standard
+26fdc8d6-846d-516a-9427-d1c92a2f1bd8,MERCH-00063,Fuel Merchant 00063,5541,Fuel,BR,Sao Paulo,standard
+0492468a-d956-5f60-90fa-7f2dc6f4512d,MERCH-00064,Restaurant Merchant 00064,5812,Restaurant,JP,Tokyo,low
+b25d459d-42fe-5ce2-8ad3-c0b93b1953bf,MERCH-00065,Transit Merchant 00065,4111,Transit,JP,Tokyo,standard
+5c322c28-ccd2-5dfd-9459-adb4dfe405a4,MERCH-00066,ATM Merchant 00066,6011,ATM,US,Chicago,low
+77a4dc8c-f689-5ed0-8649-8df08a1313b1,MERCH-00067,Department Store Merchant 00067,5311,Department Store,CA,Toronto,standard
+d129ac8a-95a7-533a-89b4-f0bb5b7c7bb4,MERCH-00068,Fuel Merchant 00068,5541,Fuel,US,San Francisco,standard
+c96f9b8c-30fa-55df-b41b-76a17e7aaf88,MERCH-00069,Grocery Merchant 00069,5411,Grocery,US,San Francisco,low
+fd56eacc-a2b2-5025-a7ba-2297f27630e6,MERCH-00070,Grocery Merchant 00070,5411,Grocery,SG,Singapore,low
+a543aeef-fd30-50a5-b181-a1e619af451f,MERCH-00071,ATM Merchant 00071,6011,ATM,BR,Sao Paulo,standard
+d618228c-ed1e-5dc4-9ca4-cbf8974892c1,MERCH-00072,Transit Merchant 00072,4111,Transit,US,New York,standard
+ee07e20c-e649-544f-9925-24401da6f546,MERCH-00073,Department Store Merchant 00073,5311,Department Store,US,New York,elevated
+6f99d49b-5f0d-56f9-92bc-33f7c3675bf8,MERCH-00074,Travel Merchant 00074,4722,Travel,US,New York,standard
+78fa3b10-70ef-5c7c-bdad-846dee73932c,MERCH-00075,Fuel Merchant 00075,5541,Fuel,US,New York,standard
+8dcded6e-dbbe-5e16-b0b3-1d5614cfae14,MERCH-00076,Transit Merchant 00076,4111,Transit,US,Chicago,standard
+a1b9d9e1-cba6-511f-99d6-f9b782e29018,MERCH-00077,Restaurant Merchant 00077,5812,Restaurant,BR,Sao Paulo,low
+224cddb4-ab80-56f1-a6b6-fd9dc9d268a2,MERCH-00078,Travel Merchant 00078,4722,Travel,GB,London,standard
+80f6d163-921e-5b38-a608-4e5865a86fed,MERCH-00079,Gaming Merchant 00079,7995,Gaming,SG,Singapore,low
+705c3324-e075-5345-b28f-15a47c40752d,MERCH-00080,Department Store Merchant 00080,5311,Department Store,FR,Paris,low
+ae47ddff-3974-5a76-b187-7510d0136be4,MERCH-00081,Travel Merchant 00081,4722,Travel,GB,London,standard
+4013d135-7fce-54cf-84c2-2955201a68a7,MERCH-00082,Travel Merchant 00082,4722,Travel,FR,Paris,standard
+ba4df871-6999-5d8b-969e-2aed2f902e87,MERCH-00083,Grocery Merchant 00083,5411,Grocery,CA,Toronto,low
+cf1edda5-134e-5477-b11f-0beee7f64416,MERCH-00084,Department Store Merchant 00084,5311,Department Store,US,New York,elevated
+789097aa-7290-55d5-b595-4b41da8af02a,MERCH-00085,Grocery Merchant 00085,5411,Grocery,JP,Tokyo,low
+ce768188-d2c5-5198-95ee-dca5ecede822,MERCH-00086,Travel Merchant 00086,4722,Travel,US,Miami,standard
+7bd2837b-5411-51f5-86fe-d3f683744b91,MERCH-00087,Travel Merchant 00087,4722,Travel,BR,Sao Paulo,elevated
+ddee1bc2-ad1f-57ce-90ae-021d28a663ec,MERCH-00088,Grocery Merchant 00088,5411,Grocery,FR,Paris,standard
+c5610ca4-de17-5e28-a120-4259e1dc2f4c,MERCH-00089,Gaming Merchant 00089,7995,Gaming,US,San Francisco,standard
+c237de9b-9660-5c79-aa65-fd51c0e8e2c7,MERCH-00090,Restaurant Merchant 00090,5812,Restaurant,SG,Singapore,elevated
+b9af242f-cd54-55c9-b194-f6e30e0cb969,MERCH-00091,Transit Merchant 00091,4111,Transit,US,Miami,elevated
+634b0122-aa12-5a60-a74d-fac467d6885f,MERCH-00092,Transit Merchant 00092,4111,Transit,SG,Singapore,standard
+50420fb7-e85e-5374-a487-c062fb5171b3,MERCH-00093,Restaurant Merchant 00093,5812,Restaurant,BR,Sao Paulo,standard
+e5130c2b-76da-50f4-86c3-10e137db282c,MERCH-00094,Grocery Merchant 00094,5411,Grocery,BR,Sao Paulo,standard
+538d3a4b-ae13-5770-be24-94ee0c890ec5,MERCH-00095,Transit Merchant 00095,4111,Transit,SG,Singapore,standard
+e407c394-4f43-555f-8430-5e9e90d35c1a,MERCH-00096,Department Store Merchant 00096,5311,Department Store,GB,London,low
+151f44cb-51ec-5fc1-b0ab-e04a4f765623,MERCH-00097,Department Store Merchant 00097,5311,Department Store,JP,Tokyo,elevated
+2e6b8d8c-6031-5762-ab36-e0770c298cf0,MERCH-00098,Fuel Merchant 00098,5541,Fuel,GB,London,standard
+2e3296fa-cea5-5c21-addb-bc4f266d1863,MERCH-00099,Fuel Merchant 00099,5541,Fuel,GB,London,standard
+0948318b-d151-5325-a35b-b06c236fc46f,MERCH-00100,Fuel Merchant 00100,5541,Fuel,US,Chicago,standard
+4eb47b07-60f8-5c82-9f83-6eb29b4ec1ce,MERCH-00101,Travel Merchant 00101,4722,Travel,FR,Paris,low
+beca5c8c-b6a7-533f-8bfe-8ead91e60887,MERCH-00102,Transit Merchant 00102,4111,Transit,BR,Sao Paulo,low
+c0a74bda-73fe-5efd-ae0a-f2032b89d41f,MERCH-00103,ATM Merchant 00103,6011,ATM,GB,London,standard
+c985c89e-8ed4-54dc-8227-e80649296595,MERCH-00104,Gaming Merchant 00104,7995,Gaming,DE,Berlin,low
+41b64806-504d-52f2-af18-2c5d16595ab3,MERCH-00105,Transit Merchant 00105,4111,Transit,US,San Francisco,low
+e51d5b90-3e22-5742-81c9-114fa5ff7886,MERCH-00106,Electronics Merchant 00106,5732,Electronics,FR,Paris,standard
+a5af91bf-e64f-577e-9f42-5dec5b9721cf,MERCH-00107,Travel Merchant 00107,4722,Travel,CA,Toronto,standard
+e93de537-e857-5b9f-a8e9-1390e134ff04,MERCH-00108,Gaming Merchant 00108,7995,Gaming,US,Chicago,standard
+31d6cd4b-f153-52dc-a145-be7292fa0f86,MERCH-00109,ATM Merchant 00109,6011,ATM,US,San Francisco,standard
+71b32abd-ebc8-5ba2-b2e2-a4b1828172e8,MERCH-00110,Electronics Merchant 00110,5732,Electronics,US,Miami,standard
+4ec5ea93-d08d-5d6c-b73e-3b87c3103ba1,MERCH-00111,Electronics Merchant 00111,5732,Electronics,US,New York,low
+f48cdfcd-69b8-5fbf-93fb-6850b94c9b5a,MERCH-00112,Transit Merchant 00112,4111,Transit,CA,Toronto,standard
+1084535d-57e3-5d3f-bfcd-6c389755f27b,MERCH-00113,Restaurant Merchant 00113,5812,Restaurant,DE,Berlin,low
+5277000c-8b36-5fd3-b052-f89e7da70c05,MERCH-00114,Gaming Merchant 00114,7995,Gaming,US,New York,low
+9a2289ab-54d4-540b-93a6-ed278c3870a6,MERCH-00115,Restaurant Merchant 00115,5812,Restaurant,US,San Francisco,low
+fdce6fe7-f7fa-5bf6-b31e-2a3776d12ae6,MERCH-00116,Gaming Merchant 00116,7995,Gaming,BR,Sao Paulo,elevated
+09586379-1479-5c2e-a2d4-ac72e3bfdef3,MERCH-00117,Electronics Merchant 00117,5732,Electronics,GB,London,standard
+de380956-936e-5d5e-ac8b-c3640daf24c2,MERCH-00118,Fuel Merchant 00118,5541,Fuel,BR,Sao Paulo,standard
+4cf27be6-3215-5832-9707-005f6772da57,MERCH-00119,Travel Merchant 00119,4722,Travel,US,Chicago,standard
+d97137f9-9924-5dee-8a6d-abefc4df2fd5,MERCH-00120,Restaurant Merchant 00120,5812,Restaurant,GB,London,elevated
+f2057c82-3f70-50fa-8f32-11509d6363b5,MERCH-00121,Restaurant Merchant 00121,5812,Restaurant,US,New York,standard
+cb7e05c0-2768-5714-932b-c9ae74c591a1,MERCH-00122,ATM Merchant 00122,6011,ATM,GB,London,elevated
+694f8bbb-f1ce-5170-9e49-e76cec8944f9,MERCH-00123,ATM Merchant 00123,6011,ATM,SG,Singapore,standard
+54a93899-b9b6-5d9f-b65f-6d94eb757c3b,MERCH-00124,Department Store Merchant 00124,5311,Department Store,FR,Paris,standard
+d7fed70f-2d8f-51ce-be16-201e98669627,MERCH-00125,Electronics Merchant 00125,5732,Electronics,US,San Francisco,standard
+ace09dc6-ccf4-594b-897b-37c8fd232520,MERCH-00126,Transit Merchant 00126,4111,Transit,JP,Tokyo,low
+a068aa10-1ed0-5d21-b7ed-3ff49a89335f,MERCH-00127,Travel Merchant 00127,4722,Travel,US,New York,standard
+13a27ed7-b76b-50ff-a3a9-f386855551d1,MERCH-00128,Gaming Merchant 00128,7995,Gaming,DE,Berlin,standard
+f379e532-a865-5d6e-91ae-1af9abc90b8c,MERCH-00129,Transit Merchant 00129,4111,Transit,US,San Francisco,standard
+4deb893f-7998-56bd-a25f-6176fe245cf0,MERCH-00130,Restaurant Merchant 00130,5812,Restaurant,CA,Toronto,low
+d831e16d-c85d-5d7e-894e-6b49c716d40a,MERCH-00131,Travel Merchant 00131,4722,Travel,DE,Berlin,low
+e69be131-4bed-5508-bd85-d93f31aef603,MERCH-00132,Transit Merchant 00132,4111,Transit,BR,Sao Paulo,standard
+15798fef-ce91-5b2b-b86a-412479277ded,MERCH-00133,Department Store Merchant 00133,5311,Department Store,FR,Paris,standard
+97985f3a-b33c-5ee8-9cce-ed840b089dc0,MERCH-00134,Electronics Merchant 00134,5732,Electronics,GB,London,elevated
+fe7548b5-01e7-5075-9565-f67b62c70d2a,MERCH-00135,Fuel Merchant 00135,5541,Fuel,US,New York,standard
+f0faf57c-54aa-5c33-a9a2-051c91452173,MERCH-00136,Travel Merchant 00136,4722,Travel,CA,Toronto,low
+100c21db-9191-5fe1-be71-fd6e842ac6f0,MERCH-00137,Electronics Merchant 00137,5732,Electronics,CA,Toronto,low
+08a45404-2e2f-542f-bf0f-6a2776970e36,MERCH-00138,ATM Merchant 00138,6011,ATM,CA,Toronto,standard
+146944d9-081d-5e79-9138-f81d68d1c91f,MERCH-00139,Department Store Merchant 00139,5311,Department Store,US,San Francisco,elevated
+fe8676b9-d6cb-579b-91c9-561af403d343,MERCH-00140,Restaurant Merchant 00140,5812,Restaurant,CA,Toronto,elevated
+b5897d03-78bf-5e72-a5da-12a4026ed7f7,MERCH-00141,Department Store Merchant 00141,5311,Department Store,SG,Singapore,low
+fd11f0e5-e4ca-5a3e-969c-0943a74af5ad,MERCH-00142,Transit Merchant 00142,4111,Transit,US,Miami,standard
+3cbcece6-6da4-52e1-a8b1-09f3452144a2,MERCH-00143,Grocery Merchant 00143,5411,Grocery,US,San Francisco,standard
+086561ab-ad23-540d-9a30-71170a0a804e,MERCH-00144,Transit Merchant 00144,4111,Transit,US,New York,standard
+64565cee-616b-5680-a925-a6bd5965375d,MERCH-00145,Grocery Merchant 00145,5411,Grocery,US,Miami,standard
+f7545c95-3fc0-58c0-a8e3-ec58680d00a3,MERCH-00146,Travel Merchant 00146,4722,Travel,US,New York,low
+fb3e4568-3dea-521a-87f3-705d9e9bfa92,MERCH-00147,Gaming Merchant 00147,7995,Gaming,JP,Tokyo,standard
+4865a697-341d-5b60-a434-13fd0365de9a,MERCH-00148,Electronics Merchant 00148,5732,Electronics,BR,Sao Paulo,standard
+07b0c56d-72eb-506c-8908-fb35598b027f,MERCH-00149,Restaurant Merchant 00149,5812,Restaurant,CA,Toronto,standard
+81a1b0c4-8bec-5b75-94de-ae0f30333a0f,MERCH-00150,ATM Merchant 00150,6011,ATM,US,Chicago,standard
+909dce53-f43d-53bb-ac73-f323f7ecdf13,MERCH-00151,Department Store Merchant 00151,5311,Department Store,DE,Berlin,low
+b698fd87-8aee-510c-82cc-0cfdc0580d1a,MERCH-00152,Department Store Merchant 00152,5311,Department Store,US,San Francisco,standard
+f2c668e9-fa16-57a1-a03c-e46c7c748612,MERCH-00153,Travel Merchant 00153,4722,Travel,US,Chicago,standard
+e3c7c1ef-071d-509c-aa70-08b4206a2432,MERCH-00154,Restaurant Merchant 00154,5812,Restaurant,US,Miami,standard
+294eaad9-e9fb-5960-8525-51e188cb5c27,MERCH-00155,Travel Merchant 00155,4722,Travel,BR,Sao Paulo,low
+253025eb-2854-533b-a5f6-bd1fca8d5b9d,MERCH-00156,Transit Merchant 00156,4111,Transit,SG,Singapore,standard
+ee0da3e8-2a5c-5329-aea0-2dc5cb8ec911,MERCH-00157,Travel Merchant 00157,4722,Travel,US,Chicago,standard
+9c04f7c6-bbd8-5ae3-ab36-5d372276d4cd,MERCH-00158,Gaming Merchant 00158,7995,Gaming,US,New York,low
+67ef6b91-306f-50f2-ba30-5a1ec4d04c22,MERCH-00159,Travel Merchant 00159,4722,Travel,BR,Sao Paulo,low
+c4b84516-fd62-54ab-baa0-ddf7f961f84f,MERCH-00160,Grocery Merchant 00160,5411,Grocery,BR,Sao Paulo,elevated
+ac80f15e-dd04-57b7-abb5-bad0275c2ced,MERCH-00161,Grocery Merchant 00161,5411,Grocery,SG,Singapore,low
+af22d467-6a7e-5f9f-9a21-def03e60dced,MERCH-00162,Gaming Merchant 00162,7995,Gaming,JP,Tokyo,standard
+0a3d57bd-6f97-5aaf-b9b3-9b59e661fb3b,MERCH-00163,Fuel Merchant 00163,5541,Fuel,US,Miami,low
+66fb0baa-5c8a-5648-9d2c-88d434531629,MERCH-00164,ATM Merchant 00164,6011,ATM,US,San Francisco,standard
+d6872399-0ffa-5d78-8dfd-b5a434cbbd7a,MERCH-00165,Department Store Merchant 00165,5311,Department Store,DE,Berlin,low
+3fe9c2aa-c523-5613-a19b-8899b7757f57,MERCH-00166,Restaurant Merchant 00166,5812,Restaurant,SG,Singapore,elevated
+658587b0-e3d1-5309-9a30-97fdbe60790c,MERCH-00167,Grocery Merchant 00167,5411,Grocery,US,Miami,standard
+d989d000-4d3d-5917-b153-efa791bcf49d,MERCH-00168,Transit Merchant 00168,4111,Transit,DE,Berlin,standard
+38a693c5-faf8-5bdc-ad0c-05e1c1dcfeb8,MERCH-00169,Grocery Merchant 00169,5411,Grocery,US,San Francisco,standard
+f9ee1b47-9af2-511c-8be9-3e64ca9c64b9,MERCH-00170,Gaming Merchant 00170,7995,Gaming,CA,Toronto,standard
+50d8e074-267a-5ccd-b7f7-6c783093d842,MERCH-00171,Travel Merchant 00171,4722,Travel,US,Miami,standard
+1a4790ec-8bcd-5431-aa7f-eaffc44d1048,MERCH-00172,Electronics Merchant 00172,5732,Electronics,SG,Singapore,standard
+15f5f16b-aaa7-5924-9fd4-66590d1fa5c3,MERCH-00173,Department Store Merchant 00173,5311,Department Store,US,Miami,standard
+829de246-e846-5b5f-bdde-6e4283dc75cb,MERCH-00174,Gaming Merchant 00174,7995,Gaming,DE,Berlin,standard
+849df33a-00ae-599d-9d1d-f02a0183541a,MERCH-00175,ATM Merchant 00175,6011,ATM,BR,Sao Paulo,low
+0be892cd-b24f-5e19-a49c-48aee94cf54d,MERCH-00176,Restaurant Merchant 00176,5812,Restaurant,US,Miami,elevated
+d187cf45-c23d-540d-ab5c-eab0858c6035,MERCH-00177,Gaming Merchant 00177,7995,Gaming,CA,Toronto,elevated
+140990fb-825b-53cd-b457-80dd7837271c,MERCH-00178,Fuel Merchant 00178,5541,Fuel,GB,London,standard
+6989da8c-7d8e-53d3-84ab-3f96dfecd60f,MERCH-00179,Electronics Merchant 00179,5732,Electronics,US,Chicago,standard
+78977f33-7359-5f31-a3ba-5672b56057db,MERCH-00180,Restaurant Merchant 00180,5812,Restaurant,GB,London,standard
+cb64d02b-69c4-500e-925c-43593741230b,MERCH-00181,Electronics Merchant 00181,5732,Electronics,FR,Paris,standard
+7ac0e529-443d-56ea-9098-e0f607b78a11,MERCH-00182,ATM Merchant 00182,6011,ATM,DE,Berlin,standard
+6e5e8901-ee0d-50d1-897c-b3c619273fc1,MERCH-00183,Fuel Merchant 00183,5541,Fuel,SG,Singapore,low
+f7e0c170-7d27-503c-9e16-b19a04676c29,MERCH-00184,Transit Merchant 00184,4111,Transit,CA,Toronto,low
+671557c2-92e6-577a-ad03-de7f83b4a48a,MERCH-00185,Grocery Merchant 00185,5411,Grocery,FR,Paris,standard
+016e10aa-7307-57ed-aa3c-790b62fcbd0a,MERCH-00186,Department Store Merchant 00186,5311,Department Store,GB,London,standard
+d0049922-de54-556e-a141-65062abc2e27,MERCH-00187,Gaming Merchant 00187,7995,Gaming,FR,Paris,standard
+0e38c2d9-37b2-511a-a756-a5ee13d81523,MERCH-00188,Gaming Merchant 00188,7995,Gaming,FR,Paris,low
+0c4e28c1-1a26-542e-b16b-9d7204813fe0,MERCH-00189,Department Store Merchant 00189,5311,Department Store,US,New York,standard
+da76345d-02aa-55df-b8d7-7cb4c636a615,MERCH-00190,Travel Merchant 00190,4722,Travel,US,Miami,standard
+93839fe0-cf8d-540d-97be-a80360165d82,MERCH-00191,Department Store Merchant 00191,5311,Department Store,US,New York,standard
+43dcddf8-5d7a-5b0d-8ddf-1f1d6b9a6981,MERCH-00192,Electronics Merchant 00192,5732,Electronics,US,Miami,standard
+6b334cf0-7af0-5b51-b5f7-bcfeaf391c06,MERCH-00193,Restaurant Merchant 00193,5812,Restaurant,SG,Singapore,elevated
+4a1fe0f2-15e7-5eed-abcf-05f4242c5e8b,MERCH-00194,Travel Merchant 00194,4722,Travel,JP,Tokyo,low
+eecd1bd3-0337-5aa1-872d-e89067f87308,MERCH-00195,Grocery Merchant 00195,5411,Grocery,BR,Sao Paulo,elevated
+c0fb7f61-46bd-52a1-806b-e381b2572cf0,MERCH-00196,Gaming Merchant 00196,7995,Gaming,US,New York,low
+bffbc030-34c7-5aae-a0bb-b3b420cb04b7,MERCH-00197,Travel Merchant 00197,4722,Travel,GB,London,standard
+6d0d9a2a-d8bf-5c5d-9080-09277bac6bca,MERCH-00198,Restaurant Merchant 00198,5812,Restaurant,BR,Sao Paulo,standard
+40be9fc9-4c26-52ad-92a4-9f0b92ba5619,MERCH-00199,Fuel Merchant 00199,5541,Fuel,BR,Sao Paulo,standard
+e6d1e108-c348-51c9-ad53-199bb438a96a,MERCH-00200,Electronics Merchant 00200,5732,Electronics,US,Miami,standard

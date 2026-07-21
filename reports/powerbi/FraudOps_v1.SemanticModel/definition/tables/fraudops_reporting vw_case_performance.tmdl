@@ -1,0 +1,155 @@
+table 'fraudops_reporting vw_case_performance'
+	lineageTag: 4a20c779-7367-4544-8112-0738cb89a307
+
+	measure 'Case Count' = COUNTROWS('fraudops_reporting vw_case_performance')
+		formatString: #,0
+		lineageTag: b93072b9-2c91-40ee-8fcc-3b32e03ab50d
+
+	measure 'Case Backlog' = CALCULATE(COUNTROWS('fraudops_reporting vw_case_performance'), 'fraudops_reporting vw_case_performance'[case_status] <> "CLOSED")
+		formatString: #,0
+		lineageTag: 552ddb29-f8c7-4e95-a951-095146470a17
+
+	measure 'Average Investigation Hours' = AVERAGE('fraudops_reporting vw_case_performance'[investigation_hours])
+		formatString: 0.0
+		lineageTag: 53a73545-1c46-4667-bd95-5c903362d62a
+
+	column case_id
+		dataType: string
+		lineageTag: 99d30483-cf01-41bf-8749-d213dda89628
+		summarizeBy: none
+		sourceColumn: case_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column case_external_id
+		dataType: string
+		lineageTag: 755aa3de-76c2-4dd0-a8c5-1f524351c5ec
+		summarizeBy: none
+		sourceColumn: case_external_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 8a398519-864a-45cc-b9dd-a26259605efe
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column opened_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 2386afd3-cdce-4c57-8a68-80eb3ba397d8
+		summarizeBy: none
+		sourceColumn: opened_at
+
+		variation Variation
+			isDefault
+			relationship: e60b6e2d-e467-4b19-a400-417197a5a139
+			defaultHierarchy: LocalDateTable_2623cf42-570b-493e-a582-d03c4a373c9b.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column closed_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 3f44a8c0-da4f-4dca-902b-dcfec6054a13
+		summarizeBy: none
+		sourceColumn: closed_at
+
+		variation Variation
+			isDefault
+			relationship: f6d8b467-a936-4a51-8548-1b2cd0fb9502
+			defaultHierarchy: LocalDateTable_3e4064a3-3748-42f7-b67a-829b4abdaede.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column case_status
+		dataType: string
+		lineageTag: bd0415ea-cf14-4527-a159-395fff1e3971
+		summarizeBy: none
+		sourceColumn: case_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: int64
+		formatString: 0
+		lineageTag: 9805034b-4715-4efe-bff3-651628897992
+		summarizeBy: sum
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column assigned_to
+		dataType: string
+		lineageTag: 1ff02ce5-0d95-416b-9259-9457913f55de
+		summarizeBy: none
+		sourceColumn: assigned_to
+
+		annotation SummarizationSetBy = Automatic
+
+	column case_summary
+		dataType: string
+		lineageTag: ba01c21a-5b2d-42c3-9f5b-fea41d199546
+		summarizeBy: none
+		sourceColumn: case_summary
+
+		annotation SummarizationSetBy = Automatic
+
+	column linked_alert_count
+		dataType: int64
+		formatString: 0
+		lineageTag: 1f703ded-46f2-46ee-abf3-ecca1bf8c658
+		summarizeBy: sum
+		sourceColumn: linked_alert_count
+
+		annotation SummarizationSetBy = Automatic
+
+	column investigation_hours
+		dataType: double
+		lineageTag: 3b558dad-c0f3-4421-b847-86ab91e75494
+		summarizeBy: sum
+		sourceColumn: investigation_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column resolved
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: c7797ac5-8641-46fd-9a52-b92bca460b8d
+		summarizeBy: none
+		sourceColumn: resolved
+
+		annotation SummarizationSetBy = Automatic
+
+	column outcome
+		dataType: string
+		lineageTag: 9abfe36c-c03e-453d-8d40-dd260aeca764
+		summarizeBy: none
+		sourceColumn: outcome
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		lineageTag: 8acb12e0-cc0f-4766-bf2f-2cf16f606ad4
+		summarizeBy: none
+		sourceColumn: source_system
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fraudops_reporting vw_case_performance' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_case_performance = Source{[Schema="fraudops_reporting",Item="vw_case_performance"]}[Data]
+				in
+				    fraudops_reporting_vw_case_performance
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "fraud_ops_page",
+  "displayName": "Fraud Operations",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "20c3d1a6271348618c69",
+    "type": "Default",
+    "parameters": []
+  }
+}

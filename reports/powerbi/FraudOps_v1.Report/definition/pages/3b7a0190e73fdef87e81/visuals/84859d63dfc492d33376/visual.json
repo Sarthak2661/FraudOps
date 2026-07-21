@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "84859d63dfc492d33376",
+  "position": {
+    "x": 287.144089732528,
+    "y": 37.549611734253666,
+    "z": 1000,
+    "height": 108.23123382226056,
+    "width": 310.33649698015529,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                        }
+                      },
+                      "Property": "prevented_fraud_value"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_daily_fraud_summary.prevented_fraud_value)",
+              "nativeQueryRef": "Sum of prevented_fraud_value"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                      }
+                    },
+                    "Property": "prevented_fraud_value"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

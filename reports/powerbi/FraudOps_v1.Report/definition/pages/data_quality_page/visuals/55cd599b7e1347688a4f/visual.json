@@ -1,0 +1,149 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "55cd599b7e1347688a4f",
+  "position": {
+    "x": 20,
+    "y": 420,
+    "z": 102,
+    "height": 250,
+    "width": 1200,
+    "tabOrder": 102
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                    }
+                  },
+                  "Property": "pipeline_run_id"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_source_to_curated_reconciliation.pipeline_run_id",
+              "nativeQueryRef": "pipeline_run_id",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                        }
+                      },
+                      "Property": "input_records"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_source_to_curated_reconciliation.input_records)",
+              "nativeQueryRef": "Sum of input_records",
+              "active": false
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                        }
+                      },
+                      "Property": "accepted_records"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_source_to_curated_reconciliation.accepted_records)",
+              "nativeQueryRef": "Sum of accepted_records",
+              "active": false
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                        }
+                      },
+                      "Property": "rejected_records"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_source_to_curated_reconciliation.rejected_records)",
+              "nativeQueryRef": "Sum of rejected_records",
+              "active": false
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                        }
+                      },
+                      "Property": "unreconciled_records"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_source_to_curated_reconciliation.unreconciled_records)",
+              "nativeQueryRef": "Sum of unreconciled_records",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_source_to_curated_reconciliation"
+                    }
+                  },
+                  "Property": "reconciled"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_source_to_curated_reconciliation.reconciled",
+              "nativeQueryRef": "reconciled",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Pipeline reconciliation'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

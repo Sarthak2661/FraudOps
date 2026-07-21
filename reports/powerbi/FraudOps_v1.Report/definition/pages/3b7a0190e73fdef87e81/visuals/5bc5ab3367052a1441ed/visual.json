@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5bc5ab3367052a1441ed",
+  "position": {
+    "x": 308.12769628990509,
+    "y": 522.381363244176,
+    "z": 8000,
+    "height": 197.68766177739428,
+    "width": 551.09577221742882,
+    "tabOrder": 8000
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_fraud_loss"
+                    }
+                  },
+                  "Property": "merchant_category"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_fraud_loss.merchant_category",
+              "nativeQueryRef": "merchant_category",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                        }
+                      },
+                      "Property": "confirmed_fraud_loss"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_daily_fraud_summary.confirmed_fraud_loss)",
+              "nativeQueryRef": "Sum of confirmed_fraud_loss"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                      }
+                    },
+                    "Property": "confirmed_fraud_loss"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Fraud loss by merchant category'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

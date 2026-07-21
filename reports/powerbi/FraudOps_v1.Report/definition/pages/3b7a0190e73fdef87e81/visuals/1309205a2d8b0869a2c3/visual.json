@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "1309205a2d8b0869a2c3",
+  "position": {
+    "x": 0,
+    "y": 258.42968075927524,
+    "z": 6000,
+    "height": 254.01207937877479,
+    "width": 551.09577221742882,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                    }
+                  },
+                  "Property": "summary_date"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_daily_fraud_summary.summary_date",
+              "nativeQueryRef": "summary_date",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                        }
+                      },
+                      "Property": "fraud_rate"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_daily_fraud_summary.fraud_rate)",
+              "nativeQueryRef": "Sum of fraud_rate"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Daily fraud rate'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

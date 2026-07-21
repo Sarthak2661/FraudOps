@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "fd25dd941d374a6190e8",
+  "position": {
+    "x": 249.85074626865671,
+    "y": 27.761194029850746,
+    "z": 1,
+    "height": 102.08955223880596,
+    "width": 239.1044776119403,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_data_quality"
+                        }
+                      },
+                      "Property": "accepted_records"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_data_quality.accepted_records)",
+              "nativeQueryRef": "Sum of accepted_records"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

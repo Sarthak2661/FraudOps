@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "868cacc9fa804ef39eb4",
+  "position": {
+    "x": 729.85074626865674,
+    "y": 27.761194029850746,
+    "z": 3,
+    "height": 102.08955223880596,
+    "width": 276.71641791044777,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_case_performance"
+                    }
+                  },
+                  "Property": "Average Investigation Hours"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_case_performance.Average Investigation Hours",
+              "nativeQueryRef": "Average Investigation Hours"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "seed": 42,
+  "output_dir": "C:\\Users\\sarth\\Documents\\FraudOps\\data\\sample",
+  "counts": {
+    "customer": 500,
+    "account": 500,
+    "card": 643,
+    "device": 820,
+    "merchant": 200,
+    "transaction": 10000,
+    "fraud_rule": 6,
+    "threshold_configuration": 1,
+    "model_version": 1,
+    "data_quality_rule": 2
+  },
+  "fraud_transactions": 200,
+  "fraud_rate_observed": 0.02,
+  "normal_travel_false_positives": 100,
+  "scenarios": [
+    "behavior_deviation",
+    "card_testing",
+    "impossible_travel",
+    "merchant_fraud_burst",
+    "new_device_takeover",
+    "normal_travel_false_positive",
+    "transaction_velocity"
+  ]
+}

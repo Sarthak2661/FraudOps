@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "479d7dbc511d1fbed0d2",
+  "position": {
+    "x": 410.83692838654008,
+    "y": 151.30284728213977,
+    "z": 5000,
+    "height": 107.12683347713546,
+    "width": 346.78170836928388,
+    "tabOrder": 5000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                        }
+                      },
+                      "Property": "cases_awaiting_review"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_daily_fraud_summary.cases_awaiting_review)",
+              "nativeQueryRef": "Sum of cases_awaiting_review"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                      }
+                    },
+                    "Property": "cases_awaiting_review"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8434e40f12be42f486ac",
+  "position": {
+    "x": 440,
+    "y": 420,
+    "z": 103,
+    "height": 250,
+    "width": 380,
+    "tabOrder": 103
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_case_performance"
+                    }
+                  },
+                  "Property": "assigned_to"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_case_performance.assigned_to",
+              "nativeQueryRef": "assigned_to",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_case_performance"
+                    }
+                  },
+                  "Property": "Case Backlog"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_case_performance.Case Backlog",
+              "nativeQueryRef": "Case Backlog"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Case backlog by analyst'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

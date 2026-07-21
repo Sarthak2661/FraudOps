@@ -1,0 +1,184 @@
+table 'fraudops_reporting vw_alert_operations'
+	lineageTag: cf989260-7d56-4b1b-a070-209c50e89e35
+
+	measure 'Alert Count' = COUNTROWS('fraudops_reporting vw_alert_operations')
+		formatString: #,0
+		lineageTag: e8d68b7d-b7b9-4053-a115-a0ebbfa51cd3
+
+	measure 'SLA Breaches' = CALCULATE(COUNTROWS('fraudops_reporting vw_alert_operations'), 'fraudops_reporting vw_alert_operations'[sla_breached] = TRUE())
+		formatString: #,0
+		lineageTag: 94f5997d-0d08-49e6-a8c5-d65735e14f18
+
+	measure 'Open Alert Backlog' = CALCULATE(COUNTROWS('fraudops_reporting vw_alert_operations'), 'fraudops_reporting vw_alert_operations'[alert_status] <> "CLOSED")
+		formatString: #,0
+		lineageTag: b9926351-9cfc-4a42-b4b9-1cb70e4c088b
+
+	measure 'Average Alert Age Hours' = DIVIDE(AVERAGE('fraudops_reporting vw_alert_operations'[alert_age_minutes]), 60)
+		formatString: 0.0
+		lineageTag: 7bdb02b0-fbc8-480c-a5e2-bc45ee495cff
+
+	column alert_id
+		dataType: string
+		lineageTag: b7c5008d-2eca-4053-839f-2a73748ccb5f
+		summarizeBy: none
+		sourceColumn: alert_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column transaction_id
+		dataType: string
+		lineageTag: 6bc44f7b-276c-4c92-97a1-75024e0b55b1
+		summarizeBy: none
+		sourceColumn: transaction_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 39664514-2a11-49c5-afd7-240a0458cf6a
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column amount
+		dataType: double
+		lineageTag: e509465c-f9b9-4de3-ad7f-bdc71f4db072
+		summarizeBy: sum
+		sourceColumn: amount
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column transaction_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4ac6cdc5-845f-40a5-8171-f431d9e74b0d
+		summarizeBy: none
+		sourceColumn: transaction_at
+
+		variation Variation
+			isDefault
+			relationship: 17ddef2d-8d94-4159-a33d-3c5cacdb4b6c
+			defaultHierarchy: LocalDateTable_7f9e0d0c-9e98-4cf8-a501-4db990869788.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column opened_at
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e02ec0c5-b644-4142-b848-4a33005b6017
+		summarizeBy: none
+		sourceColumn: opened_at
+
+		variation Variation
+			isDefault
+			relationship: 87fc4ae6-1c90-4d71-a83e-76b3895f5da6
+			defaultHierarchy: LocalDateTable_25a18f92-c1d1-403c-affe-9f4102e4866e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column alert_status
+		dataType: string
+		lineageTag: 55958e9b-9cf3-4916-9258-56076a3dbf6b
+		summarizeBy: none
+		sourceColumn: alert_status
+
+		annotation SummarizationSetBy = Automatic
+
+	column priority
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fce1bce-db6d-4080-99a3-1493017b8183
+		summarizeBy: sum
+		sourceColumn: priority
+
+		annotation SummarizationSetBy = Automatic
+
+	column assigned_analyst
+		dataType: string
+		lineageTag: ba7d30a8-15c4-4b40-946c-7a7e5d0e112d
+		summarizeBy: none
+		sourceColumn: assigned_analyst
+
+		annotation SummarizationSetBy = Automatic
+
+	column alert_reason
+		dataType: string
+		lineageTag: d55a631d-0143-4bcf-864a-9dec77d0c4d4
+		summarizeBy: none
+		sourceColumn: alert_reason
+
+		annotation SummarizationSetBy = Automatic
+
+	column decision
+		dataType: string
+		lineageTag: 1533383c-3aef-4647-872d-e6215057d1bb
+		summarizeBy: none
+		sourceColumn: decision
+
+		annotation SummarizationSetBy = Automatic
+
+	column fraud_probability
+		dataType: double
+		lineageTag: 3d254893-b97e-4e45-b7f8-56314d0a4d10
+		summarizeBy: sum
+		sourceColumn: fraud_probability
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column alert_age_minutes
+		dataType: double
+		lineageTag: e91a8c4b-e37d-4fa7-b8e8-acc851e8c89d
+		summarizeBy: sum
+		sourceColumn: alert_age_minutes
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column sla_deadline
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: ddcabef0-89c2-4673-95c0-1426b10b1621
+		summarizeBy: none
+		sourceColumn: sla_deadline
+
+		variation Variation
+			isDefault
+			relationship: 149e1d20-3105-4dc3-a6da-760a92f1c5eb
+			defaultHierarchy: LocalDateTable_eee7ad50-6c1a-4c3e-88b9-6f045d5586f1.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column sla_breached
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 90767e31-1e0c-4714-a83d-1f89d7ef2df8
+		summarizeBy: none
+		sourceColumn: sla_breached
+
+		annotation SummarizationSetBy = Automatic
+
+	column source_system
+		dataType: string
+		lineageTag: c9a5825f-eafc-4a68-aa9a-ee87448b6b03
+		summarizeBy: none
+		sourceColumn: source_system
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fraudops_reporting vw_alert_operations' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_alert_operations = Source{[Schema="fraudops_reporting",Item="vw_alert_operations"]}[Data]
+				in
+				    fraudops_reporting_vw_alert_operations
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "2866fb4757b04a2699a9",
+  "position": {
+    "x": 1000,
+    "y": 28,
+    "z": 4,
+    "height": 86,
+    "width": 240,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "alert_status"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.alert_status",
+              "nativeQueryRef": "alert_status",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Alert status'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

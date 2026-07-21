@@ -1,0 +1,17 @@
+{
+  "precision": 0.5111111111111111,
+  "recall": 0.6388888888888888,
+  "f1": 0.5679012345679012,
+  "pr_auc": 0.6188026445050269,
+  "roc_auc": 0.8899991513917173,
+  "fraud_value_recall": 0.9143987300425935,
+  "false_positive_rate": 0.01120162932790224,
+  "recall_at_fixed_review_capacity": 0.8611111111111112,
+  "expected_financial_cost": 3734.9,
+  "inference_latency_ms_per_record": 0.276337849999436,
+  "threshold": 0.44999999999999996,
+  "true_positives": 23.0,
+  "false_positives": 22.0,
+  "true_negatives": 1942.0,
+  "false_negatives": 13.0
+}

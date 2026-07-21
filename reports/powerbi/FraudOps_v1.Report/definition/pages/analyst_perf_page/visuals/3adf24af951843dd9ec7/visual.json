@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3adf24af951843dd9ec7",
+  "position": {
+    "x": 480,
+    "y": 27.761194029850746,
+    "z": 2,
+    "height": 110.14925373134328,
+    "width": 266.86567164179104,
+    "tabOrder": 2
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "Assigned Case Backlog"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.Assigned Case Backlog",
+              "nativeQueryRef": "Assigned Case Backlog"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

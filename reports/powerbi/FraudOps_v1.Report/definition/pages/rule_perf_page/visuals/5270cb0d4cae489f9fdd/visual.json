@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5270cb0d4cae489f9fdd",
+  "position": {
+    "x": 640,
+    "y": 420,
+    "z": 103,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 103
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_rule_performance"
+                    }
+                  },
+                  "Property": "rule_name"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_rule_performance.rule_name",
+              "nativeQueryRef": "rule_name",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_rule_performance"
+                        }
+                      },
+                      "Property": "estimated_prevented_loss"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_rule_performance.estimated_prevented_loss)",
+              "nativeQueryRef": "Sum of estimated_prevented_loss"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Estimated prevented loss by rule'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

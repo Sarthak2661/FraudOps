@@ -1,0 +1,8 @@
+{
+  "selected_model": "random_forest_balanced",
+  "selection_reason": "Selected random_forest_balanced because it had the lowest validation expected financial cost while preserving PR-AUC and recall-at-capacity visibility. Final test was held out until after this selection.",
+  "validation_threshold": 0.44999999999999996,
+  "validation_comparison_path": "C:\\Users\\sarth\\Documents\\FraudOps\\reports\\modeling\\model_comparison_validation.csv",
+  "final_test_metrics_path": "C:\\Users\\sarth\\Documents\\FraudOps\\reports\\modeling\\selected_model_final_test_metrics.json",
+  "selected_model_artifact": "C:\\Users\\sarth\\Documents\\FraudOps\\reports\\modeling\\selected_model.joblib"
+}

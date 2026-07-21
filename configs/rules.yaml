@@ -1,0 +1,157 @@
+rules:
+  - rule_id: R001
+    name: high_value_new_device
+    description: High-value transaction from a newly seen device
+    conditions:
+      - feature: is_new_device
+        operator: equals
+        value: true
+      - feature: amount_to_customer_avg_ratio
+        operator: greater_than
+        value: 5
+    risk_points: 30
+    decision_override: null
+    severity: high
+    active: true
+    explanation: New device with unusually high spend
+
+  - rule_id: R002
+    name: excessive_transaction_velocity
+    description: Several customer transactions occurred in the prior hour
+    conditions:
+      - feature: transactions_last_1h
+        operator: greater_than_or_equal
+        value: 4
+    risk_points: 25
+    decision_override: null
+    severity: high
+    active: true
+    explanation: Excessive transaction velocity
+
+  - rule_id: R003
+    name: country_mismatch
+    description: Transaction is international through a remote channel
+    conditions:
+      - feature: ip_country_mismatch
+        operator: equals
+        value: true
+    risk_points: 18
+    decision_override: null
+    severity: medium
+    active: true
+    explanation: IP or channel country differs from customer home country
+
+  - rule_id: R004
+    name: impossible_travel
+    description: Large distance from previous transaction in a short time
+    conditions:
+      - feature: distance_from_previous_transaction
+        operator: greater_than
+        value: 3000
+      - feature: time_since_previous_transaction
+        operator: less_than
+        value: 180
+      - feature: time_since_previous_transaction
+        operator: greater_than_or_equal
+        value: 0
+    risk_points: 35
+    decision_override: MANUAL_REVIEW
+    severity: critical
+    active: true
+    explanation: Impossible travel pattern
+
+  - rule_id: R005
+    name: high_risk_merchant
+    description: Merchant has elevated recent fraud history
+    conditions:
+      - feature: merchant_fraud_rate_30d
+        operator: greater_than
+        value: 0.08
+      - feature: merchant_transaction_count_30d
+        operator: greater_than_or_equal
+        value: 10
+    risk_points: 20
+    decision_override: null
+    severity: medium
+    active: true
+    explanation: High-risk merchant history
+
+  - rule_id: R006
+    name: repeated_failed_attempts
+    description: Customer has multiple recent declined attempts
+    conditions:
+      - feature: failed_attempts_last_24h
+        operator: greater_than_or_equal
+        value: 3
+    risk_points: 22
+    decision_override: null
+    severity: high
+    active: true
+    explanation: Repeated failed attempts in the last day
+
+  - rule_id: R007
+    name: trusted_device_normal_behaviour
+    description: Low-risk pattern from an established device
+    conditions:
+      - feature: is_new_device
+        operator: equals
+        value: false
+      - feature: amount_to_customer_avg_ratio
+        operator: less_than_or_equal
+        value: 1.5
+      - feature: transactions_last_1h
+        operator: less_than_or_equal
+        value: 1
+    risk_points: -12
+    decision_override: null
+    severity: low
+    active: true
+    explanation: Trusted device and normal behaviour
+
+  - rule_id: R008
+    name: recent_profile_change_unusual_payment
+    description: Synthetic proxy for profile change plus unusual payment
+    conditions:
+      - feature: is_new_device
+        operator: equals
+        value: true
+      - feature: is_international
+        operator: equals
+        value: true
+      - feature: amount_to_customer_avg_ratio
+        operator: greater_than
+        value: 3
+    risk_points: 28
+    decision_override: null
+    severity: high
+    active: true
+    explanation: Recent profile/device change with unusual international payment
+
+  - rule_id: R009
+    name: known_compromised_device
+    description: Device has prior fraud history
+    conditions:
+      - feature: device_fraud_rate_history
+        operator: greater_than
+        value: 0.15
+      - feature: device_transaction_velocity
+        operator: greater_than_or_equal
+        value: 1
+    risk_points: 40
+    decision_override: HOLD_OR_DECLINE
+    severity: critical
+    active: true
+    explanation: Known compromised device pattern
+
+  - rule_id: R010
+    name: reported_stolen_card
+    description: Placeholder for stolen-card flag once case feedback is connected
+    conditions:
+      - feature: reported_stolen_card
+        operator: equals
+        value: true
+    risk_points: 100
+    decision_override: HOLD_OR_DECLINE
+    severity: critical
+    active: true
+    explanation: Reported stolen card

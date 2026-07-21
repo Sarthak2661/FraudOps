@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "5654d0f2ea2744ac9db7",
+  "position": {
+    "x": 640,
+    "y": 420,
+    "z": 103,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 103
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "analyst"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.analyst",
+              "nativeQueryRef": "analyst",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_analyst_productivity"
+                        }
+                      },
+                      "Property": "confirmed_fraud_rate"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_analyst_productivity.confirmed_fraud_rate)",
+              "nativeQueryRef": "Sum of confirmed_fraud_rate"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Confirmed fraud rate'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

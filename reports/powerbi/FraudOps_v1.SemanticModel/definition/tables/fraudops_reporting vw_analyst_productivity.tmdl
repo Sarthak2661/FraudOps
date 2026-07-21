@@ -1,0 +1,100 @@
+table 'fraudops_reporting vw_analyst_productivity'
+	lineageTag: 8fef1560-fc7b-44de-9748-9e370b38c002
+
+	measure 'Assigned Case Backlog' = SUM('fraudops_reporting vw_analyst_productivity'[assigned_cases]) - SUM('fraudops_reporting vw_analyst_productivity'[resolved_cases])
+		formatString: #,0
+		lineageTag: 3cba37d1-2df6-4ffc-973d-6ca1aeebc2ca
+
+	measure 'SLA Compliance Rate' = AVERAGE('fraudops_reporting vw_analyst_productivity'[sla_compliance_rate])
+		formatString: 0.00%;-0.00%;0.00%
+		lineageTag: 0b768abc-69ed-41c5-9547-172b493693e7
+
+	measure 'Average Resolution Hours' = AVERAGE('fraudops_reporting vw_analyst_productivity'[avg_resolution_hours])
+		formatString: 0.0
+		lineageTag: 105b093c-6369-4d00-9350-ff3f00f61b75
+
+	column analyst
+		dataType: string
+		lineageTag: 9fd3dc6f-1ea9-44d4-b23b-6e19d797c571
+		summarizeBy: none
+		sourceColumn: analyst
+
+		annotation SummarizationSetBy = Automatic
+
+	column assigned_cases
+		dataType: int64
+		formatString: 0
+		lineageTag: af3046d5-3681-4605-ba66-889004806a8f
+		summarizeBy: sum
+		sourceColumn: assigned_cases
+
+		annotation SummarizationSetBy = Automatic
+
+	column resolved_cases
+		dataType: int64
+		formatString: 0
+		lineageTag: ea05b42b-f3b8-4471-8455-cb69e5d320e9
+		summarizeBy: sum
+		sourceColumn: resolved_cases
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_resolution_hours
+		dataType: double
+		lineageTag: 7a8c3fd1-f552-4684-a688-2663e8b816fa
+		summarizeBy: sum
+		sourceColumn: avg_resolution_hours
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column cases_resolved_within_24h
+		dataType: int64
+		formatString: 0
+		lineageTag: 46707792-f87c-4f4f-baa4-c95840075d89
+		summarizeBy: sum
+		sourceColumn: cases_resolved_within_24h
+
+		annotation SummarizationSetBy = Automatic
+
+	column sla_compliance_rate
+		dataType: double
+		lineageTag: 3ec1dfb7-1dda-4bab-8a01-35ab928f7f46
+		summarizeBy: sum
+		sourceColumn: sla_compliance_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column confirmed_fraud_cases
+		dataType: int64
+		formatString: 0
+		lineageTag: 114a8a25-4ea1-406e-96b5-1c0284c6070f
+		summarizeBy: sum
+		sourceColumn: confirmed_fraud_cases
+
+		annotation SummarizationSetBy = Automatic
+
+	column confirmed_fraud_rate
+		dataType: double
+		lineageTag: 6491ceab-7f0d-43e0-9838-3537aa00b278
+		summarizeBy: sum
+		sourceColumn: confirmed_fraud_rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'fraudops_reporting vw_analyst_productivity' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_analyst_productivity = Source{[Schema="fraudops_reporting",Item="vw_analyst_productivity"]}[Data]
+				in
+				    fraudops_reporting_vw_analyst_productivity
+
+	annotation PBI_ResultType = Table
+

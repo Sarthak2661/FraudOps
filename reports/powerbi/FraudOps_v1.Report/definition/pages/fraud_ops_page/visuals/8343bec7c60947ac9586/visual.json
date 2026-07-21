@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "8343bec7c60947ac9586",
+  "position": {
+    "x": 20,
+    "y": 140,
+    "z": 100,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "opened_at"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.opened_at",
+              "nativeQueryRef": "opened_at",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "Alert Count"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.Alert Count",
+              "nativeQueryRef": "Alert Count"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Alert volume by day'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

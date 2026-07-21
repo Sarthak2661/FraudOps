@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "4e929b69af10415cb78b",
+  "position": {
+    "x": 1000,
+    "y": 28,
+    "z": 4,
+    "height": 86,
+    "width": 240,
+    "tabOrder": 4
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "analyst"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.analyst",
+              "nativeQueryRef": "analyst",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Analyst'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

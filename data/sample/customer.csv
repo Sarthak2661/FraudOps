@@ -1,0 +1,501 @@
+customer_id,customer_external_id,full_name,email,phone_number,home_country,home_city,customer_segment,risk_tier,opened_at
+551aad89-9ac1-5f9d-b8ec-6784ffa02540,CUST-000001,Jordan Patel,jordan.patel1@example.com,+15550000001,US,San Francisco,mass,standard,2024-11-29T19:41:21Z
+814c8d99-53b1-50ba-a640-42a513c59c84,CUST-000002,Avery Garcia,avery.garcia2@example.com,+15550000002,US,Miami,mass,low,2024-05-18T19:41:21Z
+5c05f4a8-8789-59dc-89f0-bc9af13084c9,CUST-000003,Avery Smith,avery.smith3@example.com,+15550000003,US,San Francisco,affluent,standard,2025-11-02T19:41:21Z
+a3f6b308-1517-5b33-8f9b-47fbd4c2108a,CUST-000004,Morgan Kim,morgan.kim4@example.com,+15550000004,US,New York,affluent,standard,2024-12-31T19:41:21Z
+f57b3705-39d7-5439-929b-3401755156ea,CUST-000005,Jamie Nguyen,jamie.nguyen5@example.com,+15550000005,US,San Francisco,small_business,low,2025-01-20T19:41:21Z
+67c5e33c-56ae-5724-9736-22b70b5dd14f,CUST-000006,Avery Johnson,avery.johnson6@example.com,+15550000006,CA,Toronto,mass,standard,2022-01-28T19:41:21Z
+f0b647b4-c3ba-553a-84b1-e8cdae95cbce,CUST-000007,Casey Davis,casey.davis7@example.com,+15550000007,US,New York,affluent,standard,2025-08-28T19:41:21Z
+3586b993-ebfb-5ca0-99a7-9c2577150ced,CUST-000008,Morgan Smith,morgan.smith8@example.com,+15550000008,US,San Francisco,small_business,standard,2024-01-18T19:41:21Z
+fe2dfad7-6a33-56a2-aaf3-dabff7335ae7,CUST-000009,Casey Johnson,casey.johnson9@example.com,+15550000009,CA,Toronto,mass,standard,2024-12-13T19:41:21Z
+8a63fcac-740c-5873-94b7-99022ed4cd6c,CUST-000010,Quinn Patel,quinn.patel10@example.com,+15550000010,US,New York,mass,standard,2025-12-11T19:41:21Z
+0194cc6b-f02b-55c2-ad85-7f5259b4fee9,CUST-000011,Jordan Smith,jordan.smith11@example.com,+15550000011,US,Chicago,mass,low,2024-01-03T19:41:21Z
+fea21daa-f21d-5aac-bb6b-f0d8c776c404,CUST-000012,Casey Patel,casey.patel12@example.com,+15550000012,US,New York,mass,elevated,2023-01-04T19:41:21Z
+59d9307b-8854-5ec8-a81d-f01997cc2655,CUST-000013,Jordan Nguyen,jordan.nguyen13@example.com,+15550000013,CA,Toronto,mass,elevated,2023-02-12T19:41:21Z
+a6ad13a1-ccfe-5b3d-bced-206cd5adb141,CUST-000014,Morgan Kim,morgan.kim14@example.com,+15550000014,US,San Francisco,mass,standard,2025-05-26T19:41:21Z
+1bff7115-49dc-5e82-b1e1-b17d1d08481d,CUST-000015,Riley Smith,riley.smith15@example.com,+15550000015,US,San Francisco,mass,standard,2025-02-22T19:41:21Z
+43d40fc5-5682-5e69-9230-3f7a669cf9fc,CUST-000016,Jamie Patel,jamie.patel16@example.com,+15550000016,US,New York,affluent,standard,2025-11-11T19:41:21Z
+08da0623-79d0-5b14-8e66-4a8cfa39877c,CUST-000017,Taylor Garcia,taylor.garcia17@example.com,+15550000017,US,Miami,mass,elevated,2026-02-23T19:41:21Z
+f62276ad-274c-5e87-8bc5-41ccae497285,CUST-000018,Morgan Patel,morgan.patel18@example.com,+15550000018,US,Chicago,mass,standard,2024-01-19T19:41:21Z
+f16c0cd0-3e52-5739-add0-ff73d15aa17b,CUST-000019,Casey Kim,casey.kim19@example.com,+15550000019,US,Miami,small_business,low,2022-11-20T19:41:21Z
+67030947-1c80-593f-a0f5-60dc1890b50f,CUST-000020,Jordan Brown,jordan.brown20@example.com,+15550000020,CA,Toronto,mass,standard,2024-07-20T19:41:21Z
+2af1bd4f-1485-510d-bd9f-8815f02716f2,CUST-000021,Quinn Davis,quinn.davis21@example.com,+15550000021,US,Miami,mass,standard,2022-07-01T19:41:21Z
+045fd43c-73de-5b62-8368-0355bd9d5ab7,CUST-000022,Avery Johnson,avery.johnson22@example.com,+15550000022,US,Miami,mass,elevated,2025-01-21T19:41:21Z
+c66a6407-bce1-537c-a38d-aea0c7c8bb09,CUST-000023,Morgan Brown,morgan.brown23@example.com,+15550000023,CA,Toronto,mass,standard,2023-07-27T19:41:21Z
+96c7924e-d6f1-5405-b755-c9e6ca0e02a1,CUST-000024,Jamie Patel,jamie.patel24@example.com,+15550000024,US,Chicago,mass,elevated,2021-08-13T19:41:21Z
+0146d275-1460-51d2-a6e0-7393eeb34b2f,CUST-000025,Quinn Patel,quinn.patel25@example.com,+15550000025,US,Miami,mass,standard,2024-05-26T19:41:21Z
+cd3a71bc-4b6f-556a-aad8-07ca827653a1,CUST-000026,Taylor Patel,taylor.patel26@example.com,+15550000026,US,San Francisco,mass,standard,2024-02-28T19:41:21Z
+8d8e6906-c250-59e5-a49c-17bea0e23633,CUST-000027,Morgan Smith,morgan.smith27@example.com,+15550000027,US,New York,mass,low,2022-10-20T19:41:21Z
+2ccfcb63-480c-5b99-a0ff-5539d38928b3,CUST-000028,Jamie Smith,jamie.smith28@example.com,+15550000028,US,New York,mass,standard,2022-12-19T19:41:21Z
+2c7d5e2f-7721-5a81-af1a-bb938a3197df,CUST-000029,Casey Davis,casey.davis29@example.com,+15550000029,US,Chicago,mass,standard,2023-11-05T19:41:21Z
+8ff668a9-1be4-5620-9c47-396ae365f595,CUST-000030,Casey Patel,casey.patel30@example.com,+15550000030,US,Miami,mass,standard,2021-07-07T19:41:21Z
+8d9b8113-0b01-53bb-a208-e54b5f35e57c,CUST-000031,Quinn Patel,quinn.patel31@example.com,+15550000031,US,New York,mass,standard,2024-08-20T19:41:21Z
+4bcdb2b8-0f5c-5905-8e8d-82820bd3c947,CUST-000032,Taylor Smith,taylor.smith32@example.com,+15550000032,US,Chicago,mass,standard,2022-02-22T19:41:21Z
+c689569b-9b5b-589b-83d3-76d069d610ec,CUST-000033,Taylor Davis,taylor.davis33@example.com,+15550000033,US,New York,mass,standard,2026-03-20T19:41:21Z
+e489d614-884f-5865-bee2-63161cbb6420,CUST-000034,Jordan Nguyen,jordan.nguyen34@example.com,+15550000034,CA,Toronto,affluent,low,2022-12-11T19:41:21Z
+5e119298-fbe0-5992-bb6b-e8bafec6de25,CUST-000035,Morgan Brown,morgan.brown35@example.com,+15550000035,US,New York,mass,standard,2025-05-28T19:41:21Z
+0ba23a02-5d75-51fc-820b-76571e00a158,CUST-000036,Jamie Johnson,jamie.johnson36@example.com,+15550000036,CA,Toronto,mass,elevated,2025-01-09T19:41:21Z
+94ac9bd5-70f8-5583-8b6b-0928a323eb42,CUST-000037,Jamie Kim,jamie.kim37@example.com,+15550000037,CA,Toronto,mass,low,2024-11-18T19:41:21Z
+0b2a6dfa-0c15-524a-858d-98b57d881b48,CUST-000038,Taylor Kim,taylor.kim38@example.com,+15550000038,US,Miami,mass,standard,2022-05-25T19:41:21Z
+e5428808-6296-5164-b53c-d7969233ac3c,CUST-000039,Quinn Davis,quinn.davis39@example.com,+15550000039,US,New York,mass,low,2025-02-22T19:41:21Z
+d3125d46-ddc5-564e-9ba7-223e90342d2f,CUST-000040,Quinn Brown,quinn.brown40@example.com,+15550000040,CA,Toronto,mass,standard,2022-05-01T19:41:21Z
+59a40f40-c9a2-53d7-846b-e5027d254af3,CUST-000041,Taylor Davis,taylor.davis41@example.com,+15550000041,CA,Toronto,mass,standard,2023-07-28T19:41:21Z
+6553a4d0-3553-5c42-b87e-6e334e2339c3,CUST-000042,Jordan Davis,jordan.davis42@example.com,+15550000042,US,New York,affluent,low,2023-05-03T19:41:21Z
+a6ef40c6-b152-53a9-a0c6-57fbffeee18e,CUST-000043,Jamie Johnson,jamie.johnson43@example.com,+15550000043,US,New York,mass,standard,2023-10-19T19:41:21Z
+8787f8af-f603-52df-bbda-1bd0473c2da1,CUST-000044,Quinn Garcia,quinn.garcia44@example.com,+15550000044,US,Chicago,mass,standard,2023-09-13T19:41:21Z
+f0343ed4-8a36-5915-8093-1d36b6d1d116,CUST-000045,Casey Brown,casey.brown45@example.com,+15550000045,US,San Francisco,small_business,standard,2026-03-01T19:41:21Z
+c7b3cdb4-0a10-5361-a249-225ced0dae7f,CUST-000046,Jordan Patel,jordan.patel46@example.com,+15550000046,US,San Francisco,mass,standard,2021-11-11T19:41:21Z
+a308653b-e2a6-524f-a651-3777abd1fafd,CUST-000047,Riley Kim,riley.kim47@example.com,+15550000047,US,New York,small_business,low,2023-08-29T19:41:21Z
+051a33d1-d032-5709-9430-89b21b067c27,CUST-000048,Morgan Johnson,morgan.johnson48@example.com,+15550000048,US,Miami,mass,standard,2022-05-10T19:41:21Z
+7c798dc7-7fa0-5fd1-a7b5-049887299faf,CUST-000049,Jordan Davis,jordan.davis49@example.com,+15550000049,CA,Toronto,affluent,standard,2023-12-31T19:41:21Z
+d043f15a-5d12-5709-a8a2-e164ae35ec23,CUST-000050,Jordan Smith,jordan.smith50@example.com,+15550000050,CA,Toronto,affluent,low,2025-01-27T19:41:21Z
+8045ab10-15f8-5072-9934-bd9956dc2d9c,CUST-000051,Avery Garcia,avery.garcia51@example.com,+15550000051,US,San Francisco,mass,standard,2025-12-28T19:41:21Z
+7140d087-7738-59ec-a040-85169d683f6e,CUST-000052,Jamie Nguyen,jamie.nguyen52@example.com,+15550000052,US,New York,mass,standard,2023-07-15T19:41:21Z
+90e8ed66-d5ae-5a4c-b4b7-e36b073e9b25,CUST-000053,Jamie Johnson,jamie.johnson53@example.com,+15550000053,US,New York,mass,standard,2021-07-03T19:41:21Z
+f420c691-433f-5770-8db1-6785619b340e,CUST-000054,Jordan Johnson,jordan.johnson54@example.com,+15550000054,US,New York,mass,standard,2025-10-06T19:41:21Z
+fd8ba815-1b0f-5f4f-a07d-b4fca3dc5e61,CUST-000055,Taylor Davis,taylor.davis55@example.com,+15550000055,US,Chicago,mass,standard,2021-07-14T19:41:21Z
+7f522ebe-325a-5113-adc9-491645527f2b,CUST-000056,Jamie Johnson,jamie.johnson56@example.com,+15550000056,US,Chicago,mass,low,2022-02-17T19:41:21Z
+69bbf60b-b463-5584-8bc2-5a722e8cbc16,CUST-000057,Jamie Davis,jamie.davis57@example.com,+15550000057,CA,Toronto,mass,low,2023-10-22T19:41:21Z
+10bf0c04-e337-5c2d-b69a-a4cb1aa8c145,CUST-000058,Morgan Brown,morgan.brown58@example.com,+15550000058,US,Chicago,mass,standard,2021-12-25T19:41:21Z
+71cff273-af31-5915-9883-5690203c9659,CUST-000059,Jamie Nguyen,jamie.nguyen59@example.com,+15550000059,US,San Francisco,mass,elevated,2025-08-22T19:41:21Z
+3a679863-d6ed-5e3f-8102-2174bdd52860,CUST-000060,Morgan Kim,morgan.kim60@example.com,+15550000060,US,San Francisco,small_business,standard,2022-03-17T19:41:21Z
+ad3208e2-9d08-5003-92b2-d29ee770c36a,CUST-000061,Jordan Davis,jordan.davis61@example.com,+15550000061,US,Miami,mass,standard,2022-09-29T19:41:21Z
+650248b5-9c89-5af6-bce1-c80033baed40,CUST-000062,Casey Davis,casey.davis62@example.com,+15550000062,CA,Toronto,small_business,standard,2025-06-10T19:41:21Z
+a2313b8e-5261-5449-8533-85241fdc2acb,CUST-000063,Riley Brown,riley.brown63@example.com,+15550000063,CA,Toronto,mass,standard,2025-06-11T19:41:21Z
+6b5befe4-170d-53bf-b336-971e69176930,CUST-000064,Jordan Nguyen,jordan.nguyen64@example.com,+15550000064,CA,Toronto,mass,standard,2024-04-03T19:41:21Z
+ff96cff8-37ac-58da-9257-8e98f569861c,CUST-000065,Jamie Garcia,jamie.garcia65@example.com,+15550000065,US,Chicago,affluent,standard,2025-04-09T19:41:21Z
+f803c8e4-b484-519d-adfb-9e16b81dc382,CUST-000066,Riley Davis,riley.davis66@example.com,+15550000066,US,Chicago,mass,standard,2024-03-22T19:41:21Z
+bcfe2fb6-47c4-5035-a2f9-4e78d8021e45,CUST-000067,Casey Johnson,casey.johnson67@example.com,+15550000067,CA,Toronto,mass,low,2021-07-06T19:41:21Z
+8e1e1248-6839-59d8-9ac5-dbe44dff4618,CUST-000068,Casey Garcia,casey.garcia68@example.com,+15550000068,US,Chicago,mass,standard,2026-01-26T19:41:21Z
+7efd3b7b-c81e-5fbf-9ba6-2ce46e2f3227,CUST-000069,Jordan Patel,jordan.patel69@example.com,+15550000069,US,Chicago,mass,standard,2023-12-07T19:41:21Z
+454f38d7-d818-5697-b210-d0b8ea63841a,CUST-000070,Jordan Patel,jordan.patel70@example.com,+15550000070,US,Miami,mass,standard,2023-08-26T19:41:21Z
+6f80918a-0cb2-545f-95eb-f83ebc3abfba,CUST-000071,Quinn Davis,quinn.davis71@example.com,+15550000071,US,Chicago,mass,standard,2021-09-26T19:41:21Z
+dff6cf9d-9377-53bf-811a-6da2a2a11e22,CUST-000072,Casey Nguyen,casey.nguyen72@example.com,+15550000072,US,Miami,mass,elevated,2022-02-12T19:41:21Z
+49079aad-1f3c-5d71-b4aa-2b7a03a32f24,CUST-000073,Riley Davis,riley.davis73@example.com,+15550000073,CA,Toronto,mass,standard,2022-04-06T19:41:21Z
+4806d296-ba6e-5089-8b2b-c9e46a97f3fb,CUST-000074,Avery Garcia,avery.garcia74@example.com,+15550000074,CA,Toronto,affluent,low,2022-06-26T19:41:21Z
+0c881136-0ae8-5d83-bd2d-d8753d812959,CUST-000075,Morgan Johnson,morgan.johnson75@example.com,+15550000075,US,New York,mass,standard,2022-02-28T19:41:21Z
+b40160bd-befe-5416-a8e8-4ae4b292a414,CUST-000076,Jordan Brown,jordan.brown76@example.com,+15550000076,US,San Francisco,mass,standard,2021-07-06T19:41:21Z
+95da5152-e1ef-5085-8af8-0d33481a6fb7,CUST-000077,Taylor Johnson,taylor.johnson77@example.com,+15550000077,US,New York,mass,standard,2024-07-20T19:41:21Z
+0a549ec1-0db6-5bd3-a19f-ae7c06a6f297,CUST-000078,Jordan Garcia,jordan.garcia78@example.com,+15550000078,US,San Francisco,mass,elevated,2025-05-12T19:41:21Z
+7df8cd7f-9d2e-5c24-92af-ce2b62476ba8,CUST-000079,Casey Patel,casey.patel79@example.com,+15550000079,US,New York,mass,standard,2025-10-30T19:41:21Z
+7500167c-97da-5eff-8893-9af5badd91f3,CUST-000080,Riley Davis,riley.davis80@example.com,+15550000080,US,New York,mass,standard,2022-06-04T19:41:21Z
+b93314aa-378f-5315-8964-ba1387b95f40,CUST-000081,Morgan Garcia,morgan.garcia81@example.com,+15550000081,US,New York,mass,standard,2026-01-01T19:41:21Z
+b4710b5c-1374-574f-ad6f-efadf1df389b,CUST-000082,Casey Patel,casey.patel82@example.com,+15550000082,US,New York,mass,standard,2024-09-15T19:41:21Z
+b5384021-6db9-5afc-be08-b1a45cfcfd9d,CUST-000083,Riley Johnson,riley.johnson83@example.com,+15550000083,US,Miami,mass,standard,2023-06-17T19:41:21Z
+d3bf6bc5-0267-5958-9e94-c5b15f389fa2,CUST-000084,Avery Patel,avery.patel84@example.com,+15550000084,US,Chicago,mass,standard,2022-04-14T19:41:21Z
+d883db2a-2da3-539b-afa2-ce92afdfbce7,CUST-000085,Quinn Patel,quinn.patel85@example.com,+15550000085,US,San Francisco,mass,elevated,2024-06-05T19:41:21Z
+25ea94a3-4ea3-52d1-9652-5bf82c37fe4d,CUST-000086,Taylor Smith,taylor.smith86@example.com,+15550000086,US,New York,affluent,low,2023-01-28T19:41:21Z
+5b2be8dd-d37d-53d4-aa9e-db8ea39f94d2,CUST-000087,Casey Garcia,casey.garcia87@example.com,+15550000087,US,Miami,mass,standard,2023-04-19T19:41:21Z
+3ab5b7e3-9c6c-5c59-8dc5-d31c62ec81f4,CUST-000088,Casey Davis,casey.davis88@example.com,+15550000088,US,San Francisco,affluent,standard,2023-02-22T19:41:21Z
+36c54c3b-7c90-5191-9f8d-2f036bc6cca2,CUST-000089,Morgan Smith,morgan.smith89@example.com,+15550000089,CA,Toronto,affluent,standard,2024-10-06T19:41:21Z
+c593b6bf-fd06-5166-92e5-33e7e88cc3df,CUST-000090,Jordan Garcia,jordan.garcia90@example.com,+15550000090,US,New York,small_business,low,2023-03-14T19:41:21Z
+4af8ad72-df81-52fe-81b6-b276186bfc76,CUST-000091,Taylor Brown,taylor.brown91@example.com,+15550000091,US,New York,mass,standard,2026-03-27T19:41:21Z
+bafc0768-b1ad-5f48-96fe-c45648308c8b,CUST-000092,Quinn Brown,quinn.brown92@example.com,+15550000092,US,Chicago,mass,standard,2026-03-17T19:41:21Z
+b35d98d0-979f-5047-a718-092066791572,CUST-000093,Quinn Kim,quinn.kim93@example.com,+15550000093,US,Chicago,mass,low,2026-04-01T19:41:21Z
+62e5be73-7f90-55e0-a0cd-0e8174865410,CUST-000094,Jordan Brown,jordan.brown94@example.com,+15550000094,US,San Francisco,mass,elevated,2022-11-03T19:41:21Z
+d20b4bc9-265e-5232-a099-12fc7089b046,CUST-000095,Jordan Johnson,jordan.johnson95@example.com,+15550000095,US,New York,mass,standard,2021-08-21T19:41:21Z
+54561408-aacd-5bc3-abee-1455e61da567,CUST-000096,Quinn Garcia,quinn.garcia96@example.com,+15550000096,CA,Toronto,mass,low,2023-12-16T19:41:21Z
+5692e80b-2fd4-5c75-9ab1-7045f94d44a7,CUST-000097,Jordan Davis,jordan.davis97@example.com,+15550000097,US,New York,mass,standard,2024-09-04T19:41:21Z
+50d27f92-1947-58b7-877f-83fa8f9dd836,CUST-000098,Taylor Smith,taylor.smith98@example.com,+15550000098,US,New York,mass,standard,2022-01-17T19:41:21Z
+db0def82-5480-5a78-8d9d-61e125efaf0c,CUST-000099,Avery Smith,avery.smith99@example.com,+15550000099,US,Chicago,mass,low,2025-11-28T19:41:21Z
+15de46ab-4eea-5157-8f5d-33d8b3b55383,CUST-000100,Morgan Brown,morgan.brown100@example.com,+15550000100,US,Chicago,mass,standard,2022-08-01T19:41:21Z
+593f1e45-5865-5a4c-a146-f8b9828cffe4,CUST-000101,Morgan Smith,morgan.smith101@example.com,+15550000101,US,San Francisco,mass,standard,2021-06-23T19:41:21Z
+8be9f993-2757-55a9-9ccf-09365048676a,CUST-000102,Jordan Smith,jordan.smith102@example.com,+15550000102,US,New York,mass,standard,2024-10-12T19:41:21Z
+c543a1ed-8bef-5c5c-9540-4ba944a9c4c7,CUST-000103,Morgan Smith,morgan.smith103@example.com,+15550000103,US,Miami,mass,standard,2024-12-10T19:41:21Z
+04cc837b-e974-5658-9044-d22ba156cc86,CUST-000104,Taylor Patel,taylor.patel104@example.com,+15550000104,US,San Francisco,affluent,standard,2023-03-08T19:41:21Z
+b94d5bb2-a803-504c-8311-dd4e318945c5,CUST-000105,Casey Garcia,casey.garcia105@example.com,+15550000105,US,Chicago,mass,low,2022-03-31T19:41:21Z
+b9f96963-0518-57a6-b525-451d61069316,CUST-000106,Casey Patel,casey.patel106@example.com,+15550000106,CA,Toronto,mass,standard,2022-09-16T19:41:21Z
+599e6ecf-b076-5d03-baba-cc32268f8a09,CUST-000107,Taylor Johnson,taylor.johnson107@example.com,+15550000107,US,New York,mass,low,2023-05-07T19:41:21Z
+42a93475-658d-5033-ac92-900f578db335,CUST-000108,Avery Patel,avery.patel108@example.com,+15550000108,US,Chicago,mass,standard,2025-10-27T19:41:21Z
+dddc6f3d-7488-5841-9d71-f29d4c6f1134,CUST-000109,Taylor Nguyen,taylor.nguyen109@example.com,+15550000109,US,New York,mass,low,2024-08-10T19:41:21Z
+b93331f8-e7b8-5688-968a-2876acf4c1ab,CUST-000110,Morgan Johnson,morgan.johnson110@example.com,+15550000110,US,San Francisco,affluent,elevated,2022-11-22T19:41:21Z
+eca1b3a1-1dec-5227-93c0-335c3907360c,CUST-000111,Taylor Nguyen,taylor.nguyen111@example.com,+15550000111,US,Chicago,mass,standard,2022-02-20T19:41:21Z
+b57572f2-cece-52f2-b87f-5d01867ab887,CUST-000112,Casey Nguyen,casey.nguyen112@example.com,+15550000112,US,New York,mass,standard,2024-08-25T19:41:21Z
+98991e93-3879-5285-84e9-358b274f2eab,CUST-000113,Taylor Nguyen,taylor.nguyen113@example.com,+15550000113,US,San Francisco,mass,standard,2023-12-04T19:41:21Z
+6aa78cb0-7735-5898-aa80-7fbb1be22514,CUST-000114,Casey Smith,casey.smith114@example.com,+15550000114,US,Miami,mass,standard,2024-07-10T19:41:21Z
+298e9f80-f6ab-577f-b50b-c96f82625457,CUST-000115,Quinn Smith,quinn.smith115@example.com,+15550000115,US,Miami,mass,standard,2021-10-24T19:41:21Z
+9ef56138-b7c7-5741-914b-85e736b3ef9f,CUST-000116,Jamie Patel,jamie.patel116@example.com,+15550000116,US,San Francisco,affluent,standard,2022-05-09T19:41:21Z
+54eee953-529f-536f-8cc4-ddc41ba23253,CUST-000117,Taylor Kim,taylor.kim117@example.com,+15550000117,US,New York,mass,standard,2023-07-31T19:41:21Z
+90e709e7-2ca0-5d5d-a541-e6062840bf97,CUST-000118,Avery Kim,avery.kim118@example.com,+15550000118,US,New York,affluent,elevated,2022-06-28T19:41:21Z
+4787fcc8-287d-5a29-8bc4-2f6b6b67b027,CUST-000119,Quinn Nguyen,quinn.nguyen119@example.com,+15550000119,US,Miami,mass,low,2026-04-05T19:41:21Z
+2c303dac-acd8-574e-8129-65a5a808e0f7,CUST-000120,Jordan Kim,jordan.kim120@example.com,+15550000120,US,San Francisco,mass,low,2021-07-18T19:41:21Z
+ffbb6f2b-9730-58bf-ae62-155f6e9bd6b4,CUST-000121,Jamie Nguyen,jamie.nguyen121@example.com,+15550000121,CA,Toronto,mass,standard,2025-07-06T19:41:21Z
+a578d2b2-23e4-5b33-a415-1dd55afde4f5,CUST-000122,Jamie Davis,jamie.davis122@example.com,+15550000122,US,Miami,affluent,standard,2022-04-21T19:41:21Z
+59c792db-078c-502a-889f-49fa941d8d45,CUST-000123,Casey Patel,casey.patel123@example.com,+15550000123,US,Miami,mass,standard,2023-03-23T19:41:21Z
+3ba28306-c996-5a26-98b1-89d729f110fc,CUST-000124,Jamie Garcia,jamie.garcia124@example.com,+15550000124,CA,Toronto,affluent,standard,2025-07-03T19:41:21Z
+a7404343-65bc-5e7d-8f0f-209393154b34,CUST-000125,Avery Brown,avery.brown125@example.com,+15550000125,US,Chicago,affluent,low,2022-05-09T19:41:21Z
+b35f6270-6c0f-5795-8cac-8b2b6cc86456,CUST-000126,Casey Davis,casey.davis126@example.com,+15550000126,US,Miami,mass,standard,2024-06-13T19:41:21Z
+94dfa6ee-ca68-54ba-99b6-2bdcb79b01ca,CUST-000127,Quinn Kim,quinn.kim127@example.com,+15550000127,US,New York,mass,standard,2026-01-10T19:41:21Z
+3b779387-fba9-577d-8f5b-cfd58a536365,CUST-000128,Casey Garcia,casey.garcia128@example.com,+15550000128,US,New York,mass,standard,2024-01-24T19:41:21Z
+b5b90f95-ab92-5ebb-b8da-05c4c7e83a1c,CUST-000129,Casey Johnson,casey.johnson129@example.com,+15550000129,US,Miami,mass,low,2022-05-24T19:41:21Z
+660f3a04-f568-53bf-b09e-625b8cf5dd28,CUST-000130,Morgan Garcia,morgan.garcia130@example.com,+15550000130,US,Miami,mass,standard,2022-10-31T19:41:21Z
+c970a18d-5896-5d62-9f47-a55a22fc8050,CUST-000131,Avery Brown,avery.brown131@example.com,+15550000131,US,Chicago,mass,low,2023-05-20T19:41:21Z
+95beb9ed-3e77-5bf8-b8f5-79f62922f2f5,CUST-000132,Casey Garcia,casey.garcia132@example.com,+15550000132,US,Miami,mass,standard,2021-12-19T19:41:21Z
+8fd8dd49-ba00-55d6-ae41-587e694b1b15,CUST-000133,Jordan Smith,jordan.smith133@example.com,+15550000133,US,Chicago,mass,standard,2023-04-12T19:41:21Z
+c8a72d79-a456-5527-90fd-2b76ea9ce074,CUST-000134,Riley Garcia,riley.garcia134@example.com,+15550000134,US,New York,mass,standard,2026-03-20T19:41:21Z
+cb3bf591-3a58-53b7-b46d-2cba567142c8,CUST-000135,Jordan Davis,jordan.davis135@example.com,+15550000135,US,Miami,mass,standard,2023-06-03T19:41:21Z
+efc91ccb-0257-5fc4-b82f-5b023916f4c6,CUST-000136,Taylor Patel,taylor.patel136@example.com,+15550000136,CA,Toronto,affluent,standard,2021-10-13T19:41:21Z
+27b221f7-6e40-5bb5-8fe0-e147569accf7,CUST-000137,Jamie Johnson,jamie.johnson137@example.com,+15550000137,US,Miami,affluent,standard,2024-09-13T19:41:21Z
+f421ff0f-df54-5e40-a2d2-365f8ad464bf,CUST-000138,Avery Smith,avery.smith138@example.com,+15550000138,CA,Toronto,mass,standard,2024-05-05T19:41:21Z
+37a86eba-d801-53e1-8350-f60fccb91fe5,CUST-000139,Taylor Nguyen,taylor.nguyen139@example.com,+15550000139,US,New York,mass,standard,2022-12-19T19:41:21Z
+a39b6050-3a5c-502f-ad56-8a990b2f002b,CUST-000140,Jamie Johnson,jamie.johnson140@example.com,+15550000140,CA,Toronto,small_business,low,2024-04-11T19:41:21Z
+a42510e8-f8ec-561c-be37-ed68448fc630,CUST-000141,Jordan Davis,jordan.davis141@example.com,+15550000141,US,New York,affluent,low,2021-10-11T19:41:21Z
+4c85cf24-07c4-5f0f-a366-f540a84db290,CUST-000142,Quinn Garcia,quinn.garcia142@example.com,+15550000142,US,New York,affluent,standard,2021-07-14T19:41:21Z
+50af95b3-f999-57f4-9b8c-d28362415a7b,CUST-000143,Taylor Brown,taylor.brown143@example.com,+15550000143,US,San Francisco,affluent,low,2023-10-14T19:41:21Z
+a301aa90-c234-5a96-8917-726778b2f9bc,CUST-000144,Casey Kim,casey.kim144@example.com,+15550000144,US,Miami,mass,standard,2024-10-08T19:41:21Z
+3005c7f3-c6af-590b-bd72-f92c95d0a324,CUST-000145,Morgan Davis,morgan.davis145@example.com,+15550000145,CA,Toronto,mass,low,2024-07-21T19:41:21Z
+9b5a70db-813d-5741-8c7b-90305ac8f98f,CUST-000146,Taylor Garcia,taylor.garcia146@example.com,+15550000146,US,New York,mass,standard,2021-07-16T19:41:21Z
+653c707d-2992-5264-8bea-57f13cadae53,CUST-000147,Jamie Brown,jamie.brown147@example.com,+15550000147,US,San Francisco,mass,low,2025-07-28T19:41:21Z
+4e61245c-c31c-57ba-aec8-1d1f839f0490,CUST-000148,Morgan Kim,morgan.kim148@example.com,+15550000148,US,San Francisco,mass,elevated,2025-05-06T19:41:21Z
+e2b04b6f-89d3-5ee3-ad14-f9effcb921dd,CUST-000149,Quinn Nguyen,quinn.nguyen149@example.com,+15550000149,US,Chicago,mass,standard,2023-12-19T19:41:21Z
+b7bb45df-760f-5ace-a201-d0e82587b6db,CUST-000150,Riley Johnson,riley.johnson150@example.com,+15550000150,US,New York,mass,standard,2024-05-14T19:41:21Z
+85def8c7-2e05-51ea-8840-1c618303c021,CUST-000151,Taylor Patel,taylor.patel151@example.com,+15550000151,US,New York,mass,low,2024-06-05T19:41:21Z
+412020a0-f3af-5f6a-be6f-89a08cf85ccf,CUST-000152,Casey Patel,casey.patel152@example.com,+15550000152,US,Miami,mass,standard,2025-10-17T19:41:21Z
+afa11624-cbad-5071-94b2-193c491a5b7f,CUST-000153,Jordan Nguyen,jordan.nguyen153@example.com,+15550000153,US,Chicago,affluent,standard,2024-03-16T19:41:21Z
+bd4e18c8-a5f7-58d4-94d0-f2be474ab414,CUST-000154,Jamie Nguyen,jamie.nguyen154@example.com,+15550000154,CA,Toronto,affluent,standard,2022-06-07T19:41:21Z
+f526213e-0528-5222-a852-8955503d5d99,CUST-000155,Taylor Patel,taylor.patel155@example.com,+15550000155,US,Miami,small_business,standard,2025-11-05T19:41:21Z
+33947201-5e61-5a5d-8a01-36030c828311,CUST-000156,Jordan Nguyen,jordan.nguyen156@example.com,+15550000156,US,Chicago,mass,standard,2025-06-15T19:41:21Z
+7321d9b9-c334-5939-8f7e-44bc35aff205,CUST-000157,Riley Kim,riley.kim157@example.com,+15550000157,US,New York,affluent,standard,2024-05-23T19:41:21Z
+31e205f2-1731-57e8-b04a-c2a06e395a2b,CUST-000158,Avery Garcia,avery.garcia158@example.com,+15550000158,US,New York,mass,standard,2024-07-16T19:41:21Z
+a635e24c-0915-59d4-a0e0-908f70128547,CUST-000159,Quinn Nguyen,quinn.nguyen159@example.com,+15550000159,US,New York,mass,standard,2022-06-19T19:41:21Z
+b28241d9-e3ba-518d-a0de-9d6d4ba7f33d,CUST-000160,Morgan Smith,morgan.smith160@example.com,+15550000160,US,Chicago,mass,standard,2024-10-10T19:41:21Z
+0347aa39-095a-5630-a7ac-49cb9145a368,CUST-000161,Quinn Brown,quinn.brown161@example.com,+15550000161,CA,Toronto,mass,standard,2021-08-30T19:41:21Z
+98e147b8-96a3-547a-a97e-dab4ae287716,CUST-000162,Jamie Kim,jamie.kim162@example.com,+15550000162,US,Chicago,mass,standard,2022-03-29T19:41:21Z
+6c001d29-be99-5a46-80cf-df9f96d87375,CUST-000163,Jordan Davis,jordan.davis163@example.com,+15550000163,US,Chicago,mass,standard,2022-02-17T19:41:21Z
+5efe890a-54c3-52a2-9a30-6713eef84694,CUST-000164,Quinn Johnson,quinn.johnson164@example.com,+15550000164,US,Miami,affluent,standard,2025-12-26T19:41:21Z
+02e2d097-51f7-5128-9753-64bd190f9684,CUST-000165,Taylor Kim,taylor.kim165@example.com,+15550000165,US,Chicago,mass,standard,2021-12-01T19:41:21Z
+f7330718-6c29-5081-afd6-9c5fa33b3de9,CUST-000166,Jamie Nguyen,jamie.nguyen166@example.com,+15550000166,US,Miami,mass,low,2023-08-11T19:41:21Z
+bfa68ee4-1563-53e2-9f4d-2fb301f4e2b3,CUST-000167,Taylor Johnson,taylor.johnson167@example.com,+15550000167,US,New York,affluent,standard,2024-08-12T19:41:21Z
+51d867ab-33a8-5f06-a196-f68dabecbbd3,CUST-000168,Taylor Johnson,taylor.johnson168@example.com,+15550000168,US,San Francisco,mass,low,2022-04-19T19:41:21Z
+78994452-7e9d-5ab6-afa7-8042f5e01f2a,CUST-000169,Jordan Brown,jordan.brown169@example.com,+15550000169,US,Miami,mass,standard,2022-05-08T19:41:21Z
+10dfe787-66a4-58fb-ac41-c64927589efc,CUST-000170,Riley Johnson,riley.johnson170@example.com,+15550000170,US,New York,mass,low,2023-06-30T19:41:21Z
+3741f657-276d-5a44-b751-bc66453a4793,CUST-000171,Taylor Johnson,taylor.johnson171@example.com,+15550000171,CA,Toronto,mass,low,2025-11-12T19:41:21Z
+217e38fd-6077-5031-99d4-acecf008951e,CUST-000172,Avery Garcia,avery.garcia172@example.com,+15550000172,US,Chicago,mass,standard,2024-06-10T19:41:21Z
+422dae6b-05d7-57a1-8867-a7589887c572,CUST-000173,Taylor Johnson,taylor.johnson173@example.com,+15550000173,US,Chicago,mass,elevated,2022-05-20T19:41:21Z
+c9561278-485b-545a-aee4-06de2ace92b5,CUST-000174,Jordan Brown,jordan.brown174@example.com,+15550000174,US,San Francisco,mass,standard,2026-03-20T19:41:21Z
+55ff0b66-b416-53cc-b968-071bdb061338,CUST-000175,Jamie Garcia,jamie.garcia175@example.com,+15550000175,CA,Toronto,mass,standard,2022-11-06T19:41:21Z
+5c507a5e-c155-53cb-aea5-fd831871e8fe,CUST-000176,Quinn Johnson,quinn.johnson176@example.com,+15550000176,US,Miami,mass,elevated,2023-10-12T19:41:21Z
+e37cc504-0288-514a-9f55-735ab17ba7f8,CUST-000177,Casey Davis,casey.davis177@example.com,+15550000177,US,San Francisco,mass,low,2022-04-09T19:41:21Z
+605920af-7af6-5569-8511-bd2619cb19cb,CUST-000178,Morgan Smith,morgan.smith178@example.com,+15550000178,US,New York,mass,standard,2021-07-04T19:41:21Z
+44d061bb-f1e2-50c3-9412-a208e38e3c76,CUST-000179,Avery Patel,avery.patel179@example.com,+15550000179,CA,Toronto,affluent,standard,2023-11-10T19:41:21Z
+5eb4a93a-4cbe-51df-b3e4-0afa0c070176,CUST-000180,Riley Nguyen,riley.nguyen180@example.com,+15550000180,US,San Francisco,mass,low,2024-08-20T19:41:21Z
+240e6c4e-d50e-5625-9984-c7e3d5511709,CUST-000181,Jordan Kim,jordan.kim181@example.com,+15550000181,CA,Toronto,mass,elevated,2023-08-05T19:41:21Z
+fa54747a-59c0-50d5-bb0b-2ffbc33befa3,CUST-000182,Morgan Brown,morgan.brown182@example.com,+15550000182,US,Chicago,mass,low,2024-09-05T19:41:21Z
+e5d2e4c0-1d75-5a52-8875-0b5d54ea187e,CUST-000183,Jamie Nguyen,jamie.nguyen183@example.com,+15550000183,US,San Francisco,mass,standard,2023-03-11T19:41:21Z
+1d788d70-3c22-514f-bd38-20a40aad126d,CUST-000184,Jordan Nguyen,jordan.nguyen184@example.com,+15550000184,US,New York,mass,standard,2023-11-19T19:41:21Z
+44f876e1-6aff-5fbc-9174-37e711517d88,CUST-000185,Jamie Nguyen,jamie.nguyen185@example.com,+15550000185,US,New York,mass,low,2024-04-29T19:41:21Z
+e59c2824-0314-511f-bf45-9af471ad5aa6,CUST-000186,Avery Kim,avery.kim186@example.com,+15550000186,US,Miami,affluent,standard,2021-10-27T19:41:21Z
+f3811b4e-1715-5f78-a463-16d30cf74de3,CUST-000187,Jordan Smith,jordan.smith187@example.com,+15550000187,US,Chicago,mass,low,2022-06-11T19:41:21Z
+051eb652-1cb8-5ac3-a3dd-c17d2bac74ad,CUST-000188,Morgan Brown,morgan.brown188@example.com,+15550000188,US,Miami,mass,standard,2024-02-10T19:41:21Z
+a1b1d9a2-830c-5648-84d2-78353ac6232a,CUST-000189,Riley Brown,riley.brown189@example.com,+15550000189,CA,Toronto,mass,elevated,2025-10-19T19:41:21Z
+3953e3e3-4547-5012-8f7c-9ab8adba62b8,CUST-000190,Avery Garcia,avery.garcia190@example.com,+15550000190,US,New York,mass,standard,2026-01-19T19:41:21Z
+ca19b239-60b6-5f57-8809-ed0c3e7cf1bd,CUST-000191,Taylor Patel,taylor.patel191@example.com,+15550000191,CA,Toronto,mass,low,2023-09-13T19:41:21Z
+fd292653-d979-5dac-878d-b396a0deec30,CUST-000192,Casey Davis,casey.davis192@example.com,+15550000192,US,Miami,mass,standard,2024-06-11T19:41:21Z
+0c7427bb-dffa-549c-88cd-730574ccef12,CUST-000193,Quinn Davis,quinn.davis193@example.com,+15550000193,US,San Francisco,mass,standard,2021-12-10T19:41:21Z
+25410391-656d-5803-a756-2a3b9611677d,CUST-000194,Riley Davis,riley.davis194@example.com,+15550000194,US,Chicago,mass,standard,2024-03-26T19:41:21Z
+2473de31-4ae5-54af-ae38-d61ec84227c6,CUST-000195,Quinn Kim,quinn.kim195@example.com,+15550000195,US,New York,affluent,low,2025-01-21T19:41:21Z
+3b2b1bce-1795-57bf-9890-5e31526b6c9e,CUST-000196,Taylor Nguyen,taylor.nguyen196@example.com,+15550000196,US,Miami,mass,standard,2024-03-27T19:41:21Z
+d817e2ab-4861-58fe-9739-caf0d9f03221,CUST-000197,Riley Smith,riley.smith197@example.com,+15550000197,US,Chicago,mass,standard,2025-03-28T19:41:21Z
+36e2fbe1-8cf4-5d0d-b874-e52c16742278,CUST-000198,Taylor Patel,taylor.patel198@example.com,+15550000198,CA,Toronto,mass,standard,2025-06-18T19:41:21Z
+b1a03f05-6290-5f91-a174-1c5a19b9010a,CUST-000199,Riley Garcia,riley.garcia199@example.com,+15550000199,US,San Francisco,mass,low,2023-09-29T19:41:21Z
+319d2f15-1669-585a-bcbe-ff9b5e8becea,CUST-000200,Jamie Nguyen,jamie.nguyen200@example.com,+15550000200,US,San Francisco,mass,standard,2026-01-16T19:41:21Z
+d89381c0-ec0b-50df-8031-50d2af3bd704,CUST-000201,Riley Nguyen,riley.nguyen201@example.com,+15550000201,US,San Francisco,mass,standard,2025-03-23T19:41:21Z
+31200945-107b-5263-8fc8-3c7ce1291e02,CUST-000202,Jamie Smith,jamie.smith202@example.com,+15550000202,US,Miami,affluent,standard,2023-03-11T19:41:21Z
+f0056f6e-9cc5-5193-9341-97812ef6838b,CUST-000203,Jamie Kim,jamie.kim203@example.com,+15550000203,CA,Toronto,mass,standard,2022-11-04T19:41:21Z
+347b0de0-ec19-5207-a69c-62d0504c7e62,CUST-000204,Morgan Brown,morgan.brown204@example.com,+15550000204,US,Chicago,affluent,standard,2026-02-05T19:41:21Z
+14471151-0efa-5952-8f0f-88606f9276b4,CUST-000205,Jordan Brown,jordan.brown205@example.com,+15550000205,CA,Toronto,mass,elevated,2023-01-07T19:41:21Z
+c773a978-2ad0-5f2f-9361-84b0503ad6d1,CUST-000206,Casey Johnson,casey.johnson206@example.com,+15550000206,CA,Toronto,affluent,standard,2024-11-03T19:41:21Z
+732e1e4b-9f60-5976-93a0-8c7486aef7c9,CUST-000207,Morgan Kim,morgan.kim207@example.com,+15550000207,US,Miami,mass,low,2024-04-21T19:41:21Z
+665044c6-dece-510d-8016-05373a308ec4,CUST-000208,Riley Smith,riley.smith208@example.com,+15550000208,US,Chicago,affluent,standard,2025-02-23T19:41:21Z
+a934f7c6-e3a1-5026-abd1-dd10e337058b,CUST-000209,Riley Davis,riley.davis209@example.com,+15550000209,US,Chicago,affluent,standard,2021-12-31T19:41:21Z
+e8d45c36-f48d-5050-9f85-a1a2664cf085,CUST-000210,Quinn Kim,quinn.kim210@example.com,+15550000210,US,New York,mass,standard,2026-03-21T19:41:21Z
+9e95b3f7-a292-5ee7-872e-ca11c7639aa3,CUST-000211,Jamie Kim,jamie.kim211@example.com,+15550000211,US,San Francisco,mass,standard,2021-06-30T19:41:21Z
+ab2c94ac-a445-5a65-88a1-326bf961d97a,CUST-000212,Casey Davis,casey.davis212@example.com,+15550000212,US,San Francisco,mass,standard,2024-11-17T19:41:21Z
+6db9b854-9d0b-56bb-823f-ae2101b82789,CUST-000213,Casey Patel,casey.patel213@example.com,+15550000213,US,Miami,mass,standard,2025-08-09T19:41:21Z
+ad8b0bc2-9891-5e27-9466-27e69ba597aa,CUST-000214,Jamie Brown,jamie.brown214@example.com,+15550000214,US,Miami,small_business,standard,2022-09-29T19:41:21Z
+4c3e3b78-ce2c-504e-b187-7640efde941d,CUST-000215,Riley Davis,riley.davis215@example.com,+15550000215,US,San Francisco,mass,elevated,2022-02-03T19:41:21Z
+96f11b34-cd99-5374-8ae2-2f4c5b741e78,CUST-000216,Avery Patel,avery.patel216@example.com,+15550000216,US,Miami,affluent,low,2023-05-07T19:41:21Z
+ace7021d-b225-5b77-ae80-c8b9bdba955c,CUST-000217,Avery Patel,avery.patel217@example.com,+15550000217,US,San Francisco,affluent,standard,2021-06-17T19:41:21Z
+5f6835a2-f690-5741-9569-d686cbdb4f1d,CUST-000218,Jordan Davis,jordan.davis218@example.com,+15550000218,US,San Francisco,mass,low,2024-03-26T19:41:21Z
+edf5a75d-956c-56b1-8047-b3d86a5481a1,CUST-000219,Jamie Nguyen,jamie.nguyen219@example.com,+15550000219,US,Chicago,mass,standard,2025-05-15T19:41:21Z
+e7c2b0d3-b9d2-5d88-9873-3b3fe91b1e51,CUST-000220,Quinn Davis,quinn.davis220@example.com,+15550000220,US,San Francisco,mass,low,2022-05-11T19:41:21Z
+b96c6e5b-a36d-545a-83bd-926b7bc75a16,CUST-000221,Riley Davis,riley.davis221@example.com,+15550000221,US,San Francisco,mass,low,2023-09-08T19:41:21Z
+ff7df110-a95c-565a-bae2-ad03be164a62,CUST-000222,Jordan Smith,jordan.smith222@example.com,+15550000222,US,Miami,mass,standard,2024-02-08T19:41:21Z
+09d02700-0cfe-55f6-99c5-35c1e4631cb2,CUST-000223,Jamie Kim,jamie.kim223@example.com,+15550000223,US,New York,affluent,standard,2025-05-07T19:41:21Z
+89835884-7eb3-5f46-9194-e9c1cc30ffd0,CUST-000224,Avery Kim,avery.kim224@example.com,+15550000224,US,Chicago,mass,low,2022-05-09T19:41:21Z
+6e2801d8-4604-5568-8c62-96b698e2396d,CUST-000225,Morgan Garcia,morgan.garcia225@example.com,+15550000225,CA,Toronto,mass,standard,2024-05-02T19:41:21Z
+fcf5f977-af7f-5399-9603-42db54c799d2,CUST-000226,Taylor Patel,taylor.patel226@example.com,+15550000226,CA,Toronto,mass,standard,2021-06-25T19:41:21Z
+1af2c3fe-ad55-5c60-96b9-882f775498cc,CUST-000227,Jordan Johnson,jordan.johnson227@example.com,+15550000227,CA,Toronto,mass,standard,2022-08-04T19:41:21Z
+45983dd7-9eef-549e-8cc2-e370fa782f24,CUST-000228,Quinn Johnson,quinn.johnson228@example.com,+15550000228,US,Miami,mass,standard,2021-10-17T19:41:21Z
+ccc32909-39c9-57f4-8094-8cf57bd24d62,CUST-000229,Jamie Johnson,jamie.johnson229@example.com,+15550000229,CA,Toronto,mass,standard,2024-04-11T19:41:21Z
+8f407808-68fe-5642-bb60-b2a1cee49551,CUST-000230,Casey Nguyen,casey.nguyen230@example.com,+15550000230,US,Miami,mass,standard,2021-08-27T19:41:21Z
+853b0ae9-4b5d-579c-8e59-6a82917d1b7d,CUST-000231,Morgan Smith,morgan.smith231@example.com,+15550000231,US,San Francisco,affluent,elevated,2026-03-01T19:41:21Z
+956c7be7-3949-501d-8b90-3fd589a540e0,CUST-000232,Riley Johnson,riley.johnson232@example.com,+15550000232,CA,Toronto,mass,low,2024-01-17T19:41:21Z
+b94e189e-a997-5de1-865b-83d4e3565be7,CUST-000233,Jamie Johnson,jamie.johnson233@example.com,+15550000233,US,Chicago,mass,standard,2022-02-03T19:41:21Z
+21e4630e-386a-57e9-80f0-e1403a750f6a,CUST-000234,Morgan Nguyen,morgan.nguyen234@example.com,+15550000234,US,San Francisco,mass,low,2021-11-16T19:41:21Z
+8942b3f4-0467-5e7b-9aab-0bc355e38382,CUST-000235,Morgan Johnson,morgan.johnson235@example.com,+15550000235,US,San Francisco,mass,standard,2021-12-06T19:41:21Z
+d13e7403-a67a-54cb-9276-ce4b4b7e1733,CUST-000236,Morgan Smith,morgan.smith236@example.com,+15550000236,US,San Francisco,affluent,standard,2025-05-30T19:41:21Z
+9b8d3bf4-93d9-5891-b597-bdd5b2a4f0b0,CUST-000237,Morgan Brown,morgan.brown237@example.com,+15550000237,US,New York,mass,low,2023-09-05T19:41:21Z
+97bac0a7-429b-569b-a802-6508a395f561,CUST-000238,Casey Davis,casey.davis238@example.com,+15550000238,CA,Toronto,mass,low,2023-04-22T19:41:21Z
+dc260497-ead2-5b47-9b29-ad88ee8a765d,CUST-000239,Avery Brown,avery.brown239@example.com,+15550000239,US,Chicago,mass,standard,2025-06-08T19:41:21Z
+8677c408-32a2-5c18-a5f1-6cf5593b72d1,CUST-000240,Jamie Garcia,jamie.garcia240@example.com,+15550000240,CA,Toronto,mass,standard,2025-05-26T19:41:21Z
+d73ef1e6-584b-513b-8206-8c192050f16f,CUST-000241,Riley Smith,riley.smith241@example.com,+15550000241,CA,Toronto,mass,low,2024-12-25T19:41:21Z
+27e33c01-360d-57a1-94fb-ce348126198c,CUST-000242,Morgan Smith,morgan.smith242@example.com,+15550000242,US,New York,affluent,elevated,2025-04-17T19:41:21Z
+33449241-aec2-54c9-9e82-50e568a9cb5b,CUST-000243,Jordan Davis,jordan.davis243@example.com,+15550000243,US,Miami,affluent,standard,2021-08-25T19:41:21Z
+4784067c-cfcf-550c-906a-e04a7da8f984,CUST-000244,Jamie Brown,jamie.brown244@example.com,+15550000244,CA,Toronto,mass,elevated,2025-12-24T19:41:21Z
+b04876d7-7a53-5407-99a0-deac95be13e4,CUST-000245,Morgan Davis,morgan.davis245@example.com,+15550000245,US,New York,mass,standard,2024-11-18T19:41:21Z
+b210cfc9-5ea1-5e1e-ba1a-85259ef3b988,CUST-000246,Taylor Kim,taylor.kim246@example.com,+15550000246,CA,Toronto,affluent,low,2022-08-03T19:41:21Z
+69e6f5d7-a817-5ea5-922d-6853b34194ae,CUST-000247,Morgan Smith,morgan.smith247@example.com,+15550000247,CA,Toronto,mass,standard,2022-08-03T19:41:21Z
+44869288-a9b6-5e7f-a812-0a451544fbf6,CUST-000248,Avery Garcia,avery.garcia248@example.com,+15550000248,US,New York,mass,standard,2022-07-18T19:41:21Z
+3d3550fc-2b86-513e-a504-204406491289,CUST-000249,Jordan Brown,jordan.brown249@example.com,+15550000249,US,San Francisco,affluent,standard,2024-03-21T19:41:21Z
+5f189bf7-0868-5875-866a-57111279e142,CUST-000250,Jamie Kim,jamie.kim250@example.com,+15550000250,US,San Francisco,mass,standard,2023-05-04T19:41:21Z
+8f1070b7-032d-5293-84ca-1e3862f13257,CUST-000251,Avery Davis,avery.davis251@example.com,+15550000251,US,New York,affluent,standard,2022-02-24T19:41:21Z
+11011014-1436-5b3d-9504-a78eb04d6321,CUST-000252,Jordan Kim,jordan.kim252@example.com,+15550000252,US,San Francisco,mass,standard,2024-01-24T19:41:21Z
+696879eb-aeeb-587c-8faa-d00b41a5bbf2,CUST-000253,Casey Patel,casey.patel253@example.com,+15550000253,US,Chicago,mass,standard,2023-01-18T19:41:21Z
+819232e6-430c-567d-a390-4fa4b0e50a8a,CUST-000254,Avery Brown,avery.brown254@example.com,+15550000254,US,Miami,mass,low,2025-10-19T19:41:21Z
+4a051bb9-77b3-52fb-bed0-847fcad0ac2d,CUST-000255,Taylor Johnson,taylor.johnson255@example.com,+15550000255,CA,Toronto,small_business,low,2022-06-29T19:41:21Z
+c1cc6f08-948d-53a6-a878-e10797d07fc5,CUST-000256,Avery Brown,avery.brown256@example.com,+15550000256,US,Chicago,mass,standard,2024-06-26T19:41:21Z
+b4878303-9ba5-5dcb-ac0e-a43313d2edac,CUST-000257,Riley Smith,riley.smith257@example.com,+15550000257,US,Chicago,mass,standard,2025-11-20T19:41:21Z
+94589ad0-bc59-5f11-a043-5321878e9bc7,CUST-000258,Casey Brown,casey.brown258@example.com,+15550000258,US,San Francisco,mass,standard,2021-09-13T19:41:21Z
+f5bdded4-be0c-5efe-ad5d-2ae968f79c2e,CUST-000259,Casey Nguyen,casey.nguyen259@example.com,+15550000259,US,Chicago,affluent,standard,2022-05-13T19:41:21Z
+c9d5af1f-b1c6-5713-85d8-87663899f821,CUST-000260,Jordan Nguyen,jordan.nguyen260@example.com,+15550000260,US,New York,mass,low,2024-06-16T19:41:21Z
+7e1846c8-4181-5de1-8f1f-fe341afb319f,CUST-000261,Casey Smith,casey.smith261@example.com,+15550000261,US,Chicago,mass,standard,2022-07-27T19:41:21Z
+306631d9-d85b-55ac-8617-74a7ba2ecf42,CUST-000262,Jamie Kim,jamie.kim262@example.com,+15550000262,US,Miami,mass,low,2022-09-02T19:41:21Z
+6dba22b5-fef8-5fb4-a07c-7dd40753c8fd,CUST-000263,Jamie Kim,jamie.kim263@example.com,+15550000263,US,New York,mass,elevated,2023-01-07T19:41:21Z
+4f9e5074-8bf6-54c6-a9ad-b63f440bb3fd,CUST-000264,Jamie Nguyen,jamie.nguyen264@example.com,+15550000264,US,Miami,mass,low,2023-03-25T19:41:21Z
+d3fce4ba-5d7b-519a-83c9-a1d3958d8e09,CUST-000265,Taylor Nguyen,taylor.nguyen265@example.com,+15550000265,US,Miami,mass,elevated,2021-11-11T19:41:21Z
+6643d1f1-6607-5685-8841-48cfb2ff5b35,CUST-000266,Casey Patel,casey.patel266@example.com,+15550000266,US,New York,mass,standard,2023-02-06T19:41:21Z
+f054b566-4a85-5a74-bf03-a6653833bec6,CUST-000267,Avery Kim,avery.kim267@example.com,+15550000267,CA,Toronto,mass,standard,2021-12-02T19:41:21Z
+7b94e76b-c878-533a-9fb5-58260e21fbf5,CUST-000268,Riley Patel,riley.patel268@example.com,+15550000268,US,San Francisco,mass,standard,2023-07-27T19:41:21Z
+75a59cd3-ab49-5cc9-b254-5a380f110e94,CUST-000269,Quinn Garcia,quinn.garcia269@example.com,+15550000269,CA,Toronto,mass,elevated,2021-06-14T19:41:21Z
+135c9326-e51d-50de-8c43-56a3ad2d4898,CUST-000270,Jamie Davis,jamie.davis270@example.com,+15550000270,US,San Francisco,mass,standard,2023-08-13T19:41:21Z
+c3ae3435-d554-5fd0-b257-7c4721eca684,CUST-000271,Casey Brown,casey.brown271@example.com,+15550000271,US,San Francisco,mass,standard,2021-10-14T19:41:21Z
+a251b40b-a70e-58ef-be56-d9a1896bcbe3,CUST-000272,Avery Nguyen,avery.nguyen272@example.com,+15550000272,US,New York,mass,standard,2023-05-05T19:41:21Z
+d5f3eda0-f0d2-5fe7-a47f-8273984a31df,CUST-000273,Jordan Garcia,jordan.garcia273@example.com,+15550000273,US,San Francisco,mass,elevated,2024-08-19T19:41:21Z
+eb5b70b8-1045-5c26-80e3-b29379202a0e,CUST-000274,Taylor Davis,taylor.davis274@example.com,+15550000274,US,New York,small_business,low,2023-07-12T19:41:21Z
+11071928-e293-5850-8236-86d37eae1815,CUST-000275,Avery Davis,avery.davis275@example.com,+15550000275,US,Chicago,mass,elevated,2022-08-16T19:41:21Z
+3e7b559d-8381-593a-9b96-c4e63f2e3d9a,CUST-000276,Avery Nguyen,avery.nguyen276@example.com,+15550000276,US,Miami,mass,elevated,2025-08-09T19:41:21Z
+f630fd2e-7356-5d7e-88e3-5040933e4184,CUST-000277,Jordan Kim,jordan.kim277@example.com,+15550000277,US,Miami,affluent,standard,2025-10-23T19:41:21Z
+4e68ecc8-dae5-57b8-a2b9-f7965cc18bda,CUST-000278,Morgan Davis,morgan.davis278@example.com,+15550000278,CA,Toronto,mass,low,2025-06-13T19:41:21Z
+b3bb27ba-fa72-50b7-9da4-827690e882b8,CUST-000279,Jordan Davis,jordan.davis279@example.com,+15550000279,CA,Toronto,mass,low,2021-10-21T19:41:21Z
+d9642a53-a8b8-50c0-a21d-fd9e36cb232a,CUST-000280,Taylor Kim,taylor.kim280@example.com,+15550000280,US,New York,mass,standard,2025-08-10T19:41:21Z
+711abe51-f854-5887-b028-7f1d76975ae6,CUST-000281,Riley Nguyen,riley.nguyen281@example.com,+15550000281,US,Miami,mass,low,2022-05-28T19:41:21Z
+90478650-a805-56b3-98b1-c7c5c75cc8b1,CUST-000282,Jordan Johnson,jordan.johnson282@example.com,+15550000282,CA,Toronto,affluent,elevated,2024-04-03T19:41:21Z
+56aace19-8ffa-5a2e-9e54-934683cea6bd,CUST-000283,Riley Smith,riley.smith283@example.com,+15550000283,US,Miami,mass,standard,2024-11-16T19:41:21Z
+00273991-9608-5914-b98d-54095063c7ce,CUST-000284,Jamie Smith,jamie.smith284@example.com,+15550000284,US,Miami,mass,standard,2025-01-18T19:41:21Z
+a9a8b2b9-cb42-5889-a9a7-dec2b8d5c769,CUST-000285,Riley Garcia,riley.garcia285@example.com,+15550000285,US,New York,mass,standard,2021-07-05T19:41:21Z
+b25bfd56-e01b-511f-a67c-1095c78d5b5a,CUST-000286,Riley Patel,riley.patel286@example.com,+15550000286,US,Miami,affluent,low,2022-02-27T19:41:21Z
+56b9cc9f-ea3d-5001-8ca1-0ced07a536df,CUST-000287,Jamie Davis,jamie.davis287@example.com,+15550000287,US,New York,mass,low,2023-10-01T19:41:21Z
+7a2bd257-d07a-5298-a68c-a19b2fdc89e1,CUST-000288,Avery Davis,avery.davis288@example.com,+15550000288,US,Miami,mass,standard,2021-12-16T19:41:21Z
+5e464095-fcba-5aa5-b87e-bd98b8c36f05,CUST-000289,Jordan Kim,jordan.kim289@example.com,+15550000289,US,New York,affluent,standard,2023-05-26T19:41:21Z
+ebe66954-db2d-5e06-8d6e-851307f82fb8,CUST-000290,Quinn Smith,quinn.smith290@example.com,+15550000290,US,Chicago,mass,standard,2024-06-27T19:41:21Z
+62866d85-2372-526f-9851-f1a66ae894c1,CUST-000291,Quinn Kim,quinn.kim291@example.com,+15550000291,US,New York,affluent,standard,2025-03-25T19:41:21Z
+2689217a-5d4c-50b1-bcf2-677a49bacb6b,CUST-000292,Quinn Kim,quinn.kim292@example.com,+15550000292,US,Miami,mass,low,2023-10-18T19:41:21Z
+db3a25bf-230a-572b-92b8-9b3993cceccc,CUST-000293,Morgan Davis,morgan.davis293@example.com,+15550000293,US,San Francisco,affluent,low,2024-09-01T19:41:21Z
+d4a538b0-750b-5342-93fa-382e734d80fb,CUST-000294,Quinn Brown,quinn.brown294@example.com,+15550000294,US,San Francisco,mass,standard,2025-04-02T19:41:21Z
+93ded847-a201-5981-ab8e-ab7f761abee5,CUST-000295,Riley Davis,riley.davis295@example.com,+15550000295,US,San Francisco,small_business,standard,2022-01-21T19:41:21Z
+3fe31ea7-ccf7-56f5-a2bf-6c444f1011a3,CUST-000296,Jamie Smith,jamie.smith296@example.com,+15550000296,US,Miami,mass,low,2024-04-13T19:41:21Z
+1897fd40-95d3-5fad-ad16-292634452c5c,CUST-000297,Casey Nguyen,casey.nguyen297@example.com,+15550000297,US,Chicago,affluent,standard,2022-04-09T19:41:21Z
+6b7932da-2941-5893-9537-8eeea5192821,CUST-000298,Taylor Johnson,taylor.johnson298@example.com,+15550000298,US,Chicago,mass,elevated,2025-02-13T19:41:21Z
+4d3da10b-d7e9-5e91-aff6-9f10210185c0,CUST-000299,Riley Brown,riley.brown299@example.com,+15550000299,US,Miami,mass,low,2023-02-24T19:41:21Z
+7b71903e-1d54-55e6-a6cb-66e19b3e9bad,CUST-000300,Quinn Nguyen,quinn.nguyen300@example.com,+15550000300,US,San Francisco,mass,elevated,2022-10-06T19:41:21Z
+97e905db-7013-5143-98d4-c81b30c43edb,CUST-000301,Casey Patel,casey.patel301@example.com,+15550000301,US,San Francisco,mass,elevated,2024-08-25T19:41:21Z
+a6950fbf-447b-58c9-8eac-8baf4fdd2842,CUST-000302,Taylor Patel,taylor.patel302@example.com,+15550000302,US,Chicago,mass,standard,2023-05-19T19:41:21Z
+9f164493-e026-5d23-b6a8-d42fffb93c00,CUST-000303,Jordan Garcia,jordan.garcia303@example.com,+15550000303,US,New York,mass,standard,2023-08-06T19:41:21Z
+819e0639-99b5-57eb-add7-0aefe4dc8fc6,CUST-000304,Jordan Johnson,jordan.johnson304@example.com,+15550000304,US,New York,mass,standard,2021-12-10T19:41:21Z
+0b9762bd-44b4-59cc-a62a-ef8ec00c7cae,CUST-000305,Taylor Brown,taylor.brown305@example.com,+15550000305,CA,Toronto,mass,standard,2024-05-02T19:41:21Z
+b95c9772-86cf-5c22-b5af-c300716a07b2,CUST-000306,Quinn Kim,quinn.kim306@example.com,+15550000306,CA,Toronto,mass,elevated,2025-03-31T19:41:21Z
+353fefee-3ad5-5b11-81f5-5da9a0887dd7,CUST-000307,Casey Brown,casey.brown307@example.com,+15550000307,CA,Toronto,mass,standard,2022-03-28T19:41:21Z
+7140688e-9227-574b-9f97-fd03c55364ca,CUST-000308,Quinn Kim,quinn.kim308@example.com,+15550000308,US,Chicago,small_business,standard,2026-03-19T19:41:21Z
+a0b1ad23-c4d2-54d8-83af-27e820d9e98f,CUST-000309,Quinn Brown,quinn.brown309@example.com,+15550000309,CA,Toronto,mass,standard,2022-12-16T19:41:21Z
+a70e723c-9693-5be1-8b03-0d78072b4f0f,CUST-000310,Avery Johnson,avery.johnson310@example.com,+15550000310,US,Miami,mass,low,2022-06-26T19:41:21Z
+26492796-ec61-5c87-a43f-2123046b27ad,CUST-000311,Avery Patel,avery.patel311@example.com,+15550000311,US,Miami,mass,standard,2025-08-14T19:41:21Z
+6cd5a816-8d6a-5b8b-baac-a5920dd987ea,CUST-000312,Quinn Davis,quinn.davis312@example.com,+15550000312,US,Miami,affluent,standard,2023-02-18T19:41:21Z
+b170378d-8390-5fa0-b5b2-18bad4841805,CUST-000313,Jamie Kim,jamie.kim313@example.com,+15550000313,US,San Francisco,mass,standard,2023-12-23T19:41:21Z
+8f4fd3c6-7aba-527f-85a9-3f3a011d5b50,CUST-000314,Jamie Brown,jamie.brown314@example.com,+15550000314,US,New York,mass,low,2022-05-20T19:41:21Z
+012b7d45-d7df-56f1-b278-9e1841d43747,CUST-000315,Morgan Brown,morgan.brown315@example.com,+15550000315,US,San Francisco,mass,standard,2026-01-07T19:41:21Z
+284fb677-f73f-5578-ae42-b6a38e77148f,CUST-000316,Riley Brown,riley.brown316@example.com,+15550000316,US,Miami,mass,low,2022-07-26T19:41:21Z
+364a6036-ab13-58ab-bc20-dca9848273fd,CUST-000317,Casey Davis,casey.davis317@example.com,+15550000317,US,Chicago,mass,standard,2024-12-08T19:41:21Z
+8c5883cf-7eb2-5657-8c98-6b2b07656df0,CUST-000318,Jordan Garcia,jordan.garcia318@example.com,+15550000318,US,Chicago,mass,standard,2026-02-17T19:41:21Z
+f47581f3-0e1c-518b-ba3c-1ffb73d0bf76,CUST-000319,Casey Brown,casey.brown319@example.com,+15550000319,US,New York,affluent,standard,2024-01-02T19:41:21Z
+e2f0a71c-40d8-5c34-a4d0-38fcf5ef75bd,CUST-000320,Morgan Nguyen,morgan.nguyen320@example.com,+15550000320,US,Chicago,mass,low,2025-06-23T19:41:21Z
+d1200270-f7e3-5fe6-a4cb-dd23e9718a31,CUST-000321,Casey Davis,casey.davis321@example.com,+15550000321,US,San Francisco,mass,standard,2021-09-05T19:41:21Z
+f52953ea-696f-5f7e-9554-e129dd76718d,CUST-000322,Jamie Brown,jamie.brown322@example.com,+15550000322,US,San Francisco,affluent,standard,2025-10-12T19:41:21Z
+62b36527-6dd1-5626-9d26-b4ba84624af3,CUST-000323,Casey Nguyen,casey.nguyen323@example.com,+15550000323,US,New York,mass,standard,2021-08-30T19:41:21Z
+0f14916c-f199-5b57-9bd9-6d5d8ee1c175,CUST-000324,Jordan Garcia,jordan.garcia324@example.com,+15550000324,US,Chicago,mass,standard,2023-05-23T19:41:21Z
+b88fbd59-2b41-5393-9f2d-64ada059b15b,CUST-000325,Morgan Patel,morgan.patel325@example.com,+15550000325,US,New York,mass,standard,2023-02-26T19:41:21Z
+48116e0d-e79b-527f-9e8e-06ce10c058f1,CUST-000326,Morgan Smith,morgan.smith326@example.com,+15550000326,US,San Francisco,mass,standard,2024-09-02T19:41:21Z
+0d90c42e-fc1e-54e7-805a-19f6a9549072,CUST-000327,Morgan Davis,morgan.davis327@example.com,+15550000327,US,Chicago,mass,standard,2024-03-18T19:41:21Z
+4e36080c-a4e5-5510-a910-3ca162e95fe7,CUST-000328,Quinn Kim,quinn.kim328@example.com,+15550000328,CA,Toronto,small_business,standard,2022-07-11T19:41:21Z
+f57580a5-5da3-5cd6-816f-d3a50be849fc,CUST-000329,Quinn Garcia,quinn.garcia329@example.com,+15550000329,US,New York,mass,standard,2024-07-04T19:41:21Z
+627fefba-f7ef-5e77-86e5-61066a0c3cbf,CUST-000330,Taylor Davis,taylor.davis330@example.com,+15550000330,US,New York,mass,low,2025-03-24T19:41:21Z
+0ff66472-3540-51f2-957d-6ee46588a8ec,CUST-000331,Taylor Garcia,taylor.garcia331@example.com,+15550000331,CA,Toronto,mass,standard,2021-09-03T19:41:21Z
+1f8c59c0-300c-57de-8d5d-6982a5a17749,CUST-000332,Casey Garcia,casey.garcia332@example.com,+15550000332,US,New York,mass,standard,2025-10-30T19:41:21Z
+7f41c801-3326-5ce0-9bd5-940692926cd4,CUST-000333,Jordan Nguyen,jordan.nguyen333@example.com,+15550000333,US,New York,mass,low,2024-01-19T19:41:21Z
+0433004b-2905-5f2d-bb8d-6d2553817caa,CUST-000334,Taylor Kim,taylor.kim334@example.com,+15550000334,US,New York,mass,low,2021-08-14T19:41:21Z
+a9f5a8fb-b7e3-570d-b6da-5b15b3f14ea8,CUST-000335,Quinn Smith,quinn.smith335@example.com,+15550000335,US,Chicago,mass,standard,2023-07-05T19:41:21Z
+8d36a313-6547-5e0e-972b-a8a383bbb1f1,CUST-000336,Jordan Nguyen,jordan.nguyen336@example.com,+15550000336,US,Miami,mass,standard,2025-10-03T19:41:21Z
+d3cf0b94-2308-57bb-8a70-c53c8b3a93a7,CUST-000337,Quinn Brown,quinn.brown337@example.com,+15550000337,US,San Francisco,mass,low,2021-09-29T19:41:21Z
+a5d3c834-77f9-5e65-83aa-2c21386ca094,CUST-000338,Quinn Brown,quinn.brown338@example.com,+15550000338,CA,Toronto,small_business,standard,2021-09-22T19:41:21Z
+33216336-e935-5188-b0be-4712502021ec,CUST-000339,Morgan Nguyen,morgan.nguyen339@example.com,+15550000339,CA,Toronto,mass,standard,2025-03-20T19:41:21Z
+80826d24-2603-5afd-8a2a-7cf29970583b,CUST-000340,Riley Nguyen,riley.nguyen340@example.com,+15550000340,US,New York,mass,standard,2024-05-31T19:41:21Z
+9ecb8037-347e-50e2-8db3-5060083cde09,CUST-000341,Quinn Johnson,quinn.johnson341@example.com,+15550000341,US,Miami,affluent,standard,2022-10-17T19:41:21Z
+44c58a5c-f75d-5e3d-8e57-5ac076c2b769,CUST-000342,Quinn Garcia,quinn.garcia342@example.com,+15550000342,CA,Toronto,mass,standard,2025-02-14T19:41:21Z
+b306f1a7-7d93-567d-a202-76bc267c77e0,CUST-000343,Casey Garcia,casey.garcia343@example.com,+15550000343,US,Chicago,affluent,standard,2021-08-23T19:41:21Z
+a2a63b4a-aac6-50e2-9df4-263204f0ea51,CUST-000344,Avery Davis,avery.davis344@example.com,+15550000344,US,Miami,affluent,elevated,2021-07-26T19:41:21Z
+0d297848-17b5-5ca9-a9ed-7ea84b53efc0,CUST-000345,Jordan Smith,jordan.smith345@example.com,+15550000345,US,Miami,affluent,low,2023-12-15T19:41:21Z
+99db000c-83a2-5261-a36a-609ef8bc3bbb,CUST-000346,Taylor Nguyen,taylor.nguyen346@example.com,+15550000346,US,Miami,affluent,elevated,2023-12-28T19:41:21Z
+2b36f861-cd57-53cf-ae74-8bc5fa0b23fe,CUST-000347,Jamie Patel,jamie.patel347@example.com,+15550000347,US,Chicago,mass,standard,2023-01-24T19:41:21Z
+ab6bd6ef-809c-520b-8ada-0fa3892fc9ae,CUST-000348,Jamie Davis,jamie.davis348@example.com,+15550000348,US,Chicago,mass,standard,2023-03-27T19:41:21Z
+004b17ba-d7e2-511f-96b7-63adbcbe13f9,CUST-000349,Morgan Johnson,morgan.johnson349@example.com,+15550000349,CA,Toronto,mass,standard,2023-03-11T19:41:21Z
+0be04eb0-dc24-5299-8913-a64c6f55767d,CUST-000350,Avery Davis,avery.davis350@example.com,+15550000350,US,San Francisco,affluent,elevated,2024-12-17T19:41:21Z
+0b953c48-533d-51b0-98dc-0af09b66d27d,CUST-000351,Quinn Johnson,quinn.johnson351@example.com,+15550000351,US,Chicago,mass,standard,2022-04-18T19:41:21Z
+56b682a4-5662-5068-ab3b-4bbabe9904ba,CUST-000352,Jamie Garcia,jamie.garcia352@example.com,+15550000352,US,Chicago,mass,standard,2023-06-14T19:41:21Z
+8e45f483-4bdd-5978-8a65-92138ebf0589,CUST-000353,Casey Brown,casey.brown353@example.com,+15550000353,US,San Francisco,mass,low,2024-08-01T19:41:21Z
+a9edbd2b-0856-5fe4-a55e-194f9c5592af,CUST-000354,Riley Davis,riley.davis354@example.com,+15550000354,US,San Francisco,mass,standard,2021-11-26T19:41:21Z
+3053a1bd-01ae-590d-9ce3-12fdf584149d,CUST-000355,Morgan Nguyen,morgan.nguyen355@example.com,+15550000355,US,San Francisco,mass,standard,2023-04-03T19:41:21Z
+5796ab3e-39c8-5c29-8504-03f0e3db536a,CUST-000356,Avery Brown,avery.brown356@example.com,+15550000356,US,Chicago,affluent,standard,2024-11-28T19:41:21Z
+135497b9-6aef-5e19-8a34-3efa8eea0d79,CUST-000357,Jamie Brown,jamie.brown357@example.com,+15550000357,US,New York,small_business,standard,2025-08-23T19:41:21Z
+c9875765-c2b5-56fa-bf9c-b4ecec36e25c,CUST-000358,Riley Nguyen,riley.nguyen358@example.com,+15550000358,US,New York,mass,standard,2025-12-29T19:41:21Z
+5e79f3a4-572f-5048-8f0a-00f24ed7386e,CUST-000359,Riley Johnson,riley.johnson359@example.com,+15550000359,US,Chicago,mass,standard,2022-01-03T19:41:21Z
+69a8c5de-c5a4-5050-8135-ad0e443b01b7,CUST-000360,Riley Garcia,riley.garcia360@example.com,+15550000360,US,New York,affluent,standard,2025-12-12T19:41:21Z
+3ad703fd-e0d2-5458-8c69-c87c9c68f77f,CUST-000361,Morgan Kim,morgan.kim361@example.com,+15550000361,US,San Francisco,mass,standard,2022-09-22T19:41:21Z
+21e49522-7b19-53b4-b19b-d0835820c75f,CUST-000362,Jamie Johnson,jamie.johnson362@example.com,+15550000362,US,New York,mass,standard,2023-04-07T19:41:21Z
+3af9bc7c-d283-5260-af1e-e8e8d8a7ff63,CUST-000363,Morgan Patel,morgan.patel363@example.com,+15550000363,US,San Francisco,affluent,standard,2022-06-21T19:41:21Z
+602213b2-4851-59ae-ac92-719d00d208bb,CUST-000364,Morgan Nguyen,morgan.nguyen364@example.com,+15550000364,US,New York,mass,standard,2024-09-23T19:41:21Z
+876e53bf-d29a-5789-ba36-7b7a515034db,CUST-000365,Riley Davis,riley.davis365@example.com,+15550000365,US,New York,mass,elevated,2023-11-22T19:41:21Z
+06a095eb-168c-56ed-8c5b-edfdccf25db0,CUST-000366,Jamie Johnson,jamie.johnson366@example.com,+15550000366,US,Chicago,mass,standard,2025-03-07T19:41:21Z
+fb48688d-8d01-590c-8400-009fd2277d5c,CUST-000367,Casey Smith,casey.smith367@example.com,+15550000367,US,New York,mass,standard,2021-12-08T19:41:21Z
+fadcad0c-9dbd-52c1-b72c-e888a4c84cb3,CUST-000368,Avery Patel,avery.patel368@example.com,+15550000368,US,San Francisco,mass,low,2021-07-09T19:41:21Z
+8a7ff2ae-1968-5118-946d-e286cb590217,CUST-000369,Jordan Johnson,jordan.johnson369@example.com,+15550000369,US,New York,mass,standard,2022-12-13T19:41:21Z
+c7c8c1eb-4320-56e1-ad5c-1c1c1fa33ad2,CUST-000370,Riley Kim,riley.kim370@example.com,+15550000370,US,New York,mass,standard,2023-05-20T19:41:21Z
+5062201a-a4a5-573b-a481-18e39e8ea82a,CUST-000371,Casey Brown,casey.brown371@example.com,+15550000371,US,Miami,mass,standard,2024-06-10T19:41:21Z
+6a19193f-64f4-57fc-aafe-90b84dc6f380,CUST-000372,Casey Patel,casey.patel372@example.com,+15550000372,CA,Toronto,mass,standard,2025-08-22T19:41:21Z
+0ac703f4-93a1-5669-b334-505a2f256026,CUST-000373,Jordan Patel,jordan.patel373@example.com,+15550000373,US,Chicago,mass,standard,2024-02-28T19:41:21Z
+41a26a88-a9f0-50aa-8bd1-a1e4e38ea6d7,CUST-000374,Morgan Patel,morgan.patel374@example.com,+15550000374,CA,Toronto,mass,standard,2022-12-29T19:41:21Z
+e7e8ace5-46ac-5fff-b602-fb4c0cb90b1d,CUST-000375,Taylor Nguyen,taylor.nguyen375@example.com,+15550000375,CA,Toronto,mass,standard,2024-03-09T19:41:21Z
+a9fcf6ea-2b01-58f2-a5e1-945a5801705d,CUST-000376,Jamie Smith,jamie.smith376@example.com,+15550000376,US,San Francisco,affluent,standard,2023-11-26T19:41:21Z
+e4646b5e-ee3c-5868-9fdc-9d1b4f024a1c,CUST-000377,Jamie Nguyen,jamie.nguyen377@example.com,+15550000377,US,San Francisco,mass,standard,2021-10-10T19:41:21Z
+dd81b91b-a875-5ea7-aa6a-77af576f2785,CUST-000378,Morgan Johnson,morgan.johnson378@example.com,+15550000378,US,New York,mass,standard,2025-11-19T19:41:21Z
+04ccd805-52cd-509c-9634-09bc9308ea2e,CUST-000379,Jamie Nguyen,jamie.nguyen379@example.com,+15550000379,CA,Toronto,mass,standard,2022-01-14T19:41:21Z
+26a8922e-c141-5626-9573-e4cab49f26d6,CUST-000380,Casey Johnson,casey.johnson380@example.com,+15550000380,US,San Francisco,mass,standard,2021-07-17T19:41:21Z
+7c5bdbe4-b66d-5fa5-9d1a-25cfd011dbe5,CUST-000381,Casey Smith,casey.smith381@example.com,+15550000381,US,Miami,mass,standard,2023-11-25T19:41:21Z
+dc8e4ec0-954f-5163-98b3-1d6902f48de7,CUST-000382,Jamie Smith,jamie.smith382@example.com,+15550000382,US,Miami,mass,elevated,2025-09-04T19:41:21Z
+df09f4ed-5869-5da1-81db-1f5fa722449e,CUST-000383,Morgan Brown,morgan.brown383@example.com,+15550000383,CA,Toronto,mass,standard,2025-11-22T19:41:21Z
+715dd8e1-1520-5183-884c-8196c048c22c,CUST-000384,Taylor Smith,taylor.smith384@example.com,+15550000384,US,San Francisco,affluent,standard,2023-11-11T19:41:21Z
+b22fc5a4-3761-5249-a842-d7444c00738a,CUST-000385,Morgan Kim,morgan.kim385@example.com,+15550000385,CA,Toronto,mass,standard,2023-07-14T19:41:21Z
+9de80d7a-15dd-57d1-b807-d8d7eddf901b,CUST-000386,Taylor Johnson,taylor.johnson386@example.com,+15550000386,US,Miami,affluent,low,2022-05-15T19:41:21Z
+5f6bc0df-7596-57cc-824c-8217bc4e89cc,CUST-000387,Jordan Kim,jordan.kim387@example.com,+15550000387,US,Miami,mass,low,2023-10-04T19:41:21Z
+0a16ded7-f672-51b1-b718-74a87ba14464,CUST-000388,Jordan Johnson,jordan.johnson388@example.com,+15550000388,CA,Toronto,mass,elevated,2022-08-08T19:41:21Z
+cffc7094-4d8f-5bdf-a237-99e6b57921ab,CUST-000389,Taylor Davis,taylor.davis389@example.com,+15550000389,US,San Francisco,mass,low,2025-04-15T19:41:21Z
+abffa9b2-0274-564f-b102-497a46c66883,CUST-000390,Morgan Smith,morgan.smith390@example.com,+15550000390,US,San Francisco,mass,low,2024-12-12T19:41:21Z
+30137ad1-f164-52ca-8668-3327211b1c9d,CUST-000391,Jamie Johnson,jamie.johnson391@example.com,+15550000391,US,Chicago,mass,standard,2025-02-01T19:41:21Z
+b29e5160-cd6f-5ae0-a711-f217c5b8353c,CUST-000392,Jamie Garcia,jamie.garcia392@example.com,+15550000392,US,San Francisco,mass,standard,2025-04-20T19:41:21Z
+41643e63-529f-55a6-95aa-ddcbf526d39a,CUST-000393,Riley Smith,riley.smith393@example.com,+15550000393,US,Miami,mass,low,2022-01-15T19:41:21Z
+a6dcfe99-993f-5e24-be05-f11468bebf43,CUST-000394,Morgan Kim,morgan.kim394@example.com,+15550000394,US,San Francisco,mass,low,2024-12-04T19:41:21Z
+e638abff-fa8f-5daa-8fb6-c03f653f85dc,CUST-000395,Taylor Smith,taylor.smith395@example.com,+15550000395,US,Chicago,mass,standard,2025-10-09T19:41:21Z
+4396575d-ee31-53a1-a23f-6e80f371b980,CUST-000396,Riley Davis,riley.davis396@example.com,+15550000396,US,New York,mass,low,2024-04-08T19:41:21Z
+55a9d9c6-b581-5e13-8601-05e7453c06e6,CUST-000397,Taylor Brown,taylor.brown397@example.com,+15550000397,US,Miami,mass,standard,2023-09-08T19:41:21Z
+fffd4cf5-56bf-5524-a3bf-6b75499af1a0,CUST-000398,Jamie Davis,jamie.davis398@example.com,+15550000398,US,San Francisco,small_business,low,2022-09-10T19:41:21Z
+f14b8754-80ad-5b80-814a-5b32fa22da29,CUST-000399,Taylor Brown,taylor.brown399@example.com,+15550000399,US,Chicago,mass,standard,2022-11-28T19:41:21Z
+da21e16d-1e82-5ed8-b332-1904672f0740,CUST-000400,Jamie Brown,jamie.brown400@example.com,+15550000400,US,Miami,affluent,standard,2022-01-24T19:41:21Z
+35a847bc-e062-5dc7-81f1-8f4c82c60c2b,CUST-000401,Jamie Garcia,jamie.garcia401@example.com,+15550000401,US,Chicago,mass,low,2024-03-08T19:41:21Z
+bed287f8-5976-5af9-ae2b-54a06f2a69ca,CUST-000402,Jordan Brown,jordan.brown402@example.com,+15550000402,US,New York,mass,low,2024-03-02T19:41:21Z
+a51008f6-6d5f-5211-b691-ffcc2688d683,CUST-000403,Quinn Kim,quinn.kim403@example.com,+15550000403,CA,Toronto,mass,standard,2023-11-17T19:41:21Z
+8b2a15df-4e51-53e8-8132-8aec332fa103,CUST-000404,Riley Smith,riley.smith404@example.com,+15550000404,US,San Francisco,mass,standard,2023-10-02T19:41:21Z
+be2ee2f8-2d11-5c36-91dc-c9b161a18e26,CUST-000405,Casey Nguyen,casey.nguyen405@example.com,+15550000405,US,Miami,affluent,elevated,2022-08-05T19:41:21Z
+174dc957-806d-566e-9ac1-b69edb2a9497,CUST-000406,Jordan Nguyen,jordan.nguyen406@example.com,+15550000406,US,New York,affluent,standard,2025-05-21T19:41:21Z
+641886ee-c593-571a-912d-51868fe16c03,CUST-000407,Jamie Smith,jamie.smith407@example.com,+15550000407,US,Chicago,mass,low,2024-10-31T19:41:21Z
+af343b79-9525-5db6-bb5f-d61a9fc1c3e1,CUST-000408,Jordan Nguyen,jordan.nguyen408@example.com,+15550000408,US,New York,affluent,standard,2023-04-08T19:41:21Z
+df948460-036c-5c6d-a879-48c8f1ef0627,CUST-000409,Quinn Brown,quinn.brown409@example.com,+15550000409,US,Miami,small_business,standard,2025-12-15T19:41:21Z
+9ba78981-4e7d-5c2c-af87-029bfe68b582,CUST-000410,Jamie Davis,jamie.davis410@example.com,+15550000410,US,San Francisco,mass,low,2022-01-14T19:41:21Z
+df4e755c-dace-52a1-999d-eccd0637ad67,CUST-000411,Quinn Brown,quinn.brown411@example.com,+15550000411,US,Chicago,mass,standard,2025-02-09T19:41:21Z
+c72cc77d-1b51-5164-9333-aa743caceada,CUST-000412,Casey Nguyen,casey.nguyen412@example.com,+15550000412,US,Chicago,mass,low,2022-10-08T19:41:21Z
+95282c3e-ebee-57f7-8229-899311c66dd7,CUST-000413,Quinn Smith,quinn.smith413@example.com,+15550000413,US,New York,mass,standard,2022-12-30T19:41:21Z
+54bca0c0-2dcf-5cf3-8bac-c6f579f81c1b,CUST-000414,Jamie Patel,jamie.patel414@example.com,+15550000414,US,Miami,affluent,standard,2023-03-03T19:41:21Z
+ac7a33e2-891f-50d0-a966-c85979bcf253,CUST-000415,Taylor Johnson,taylor.johnson415@example.com,+15550000415,CA,Toronto,affluent,low,2024-11-05T19:41:21Z
+1b4ae15c-7bcb-5209-a426-3cafec3a60b8,CUST-000416,Taylor Davis,taylor.davis416@example.com,+15550000416,US,San Francisco,affluent,elevated,2023-05-10T19:41:21Z
+87bce80f-1cdc-58f1-bc5b-52259b49ef20,CUST-000417,Riley Brown,riley.brown417@example.com,+15550000417,US,Miami,affluent,standard,2022-08-23T19:41:21Z
+fdb364b8-a5f2-5c96-a0d0-863c31953ee7,CUST-000418,Jamie Patel,jamie.patel418@example.com,+15550000418,CA,Toronto,mass,low,2024-11-24T19:41:21Z
+c438b3ff-8105-5c01-921d-2e613878a26a,CUST-000419,Jordan Johnson,jordan.johnson419@example.com,+15550000419,US,Chicago,mass,standard,2023-05-02T19:41:21Z
+b006e9b8-c3f2-5cf6-b50b-8353edd5945d,CUST-000420,Taylor Kim,taylor.kim420@example.com,+15550000420,CA,Toronto,mass,standard,2023-03-12T19:41:21Z
+af075d7c-9d82-568f-8228-4a7daf345f21,CUST-000421,Riley Brown,riley.brown421@example.com,+15550000421,US,Miami,affluent,standard,2023-05-14T19:41:21Z
+f3c2bf4a-6dea-565d-81f6-43c5badd15de,CUST-000422,Jordan Brown,jordan.brown422@example.com,+15550000422,CA,Toronto,affluent,low,2023-07-10T19:41:21Z
+9d6a7f9e-42d1-5251-bc1e-94183ef0ea98,CUST-000423,Quinn Garcia,quinn.garcia423@example.com,+15550000423,CA,Toronto,mass,standard,2025-01-09T19:41:21Z
+56a27633-dffa-57bd-b7f7-7a6db25d6221,CUST-000424,Jamie Smith,jamie.smith424@example.com,+15550000424,US,San Francisco,mass,standard,2022-09-06T19:41:21Z
+e2765f20-12a3-595b-8182-433f207a1af5,CUST-000425,Taylor Nguyen,taylor.nguyen425@example.com,+15550000425,US,New York,mass,standard,2023-07-21T19:41:21Z
+65d2d63b-9083-53bf-97dd-d9f5e86ca0e3,CUST-000426,Casey Nguyen,casey.nguyen426@example.com,+15550000426,US,New York,affluent,standard,2024-04-09T19:41:21Z
+37349ce5-3292-5762-bbae-504fdf490d31,CUST-000427,Jamie Garcia,jamie.garcia427@example.com,+15550000427,US,New York,affluent,low,2025-09-06T19:41:21Z
+11741ef1-6c62-5c18-82ad-6006efc7837d,CUST-000428,Riley Smith,riley.smith428@example.com,+15550000428,US,Miami,mass,standard,2025-03-04T19:41:21Z
+d6bc8f6d-341b-5a57-8c85-9ddbb7bd8ce7,CUST-000429,Morgan Johnson,morgan.johnson429@example.com,+15550000429,US,New York,mass,standard,2024-02-26T19:41:21Z
+1d8c1faf-d989-53dc-a599-2461198f38fe,CUST-000430,Morgan Kim,morgan.kim430@example.com,+15550000430,US,New York,mass,low,2025-04-07T19:41:21Z
+f4ed0fd0-2bcb-5168-bc96-94e359712420,CUST-000431,Taylor Kim,taylor.kim431@example.com,+15550000431,US,San Francisco,affluent,standard,2022-02-16T19:41:21Z
+9081c953-a310-522b-935d-8ba52a37b934,CUST-000432,Morgan Smith,morgan.smith432@example.com,+15550000432,US,Miami,mass,standard,2025-09-24T19:41:21Z
+817727e4-784f-5694-994d-004024fe064a,CUST-000433,Casey Davis,casey.davis433@example.com,+15550000433,US,New York,mass,standard,2023-11-03T19:41:21Z
+a46fcfd3-50eb-565a-9bda-ea746619fdcf,CUST-000434,Quinn Johnson,quinn.johnson434@example.com,+15550000434,US,Chicago,affluent,standard,2023-10-31T19:41:21Z
+aef8690e-dbce-52b4-b1c1-c120b2ccfbe3,CUST-000435,Jordan Garcia,jordan.garcia435@example.com,+15550000435,US,Chicago,mass,standard,2026-01-11T19:41:21Z
+13609749-f5cd-5d51-b926-b7e51b7318d7,CUST-000436,Jordan Brown,jordan.brown436@example.com,+15550000436,US,Chicago,affluent,standard,2023-12-30T19:41:21Z
+fa35aa6d-326b-599c-b695-6404681b19bf,CUST-000437,Morgan Davis,morgan.davis437@example.com,+15550000437,US,Chicago,mass,standard,2024-06-19T19:41:21Z
+56ce5d36-5232-5e0c-86c7-ae1435d491b1,CUST-000438,Taylor Brown,taylor.brown438@example.com,+15550000438,US,New York,mass,low,2024-07-18T19:41:21Z
+fc09c18e-502b-503d-8eaa-35c4f71994f0,CUST-000439,Jamie Patel,jamie.patel439@example.com,+15550000439,US,New York,mass,standard,2021-08-26T19:41:21Z
+f0571266-b30d-57db-a691-9cf26b21c95e,CUST-000440,Riley Kim,riley.kim440@example.com,+15550000440,US,Miami,mass,standard,2025-06-02T19:41:21Z
+c6bc4233-9766-5611-b7a8-4d98c02a3f9f,CUST-000441,Jamie Garcia,jamie.garcia441@example.com,+15550000441,US,San Francisco,mass,elevated,2022-08-11T19:41:21Z
+548b46ce-a63c-5fa4-9552-d4410e808b7e,CUST-000442,Jamie Kim,jamie.kim442@example.com,+15550000442,CA,Toronto,mass,low,2025-04-08T19:41:21Z
+560618ed-f67e-5303-818e-24cbbedbf952,CUST-000443,Jordan Johnson,jordan.johnson443@example.com,+15550000443,CA,Toronto,small_business,standard,2023-11-21T19:41:21Z
+18aeec14-1ab2-5628-8dd7-ded8407dd868,CUST-000444,Quinn Davis,quinn.davis444@example.com,+15550000444,CA,Toronto,affluent,standard,2023-04-12T19:41:21Z
+d0a9a76e-70ff-5e98-9a41-d3dc69fffe2e,CUST-000445,Avery Kim,avery.kim445@example.com,+15550000445,US,San Francisco,affluent,standard,2021-07-11T19:41:21Z
+66fa41a1-e3a5-5436-aea4-12b2f0b3852a,CUST-000446,Jordan Johnson,jordan.johnson446@example.com,+15550000446,US,Miami,mass,low,2021-08-03T19:41:21Z
+53084b93-e9fd-5e10-896d-1eb495ce75f7,CUST-000447,Quinn Nguyen,quinn.nguyen447@example.com,+15550000447,US,San Francisco,affluent,standard,2023-10-18T19:41:21Z
+974f763b-9230-518a-b8fd-856274da6ef3,CUST-000448,Riley Smith,riley.smith448@example.com,+15550000448,US,Miami,mass,low,2025-05-28T19:41:21Z
+3c14ec3a-8776-592e-a666-433523c59fb5,CUST-000449,Jamie Smith,jamie.smith449@example.com,+15550000449,US,San Francisco,mass,standard,2025-09-04T19:41:21Z
+c966a7e6-2d80-565f-9177-386dc7628228,CUST-000450,Jordan Patel,jordan.patel450@example.com,+15550000450,CA,Toronto,mass,low,2021-11-08T19:41:21Z
+ddcd7ec3-2e09-5147-85c6-7db644fa4a90,CUST-000451,Taylor Patel,taylor.patel451@example.com,+15550000451,CA,Toronto,mass,standard,2021-10-27T19:41:21Z
+f1ffacb8-6b06-510d-b03c-482e063a1421,CUST-000452,Quinn Garcia,quinn.garcia452@example.com,+15550000452,US,San Francisco,mass,standard,2024-08-27T19:41:21Z
+841917f4-b904-5477-849e-0699881e49d2,CUST-000453,Quinn Johnson,quinn.johnson453@example.com,+15550000453,US,Miami,mass,standard,2024-07-11T19:41:21Z
+8462e54b-136d-5744-8022-a37613b96a0a,CUST-000454,Jamie Nguyen,jamie.nguyen454@example.com,+15550000454,CA,Toronto,mass,standard,2022-06-21T19:41:21Z
+2b24a42f-72da-55ab-9745-2d6e4c543b2c,CUST-000455,Jamie Johnson,jamie.johnson455@example.com,+15550000455,US,Chicago,affluent,standard,2024-02-09T19:41:21Z
+86ce5d6b-0459-59bd-8061-9786509a95a7,CUST-000456,Jordan Brown,jordan.brown456@example.com,+15550000456,US,Miami,mass,elevated,2026-01-26T19:41:21Z
+23f368a8-d43b-5392-be49-54185ef83950,CUST-000457,Jordan Brown,jordan.brown457@example.com,+15550000457,US,Miami,mass,standard,2025-10-29T19:41:21Z
+e806891e-713c-5670-97a4-ed17073617e4,CUST-000458,Jamie Davis,jamie.davis458@example.com,+15550000458,US,Miami,mass,low,2023-04-14T19:41:21Z
+12ecf1f9-775b-5b53-9d3c-441f79e7f162,CUST-000459,Quinn Garcia,quinn.garcia459@example.com,+15550000459,US,Miami,mass,standard,2021-06-09T19:41:21Z
+b48c29a5-0b78-580b-8a25-0a0412101ff5,CUST-000460,Morgan Kim,morgan.kim460@example.com,+15550000460,US,Chicago,small_business,standard,2025-03-19T19:41:21Z
+6aeb7315-499b-59dc-a6e2-c64fd78476cf,CUST-000461,Taylor Garcia,taylor.garcia461@example.com,+15550000461,CA,Toronto,mass,standard,2023-11-04T19:41:21Z
+1f9ca0b4-5fc0-5eb6-9fbb-246ca5846a2c,CUST-000462,Quinn Patel,quinn.patel462@example.com,+15550000462,US,San Francisco,mass,low,2021-07-05T19:41:21Z
+8462ed4b-25fa-58bf-9252-363c617eb628,CUST-000463,Morgan Patel,morgan.patel463@example.com,+15550000463,US,Miami,mass,low,2026-02-07T19:41:21Z
+d6671393-39b8-5040-aa3c-996dbe952740,CUST-000464,Jamie Garcia,jamie.garcia464@example.com,+15550000464,US,Miami,mass,standard,2024-07-02T19:41:21Z
+de0ca14b-5c6b-5b2a-9dfb-e4260953722f,CUST-000465,Jordan Nguyen,jordan.nguyen465@example.com,+15550000465,US,New York,mass,elevated,2022-02-14T19:41:21Z
+fa34fdc1-666c-5a81-9164-e8aaf5f3dad5,CUST-000466,Jordan Davis,jordan.davis466@example.com,+15550000466,CA,Toronto,mass,standard,2025-08-06T19:41:21Z
+09ccfbc6-89b8-59c0-bd3a-91e2d12c8f66,CUST-000467,Taylor Patel,taylor.patel467@example.com,+15550000467,US,New York,small_business,standard,2024-05-12T19:41:21Z
+5905676e-d246-5799-8f57-2d15dbfa7100,CUST-000468,Morgan Kim,morgan.kim468@example.com,+15550000468,US,New York,mass,low,2025-01-25T19:41:21Z
+7a2b3a88-91e9-53fc-a347-19ce4b82f843,CUST-000469,Morgan Brown,morgan.brown469@example.com,+15550000469,US,Miami,mass,standard,2025-09-16T19:41:21Z
+317d2287-a07a-5865-83f0-18e34b59184a,CUST-000470,Casey Johnson,casey.johnson470@example.com,+15550000470,US,Miami,affluent,elevated,2025-05-07T19:41:21Z
+1b28701f-d1fe-5fb6-82cf-bc73a75609e0,CUST-000471,Casey Smith,casey.smith471@example.com,+15550000471,US,New York,mass,standard,2025-01-29T19:41:21Z
+6c4aec3d-ef3c-5c54-aa71-a76bf73759cc,CUST-000472,Riley Johnson,riley.johnson472@example.com,+15550000472,CA,Toronto,mass,standard,2022-08-30T19:41:21Z
+1ec20104-ff16-5fe4-a07f-93242bf5a541,CUST-000473,Morgan Patel,morgan.patel473@example.com,+15550000473,US,San Francisco,mass,standard,2026-03-09T19:41:21Z
+9777940e-474d-5459-8b77-2c5c522bb23e,CUST-000474,Riley Kim,riley.kim474@example.com,+15550000474,US,San Francisco,mass,standard,2024-01-16T19:41:21Z
+14c58657-fde7-5a87-b306-6ba457244e7c,CUST-000475,Jordan Smith,jordan.smith475@example.com,+15550000475,US,San Francisco,affluent,elevated,2021-09-16T19:41:21Z
+98e40776-d173-5932-90c5-d1a3ced51b6e,CUST-000476,Taylor Kim,taylor.kim476@example.com,+15550000476,US,Chicago,mass,standard,2022-01-23T19:41:21Z
+df3ebbb0-fc6d-5820-96e7-6fb031299e42,CUST-000477,Morgan Johnson,morgan.johnson477@example.com,+15550000477,US,New York,mass,low,2023-07-07T19:41:21Z
+cb3dac18-4594-5f66-9a85-1772694faa9a,CUST-000478,Jamie Smith,jamie.smith478@example.com,+15550000478,US,New York,mass,standard,2024-09-22T19:41:21Z
+4241f8d7-1651-56f6-81a3-d866683e7fa3,CUST-000479,Jordan Johnson,jordan.johnson479@example.com,+15550000479,US,San Francisco,mass,standard,2023-11-13T19:41:21Z
+1fac3cdd-8077-530f-a37c-eaabb301629e,CUST-000480,Quinn Nguyen,quinn.nguyen480@example.com,+15550000480,US,New York,mass,low,2022-06-19T19:41:21Z
+9bbb1807-f1ce-5620-88f9-35d77db433c6,CUST-000481,Taylor Smith,taylor.smith481@example.com,+15550000481,US,San Francisco,mass,standard,2022-09-18T19:41:21Z
+5105eaca-068c-5a3c-a15c-3dd8438842f1,CUST-000482,Casey Davis,casey.davis482@example.com,+15550000482,US,Chicago,mass,standard,2026-03-19T19:41:21Z
+709938ce-2725-561e-8802-65ba892b7fb7,CUST-000483,Taylor Garcia,taylor.garcia483@example.com,+15550000483,US,New York,mass,standard,2025-09-22T19:41:21Z
+bb578f60-33a4-5dc0-9eb6-c08973296df2,CUST-000484,Taylor Nguyen,taylor.nguyen484@example.com,+15550000484,US,Chicago,small_business,standard,2022-08-03T19:41:21Z
+3516ac8c-30c6-56e5-a428-faf150985865,CUST-000485,Jamie Nguyen,jamie.nguyen485@example.com,+15550000485,US,San Francisco,mass,standard,2024-07-20T19:41:21Z
+dbaa0158-3edd-5be6-844a-c8c79aee7902,CUST-000486,Riley Garcia,riley.garcia486@example.com,+15550000486,US,San Francisco,mass,standard,2023-07-22T19:41:21Z
+f2893a82-70c7-5854-a9a5-259dfae0bd0d,CUST-000487,Jordan Brown,jordan.brown487@example.com,+15550000487,US,Chicago,mass,standard,2022-03-05T19:41:21Z
+45cd0ba4-dc18-5c38-a139-ccb7a3c2294e,CUST-000488,Morgan Brown,morgan.brown488@example.com,+15550000488,US,Chicago,mass,standard,2023-12-14T19:41:21Z
+b4798183-86a1-5abc-9137-e0d90532084a,CUST-000489,Quinn Kim,quinn.kim489@example.com,+15550000489,US,Miami,mass,standard,2023-09-02T19:41:21Z
+97fc8349-09aa-5473-ab3c-f36de162233b,CUST-000490,Avery Johnson,avery.johnson490@example.com,+15550000490,US,New York,affluent,standard,2024-10-08T19:41:21Z
+1ccae9ce-6a7b-5990-bda9-a0e846aa72f3,CUST-000491,Taylor Smith,taylor.smith491@example.com,+15550000491,US,Chicago,mass,standard,2024-08-06T19:41:21Z
+de772253-d994-5d2f-bf49-c1e5c6fee03e,CUST-000492,Jamie Patel,jamie.patel492@example.com,+15550000492,US,New York,mass,elevated,2024-08-08T19:41:21Z
+f5c30414-72ce-5af0-b84a-500131d0a060,CUST-000493,Quinn Davis,quinn.davis493@example.com,+15550000493,US,San Francisco,mass,elevated,2024-08-30T19:41:21Z
+35185f6f-8f5e-5d58-8bef-676752c9ed6e,CUST-000494,Avery Davis,avery.davis494@example.com,+15550000494,US,New York,small_business,standard,2024-04-18T19:41:21Z
+c65f343a-04c0-5074-971f-29b3f833ceb2,CUST-000495,Casey Kim,casey.kim495@example.com,+15550000495,US,Miami,affluent,low,2022-04-11T19:41:21Z
+3a7e739a-942e-5a65-bd87-0b2ac00b352d,CUST-000496,Jordan Patel,jordan.patel496@example.com,+15550000496,US,New York,mass,low,2021-07-05T19:41:21Z
+6accbb3a-32e3-54cd-bdd7-6fc15f8892f1,CUST-000497,Casey Johnson,casey.johnson497@example.com,+15550000497,US,Miami,mass,standard,2024-03-02T19:41:21Z
+82ba80c6-a987-5638-b153-67b16bc44a88,CUST-000498,Taylor Patel,taylor.patel498@example.com,+15550000498,US,San Francisco,mass,standard,2021-12-11T19:41:21Z
+07914313-7ebb-541b-8b0c-ca58e4e83f6a,CUST-000499,Quinn Nguyen,quinn.nguyen499@example.com,+15550000499,US,Miami,mass,low,2025-11-20T19:41:21Z
+7a2b364a-8477-5359-8a45-90d5004d6077,CUST-000500,Jamie Patel,jamie.patel500@example.com,+15550000500,CA,Toronto,affluent,standard,2022-05-17T19:41:21Z

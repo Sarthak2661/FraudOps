@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3c1ea815438243208e60",
+  "position": {
+    "x": 20,
+    "y": 28,
+    "z": 0,
+    "height": 86,
+    "width": 210,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_rule_performance"
+                        }
+                      },
+                      "Property": "triggered_count"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_rule_performance.triggered_count)",
+              "nativeQueryRef": "Sum of triggered_count"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

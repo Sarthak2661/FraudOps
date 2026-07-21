@@ -1,0 +1,84 @@
+table 'fraudops_reporting vw_source_to_curated_reconciliation'
+	lineageTag: d14d6413-783f-4371-b494-2468ea78b8f1
+
+	column pipeline_run_id
+		dataType: string
+		lineageTag: 88a2f300-4839-4b61-b695-9f74dcde122a
+		summarizeBy: none
+		sourceColumn: pipeline_run_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column pipeline_name
+		dataType: string
+		lineageTag: 1364f274-dde7-4312-8fb7-4759efda2157
+		summarizeBy: none
+		sourceColumn: pipeline_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column input_records
+		dataType: int64
+		formatString: 0
+		lineageTag: e198427b-34b4-407b-a296-f1de4e72dfc3
+		summarizeBy: none
+		sourceColumn: input_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column accepted_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 461f66b9-f9db-422f-a6a3-2fd5b5e640f8
+		summarizeBy: none
+		sourceColumn: accepted_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column rejected_records
+		dataType: int64
+		formatString: 0
+		lineageTag: 972c1ea1-32d2-431b-846f-95a1045d4579
+		summarizeBy: none
+		sourceColumn: rejected_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column duplicate_records
+		dataType: int64
+		formatString: 0
+		lineageTag: b7c69e2f-11ec-4f66-bda6-84a56cbd3d0b
+		summarizeBy: none
+		sourceColumn: duplicate_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column unreconciled_records
+		dataType: int64
+		formatString: 0
+		lineageTag: afb6faed-3ab9-47ef-a706-56c5d522b51a
+		summarizeBy: none
+		sourceColumn: unreconciled_records
+
+		annotation SummarizationSetBy = Automatic
+
+	column reconciled
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 88b9ac20-a150-402d-acd9-0878de7a1784
+		summarizeBy: none
+		sourceColumn: reconciled
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'fraudops_reporting vw_source_to_curated_reconciliation' = m
+		mode: import
+		source =
+				let
+				    Source = PostgreSQL.Database("127.0.0.1:55433", "fraudops"),
+				    fraudops_reporting_vw_source_to_curated_reconciliation = Source{[Schema="fraudops_reporting",Item="vw_source_to_curated_reconciliation"]}[Data]
+				in
+				    fraudops_reporting_vw_source_to_curated_reconciliation
+
+	annotation PBI_ResultType = Table
+

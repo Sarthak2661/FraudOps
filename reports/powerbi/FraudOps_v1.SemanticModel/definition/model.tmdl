@@ -1,0 +1,39 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-US
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["fraudops_reporting vw_daily_fraud_summary","fraudops_reporting vw_alert_operations","fraudops_reporting vw_case_performance","fraudops_reporting vw_analyst_productivity","fraudops_reporting vw_rule_performance","fraudops_reporting vw_data_quality","fraudops_reporting vw_fraud_loss","fraudops_reporting vw_model_performance","fraudops_reporting vw_source_to_curated_reconciliation"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table 'fraudops_reporting vw_daily_fraud_summary'
+ref table DateTableTemplate_e13ec05c-a879-4aaf-9616-715a5271e9f6
+ref table LocalDateTable_4b9db223-854b-4150-8ac2-54d7b6e9afd0
+ref table 'fraudops_reporting vw_alert_operations'
+ref table LocalDateTable_7f9e0d0c-9e98-4cf8-a501-4db990869788
+ref table LocalDateTable_25a18f92-c1d1-403c-affe-9f4102e4866e
+ref table LocalDateTable_eee7ad50-6c1a-4c3e-88b9-6f045d5586f1
+ref table 'fraudops_reporting vw_case_performance'
+ref table LocalDateTable_2623cf42-570b-493e-a582-d03c4a373c9b
+ref table LocalDateTable_3e4064a3-3748-42f7-b67a-829b4abdaede
+ref table 'fraudops_reporting vw_analyst_productivity'
+ref table 'fraudops_reporting vw_rule_performance'
+ref table 'fraudops_reporting vw_data_quality'
+ref table LocalDateTable_bc0c047d-562f-461a-aa1f-3db69cb7df45
+ref table LocalDateTable_001db7d9-08f6-4635-8b5d-89174fa64b3f
+ref table 'fraudops_reporting vw_fraud_loss'
+ref table LocalDateTable_528d9b05-d5db-409e-9e66-6ccaec3c3b3e
+ref table 'fraudops_reporting vw_model_performance'
+ref table LocalDateTable_55adf2aa-ea09-4e5d-89c8-9ff0244b714c
+ref table LocalDateTable_a8803af7-ea88-4f70-86db-5cdaf97d4838
+ref table 'fraudops_reporting vw_source_to_curated_reconciliation'
+ref table LocalDateTable_a6093593-3048-4212-81db-4579fa6f05ec
+
+ref cultureInfo en-US
+

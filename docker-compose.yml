@@ -1,0 +1,22 @@
+﻿services:
+  fraud-postgres:
+    image: postgres:17-alpine
+    container_name: fraudops-postgres
+    environment:
+      POSTGRES_DB: fraudops
+      POSTGRES_USER: fraudops_user
+      POSTGRES_PASSWORD: fraudops_password
+    ports:
+      - "55433:5432"
+    volumes:
+      - fraud_postgres_data:/var/lib/postgresql/data
+      - ./database/sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fraudops_user -d fraudops"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  fraud_postgres_data:
+

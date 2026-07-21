@@ -1,0 +1,2 @@
+threshold_configuration_id,configuration_name,step_up_threshold,manual_review_threshold,hold_decline_threshold,effective_from,effective_to
+922c6bcf-28cd-5de2-af7b-2acf0354bc04,baseline-v1,0.35000,0.65000,0.90000,2026-05-14T19:41:21Z,

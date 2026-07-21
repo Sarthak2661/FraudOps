@@ -1,0 +1,61 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "3e115a0c615aeb615c83",
+  "position": {
+    "x": 833.82226056945638,
+    "y": 39.758412424503881,
+    "z": 3000,
+    "height": 103.81363244176013,
+    "width": 324.6937014667817,
+    "tabOrder": 3000
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                    }
+                  },
+                  "Property": "Fraud Value Capture Rate"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_daily_fraud_summary.Fraud Value Capture Rate",
+              "nativeQueryRef": "Fraud Value Capture Rate"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "fraudops_reporting vw_daily_fraud_summary"
+                      }
+                    },
+                    "Property": "fraud_value_capture_rate"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

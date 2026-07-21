@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "be088f133b6c4ff789ed",
+  "position": {
+    "x": 1110,
+    "y": 28,
+    "z": 5,
+    "height": 86,
+    "width": 140,
+    "tabOrder": 5
+  },
+  "visual": {
+    "visualType": "slicer",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_model_performance"
+                    }
+                  },
+                  "Property": "model_name"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_model_performance.model_name",
+              "nativeQueryRef": "model_name",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Model name'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

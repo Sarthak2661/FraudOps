@@ -1,0 +1,72 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "6b832773e5dc4ff8b0c0",
+  "position": {
+    "x": 20,
+    "y": 420,
+    "z": 102,
+    "height": 250,
+    "width": 380,
+    "tabOrder": 102
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_case_performance"
+                    }
+                  },
+                  "Property": "case_status"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_case_performance.case_status",
+              "nativeQueryRef": "case_status",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_case_performance"
+                    }
+                  },
+                  "Property": "Case Count"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_case_performance.Case Count",
+              "nativeQueryRef": "Case Count"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cases by status'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

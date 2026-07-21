@@ -1,0 +1,3 @@
+data_quality_rule_id,rule_code,table_name,column_name,description,severity,active
+2604a60c-ea66-5b41-85fc-0ba64236279b,TXN_AMOUNT_POSITIVE,transaction,amount,Transaction amount must be positive,critical,True
+85a6a66c-deb1-5627-90c0-3f35020caa55,TXN_CUSTOMER_PRESENT,transaction,customer_id,Transaction must reference an existing customer,critical,True

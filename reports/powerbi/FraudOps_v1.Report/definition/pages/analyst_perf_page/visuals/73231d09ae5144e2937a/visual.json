@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "73231d09ae5144e2937a",
+  "position": {
+    "x": 20,
+    "y": 145,
+    "z": 100,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 100
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "analyst"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.analyst",
+              "nativeQueryRef": "analyst",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_analyst_productivity"
+                        }
+                      },
+                      "Property": "assigned_cases"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_analyst_productivity.assigned_cases)",
+              "nativeQueryRef": "Sum of assigned_cases"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cases handled'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

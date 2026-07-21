@@ -1,0 +1,43 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e0d66323c4df47e1a396",
+  "position": {
+    "x": 650.14925373134326,
+    "y": 27.761194029850746,
+    "z": 3,
+    "height": 111.04477611940298,
+    "width": 226.56716417910448,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "cardVisual",
+    "query": {
+      "queryState": {
+        "Data": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_model_performance"
+                        }
+                      },
+                      "Property": "roc_auc"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_model_performance.roc_auc)",
+              "nativeQueryRef": "Sum of roc_auc"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

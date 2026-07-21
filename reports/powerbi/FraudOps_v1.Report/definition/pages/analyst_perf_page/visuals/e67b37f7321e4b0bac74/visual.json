@@ -1,0 +1,77 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "e67b37f7321e4b0bac74",
+  "position": {
+    "x": 640,
+    "y": 145,
+    "z": 101,
+    "height": 250,
+    "width": 580,
+    "tabOrder": 101
+  },
+  "visual": {
+    "visualType": "barChart",
+    "drillFilterOtherVisuals": true,
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_analyst_productivity"
+                    }
+                  },
+                  "Property": "analyst"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_analyst_productivity.analyst",
+              "nativeQueryRef": "analyst",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_analyst_productivity"
+                        }
+                      },
+                      "Property": "avg_resolution_hours"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_analyst_productivity.avg_resolution_hours)",
+              "nativeQueryRef": "Sum of avg_resolution_hours"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Average resolution time'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

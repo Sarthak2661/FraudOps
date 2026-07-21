@@ -1,0 +1,13 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "rule_perf_page",
+  "displayName": "Rule Performance",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "pageBinding": {
+    "name": "69db4f41fe6b4a83ad30",
+    "type": "Default",
+    "parameters": []
+  }
+}

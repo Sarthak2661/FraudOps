@@ -1,0 +1,74 @@
+relationship 2f4daf71-e72a-4f23-9cdb-00eea79fb7c0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_daily_fraud_summary'.transaction_date
+	toColumn: LocalDateTable_4b9db223-854b-4150-8ac2-54d7b6e9afd0.Date
+
+relationship 17ddef2d-8d94-4159-a33d-3c5cacdb4b6c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_alert_operations'.transaction_at
+	toColumn: LocalDateTable_7f9e0d0c-9e98-4cf8-a501-4db990869788.Date
+
+relationship 87fc4ae6-1c90-4d71-a83e-76b3895f5da6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_alert_operations'.opened_at
+	toColumn: LocalDateTable_25a18f92-c1d1-403c-affe-9f4102e4866e.Date
+
+relationship 149e1d20-3105-4dc3-a6da-760a92f1c5eb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_alert_operations'.sla_deadline
+	toColumn: LocalDateTable_eee7ad50-6c1a-4c3e-88b9-6f045d5586f1.Date
+
+relationship e60b6e2d-e467-4b19-a400-417197a5a139
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_case_performance'.opened_at
+	toColumn: LocalDateTable_2623cf42-570b-493e-a582-d03c4a373c9b.Date
+
+relationship f6d8b467-a936-4a51-8548-1b2cd0fb9502
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_case_performance'.closed_at
+	toColumn: LocalDateTable_3e4064a3-3748-42f7-b67a-829b4abdaede.Date
+
+relationship f02b6025-cbed-43b7-82b0-77766d2ba0b6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_data_quality'.started_at
+	toColumn: LocalDateTable_bc0c047d-562f-461a-aa1f-3db69cb7df45.Date
+
+relationship e76ab22f-9484-4b02-8dc7-fbf39c596da6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_data_quality'.completed_at
+	toColumn: LocalDateTable_001db7d9-08f6-4635-8b5d-89174fa64b3f.Date
+
+relationship 24201f9a-24ac-41a7-8cc8-bb3cf8d1ae22
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_fraud_loss'.transaction_date
+	toColumn: LocalDateTable_528d9b05-d5db-409e-9e66-6ccaec3c3b3e.Date
+
+relationship 5182bc4a-77ec-4db2-b401-39acc9f5cfb8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_model_performance'.training_started_at
+	toColumn: LocalDateTable_55adf2aa-ea09-4e5d-89c8-9ff0244b714c.Date
+
+relationship e891f7de-aa76-4df1-830a-c11228d6ea85
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_model_performance'.training_completed_at
+	toColumn: LocalDateTable_a8803af7-ea88-4f70-86db-5cdaf97d4838.Date
+
+relationship AutoDetected_69b59df4-52df-4e7d-9f4e-bbfdba371ca5
+	crossFilteringBehavior: bothDirections
+	fromCardinality: one
+	fromColumn: 'fraudops_reporting vw_alert_operations'.transaction_id
+	toColumn: 'fraudops_reporting vw_fraud_loss'.transaction_id
+
+relationship AutoDetected_0a928c4b-9c30-40b9-be44-29bed91b90f8
+	fromColumn: 'fraudops_reporting vw_alert_operations'.customer_id
+	toColumn: 'fraudops_reporting vw_case_performance'.customer_id
+
+relationship AutoDetected_001e890e-a460-48be-9ed5-63720e7c7ae0
+	fromColumn: 'fraudops_reporting vw_data_quality'.pipeline_run_id
+	toColumn: 'fraudops_reporting vw_source_to_curated_reconciliation'.pipeline_run_id
+
+relationship 84ce47f2-fdcd-49e6-ba76-7b35314d7f2c
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'fraudops_reporting vw_daily_fraud_summary'.summary_date
+	toColumn: LocalDateTable_a6093593-3048-4212-81db-4579fa6f05ec.Date
+

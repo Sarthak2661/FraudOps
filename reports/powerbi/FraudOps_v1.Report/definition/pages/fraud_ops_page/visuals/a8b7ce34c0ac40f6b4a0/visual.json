@@ -1,0 +1,139 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "a8b7ce34c0ac40f6b4a0",
+  "position": {
+    "x": 860,
+    "y": 420,
+    "z": 104,
+    "height": 250,
+    "width": 380,
+    "tabOrder": 104
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "alert_id"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.alert_id",
+              "nativeQueryRef": "alert_id",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "customer_id"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.customer_id",
+              "nativeQueryRef": "customer_id",
+              "active": true
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_alert_operations"
+                        }
+                      },
+                      "Property": "amount"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_alert_operations.amount)",
+              "nativeQueryRef": "Sum of amount",
+              "active": false
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "fraudops_reporting vw_alert_operations"
+                        }
+                      },
+                      "Property": "priority"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(fraudops_reporting vw_alert_operations.priority)",
+              "nativeQueryRef": "Sum of priority",
+              "active": false
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "alert_status"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.alert_status",
+              "nativeQueryRef": "alert_status",
+              "active": true
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "fraudops_reporting vw_alert_operations"
+                    }
+                  },
+                  "Property": "assigned_analyst"
+                }
+              },
+              "queryRef": "fraudops_reporting vw_alert_operations.assigned_analyst",
+              "nativeQueryRef": "assigned_analyst",
+              "active": true
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Open alert details'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

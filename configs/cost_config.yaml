@@ -1,0 +1,11 @@
+average_manual_review_cost: 8.50
+average_step_up_cost: 1.25
+legitimate_decline_cost: 45.00
+average_fraud_loss: 250.00
+customer_friction_cost: 5.00
+analyst_daily_capacity: 500
+review_threshold: 0.55
+step_up_threshold: 0.35
+hold_threshold: 0.90
+model_weight: 0.70
+rule_weight: 0.30
