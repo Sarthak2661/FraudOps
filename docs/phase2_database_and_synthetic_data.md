@@ -16,7 +16,7 @@ Phase 2 covers these entity groups:
 ## Start PostgreSQL
 
 ```powershell
-cd C:\Users\sarth\Documents\FraudOps
+cd FraudOps
 docker compose up -d fraud-postgres
 docker compose ps
 ```
@@ -93,4 +93,3 @@ docker exec fraudops-postgres psql -v ON_ERROR_STOP=1 -U fraudops_user -d fraudo
 - Fraud and legitimate transactions are present
 - Fraud scenarios can be explained
 - Data generation is reproducible using a random seed
-

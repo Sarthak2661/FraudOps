@@ -1,19 +1,19 @@
 {
   "transaction_id": "b7dbd87b-d4b3-5f77-a1fe-77cab22d13d4",
-  "risk_score": 0.598,
-  "decision": "HOLD_OR_DECLINE",
+  "risk_score": 0.0551,
+  "decision": "APPROVE",
   "triggered_rules": [
     "R005",
     "R007"
   ],
   "rule_score": 0.08,
-  "model_probability": 0.82,
-  "estimated_exposure": 149.5,
+  "model_probability": 0.0444,
+  "estimated_exposure": 13.78,
   "expected_costs": {
-    "APPROVE": 149.5,
-    "STEP_UP_AUTHENTICATION": 43.62,
-    "MANUAL_REVIEW": 23.45,
-    "HOLD_OR_DECLINE": 23.09
+    "APPROVE": 13.78,
+    "STEP_UP_AUTHENTICATION": 9.69,
+    "MANUAL_REVIEW": 9.88,
+    "HOLD_OR_DECLINE": 47.52
   },
   "explanation": [
     "High-risk merchant history",

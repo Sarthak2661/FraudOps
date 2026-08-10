@@ -16,13 +16,12 @@ Do not begin with Kafka, Airflow, AWS deployment, and many Docker containers at 
 Use this project baseline:
 
 - IDE: Visual Studio Code
-- Python: use Python 3.13 for the project virtual environment
-- Python 3.14: can remain installed, but do not use it as the project runtime yet
+- Python: use Python 3.14 for the project virtual environment
 - PostgreSQL client/server target: PostgreSQL 16 or 17 are both acceptable
 - Power BI: Power BI Desktop for local `.pbix` dashboards
 - Git workflow: Git CLI plus GitHub Desktop if preferred
 
-Python 3.13 is the safer runtime because third-party package compatibility is broader. Keep Python 3.14 installed only for experimentation until your main dependencies explicitly support it well.
+Python 3.14 is the project runtime. Dependency pins are selected to install from binary wheels on the local Windows development environment.
 
 ## Corrected Phase Plan
 
@@ -31,7 +30,7 @@ The original phases are broadly correct. I would keep the same overall direction
 | Phase | Main result | Notes |
 |---:|---|---|
 | 0 | Business and technical design | Define users, decisions, KPIs, outcomes, architecture, and roadmap. |
-| 1 | Development environment | Create `FraudOps`, Git repo, Python 3.13 venv, VS Code settings, `.env.example`, `.gitignore`, and baseline tests. |
+| 1 | Development environment | Create `FraudOps`, Git repo, Python 3.14 venv, VS Code settings, `.env.example`, `.gitignore`, and baseline tests. |
 | 2 | Database and synthetic data | Stand up PostgreSQL 16/17 locally, create schema, generate realistic transactions, customers, merchants, cards, and labels. |
 | 3 | Batch ingestion and data quality | Load raw data, validate it, quarantine bad rows, and create curated tables. |
 | 4 | Fraud features and exploratory analysis | Build features, profile fraud patterns, and document leakage risks. |
@@ -58,7 +57,7 @@ Move rules and cost-sensitive decisioning before ML. Fraud platforms need a tran
 Use:
 
 ```powershell
-py -3.13 -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 ```
@@ -117,9 +116,9 @@ At 10-12 focused hours per week, 14-18 weeks is realistic. Each milestone should
 ## First Commands
 
 ```powershell
-cd C:\Users\sarth\Documents\FraudOps
+cd FraudOps
 git init
-py -3.13 -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install --upgrade pip
 ```
@@ -137,14 +136,14 @@ psql --version
 Expected Python result:
 
 ```text
-Python 3.13.x
+Python 3.14.x
 ```
 
 ## Phase 1 Definition of Done
 
 - `FraudOps` folder exists
 - Git repository exists
-- Python 3.13 virtual environment works
+- Python 3.14 virtual environment works
 - VS Code opens the folder cleanly
 - `.env.example` exists and `.env` is ignored
 - Docker works locally
@@ -158,4 +157,3 @@ Suggested commit:
 git add .
 git commit -m "chore: initialize FraudOps project structure"
 ```
-

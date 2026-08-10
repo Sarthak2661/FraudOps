@@ -7,7 +7,7 @@ Expose transaction scoring and fraud case-management through versioned APIs.
 ## Run
 
 ```powershell
-cd C:\Users\sarth\Documents\FraudOps
+cd FraudOps
 .\.venv\Scripts\Activate.ps1
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
 ```

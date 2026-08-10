@@ -39,6 +39,7 @@ MODEL_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model.joblib"
 FINAL_METRICS_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model_final_test_metrics.json"
 RULES_PATH = PROJECT_ROOT / "configs" / "rules.yaml"
 COST_CONFIG_PATH = PROJECT_ROOT / "configs" / "cost_config.yaml"
+DEFAULT_FALLBACK_PROBABILITY = 0.01
 
 
 def now_utc() -> datetime:
@@ -132,7 +133,7 @@ def predict_probability(feature_row: dict[str, Any], override: float | None = No
         return float(override)
     bundle = load_model_bundle()
     if not bundle:
-        return 0.01
+        return DEFAULT_FALLBACK_PROBABILITY
     model = bundle["model"]
     columns = bundle["features"]
     frame = pd.DataFrame([{column: feature_row.get(column, 0) for column in columns}])
@@ -367,14 +368,35 @@ def resolve_case(engine: Engine, case_id: str, request: CaseResolveRequest) -> C
 
 
 def current_model() -> ModelCurrentResponse:
+    artifact_exists = MODEL_PATH.exists()
     bundle = load_model_bundle()
     metrics = json.loads(FINAL_METRICS_PATH.read_text(encoding="utf-8")) if FINAL_METRICS_PATH.exists() else {}
+    if bundle:
+        return ModelCurrentResponse(
+            model_name="random_forest_balanced",
+            model_status="READY",
+            scoring_mode="model_artifact",
+            threshold=float(bundle.get("threshold")),
+            feature_count=len(bundle.get("features", [])),
+            artifact_path=str(MODEL_PATH),
+            artifact_exists=artifact_exists,
+            trained_model_available=True,
+            fallback_probability=None,
+            metrics=metrics,
+            message="Using the trained model artifact for scoring.",
+        )
     return ModelCurrentResponse(
-        model_name="random_forest_balanced" if bundle else "unavailable",
-        threshold=float(bundle.get("threshold")) if bundle else None,
-        feature_count=len(bundle.get("features", [])) if bundle else 0,
-        artifact_path=str(MODEL_PATH) if MODEL_PATH.exists() else None,
+        model_name="unavailable",
+        model_status="FALLBACK",
+        scoring_mode="fallback_default_probability",
+        threshold=None,
+        feature_count=0,
+        artifact_path=str(MODEL_PATH) if artifact_exists else None,
+        artifact_exists=artifact_exists,
+        trained_model_available=False,
+        fallback_probability=DEFAULT_FALLBACK_PROBABILITY,
         metrics=metrics,
+        message="Trained model artifact is not available. Run python scripts\\train_baseline_models.py to regenerate reports/modeling/selected_model.joblib.",
     )
 
 

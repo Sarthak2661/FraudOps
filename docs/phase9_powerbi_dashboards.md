@@ -176,6 +176,3 @@ Latest validated row counts:
 - Metric dictionary included: complete
 - Dashboard page design documented: complete
 - Power BI PBIX and screenshots: manual step in Power BI Desktop
-
-
-

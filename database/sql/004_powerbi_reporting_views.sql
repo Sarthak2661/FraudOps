@@ -1,4 +1,4 @@
-﻿DROP VIEW IF EXISTS fraudops_reporting.vw_source_to_curated_reconciliation CASCADE;
+DROP VIEW IF EXISTS fraudops_reporting.vw_source_to_curated_reconciliation CASCADE;
 DROP VIEW IF EXISTS fraudops_reporting.vw_data_quality CASCADE;
 DROP VIEW IF EXISTS fraudops_reporting.vw_fraud_loss CASCADE;
 DROP VIEW IF EXISTS fraudops_reporting.vw_model_performance CASCADE;
@@ -8,6 +8,57 @@ DROP VIEW IF EXISTS fraudops_reporting.vw_case_performance CASCADE;
 DROP VIEW IF EXISTS fraudops_reporting.vw_alert_operations CASCADE;
 DROP VIEW IF EXISTS fraudops_reporting.vw_daily_fraud_summary CASCADE;
 CREATE SCHEMA IF NOT EXISTS fraudops_reporting;
+CREATE TABLE IF NOT EXISTS public.scored_transactions (
+    transaction_id text PRIMARY KEY,
+    customer_id text,
+    amount double precision NOT NULL,
+    risk_score double precision NOT NULL,
+    decision text NOT NULL,
+    model_probability double precision NOT NULL,
+    triggered_rules jsonb NOT NULL,
+    explanation jsonb NOT NULL,
+    estimated_exposure double precision NOT NULL,
+    alert_id text,
+    request_payload jsonb NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.alerts (
+    alert_id text PRIMARY KEY,
+    transaction_id text NOT NULL UNIQUE,
+    customer_id text,
+    amount double precision NOT NULL,
+    risk_score double precision NOT NULL,
+    decision text NOT NULL,
+    priority integer NOT NULL,
+    status text NOT NULL,
+    assigned_analyst text,
+    sla_deadline timestamptz NOT NULL,
+    triggered_rules jsonb NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.cases (
+    case_id text PRIMARY KEY,
+    customer_id text,
+    alert_ids jsonb NOT NULL,
+    status text NOT NULL,
+    priority integer NOT NULL,
+    assigned_to text,
+    case_summary text NOT NULL,
+    outcome text,
+    created_at timestamptz NOT NULL DEFAULT now(),
+    updated_at timestamptz NOT NULL DEFAULT now()
+);
+
+CREATE TABLE IF NOT EXISTS public.case_actions (
+    action_id text PRIMARY KEY,
+    case_id text NOT NULL,
+    actor text NOT NULL,
+    action_type text NOT NULL,
+    notes text NOT NULL,
+    created_at timestamptz NOT NULL DEFAULT now()
+);
 
 CREATE OR REPLACE VIEW fraudops_reporting.vw_daily_fraud_summary AS
 WITH transaction_decisions AS (
@@ -45,25 +96,36 @@ SELECT
          THEN count(*) FILTER (WHERE fraud_label <> 'fraud' AND reporting_decision IN ('STEP_UP_AUTHENTICATION','MANUAL_REVIEW','HOLD_OR_DECLINE'))::numeric / count(*) FILTER (WHERE fraud_label <> 'fraud')
          ELSE 0 END AS false_positive_rate,
     count(*) FILTER (WHERE reporting_decision IN ('MANUAL_REVIEW','HOLD_OR_DECLINE')) AS cases_awaiting_review,
-    CASE WHEN EXISTS (SELECT 1 FROM fraudops.fraud_decision) THEN 'operational' ELSE 'seeded_reporting_data' END AS source_system
+    CASE WHEN EXISTS (SELECT 1 FROM fraudops.fraud_decision) THEN 'warehouse_operational' ELSE 'seeded_reporting_data' END AS source_system
 FROM transaction_decisions
 GROUP BY 1, 2;
 
 CREATE OR REPLACE VIEW fraudops_reporting.vw_alert_operations AS
-WITH real_alerts AS (
-    SELECT fa.fraud_alert_id::text AS alert_id, fa.transaction_id, t.customer_id, t.amount, t.transaction_at,
+WITH warehouse_alerts AS (
+    SELECT fa.fraud_alert_id::text AS alert_id, fa.transaction_id::text AS transaction_id, t.customer_id::text AS customer_id, t.amount, t.transaction_at,
            fa.opened_at, fa.status::text AS alert_status, fa.priority, fa.assigned_to AS assigned_analyst,
            fa.alert_reason, fd.outcome::text AS decision, COALESCE(mp.fraud_probability, 0) AS fraud_probability,
            EXTRACT(EPOCH FROM (now() - fa.opened_at)) / 60.0 AS alert_age_minutes,
            fa.opened_at + interval '8 hours' AS sla_deadline,
            CASE WHEN fa.status::text <> 'CLOSED' AND now() > fa.opened_at + interval '8 hours' THEN true ELSE false END AS sla_breached,
-           'operational'::text AS source_system
+           'warehouse_operational'::text AS source_system
     FROM fraudops.fraud_alert fa
     JOIN fraudops.transaction t ON t.transaction_id = fa.transaction_id
     LEFT JOIN fraudops.fraud_decision fd ON fd.fraud_decision_id = fa.fraud_decision_id
     LEFT JOIN fraudops.model_prediction mp ON mp.model_prediction_id = fd.model_prediction_id
+), api_alerts AS (
+    SELECT a.alert_id::text AS alert_id, a.transaction_id::text AS transaction_id, a.customer_id::text AS customer_id, a.amount, COALESCE(st.created_at, a.created_at) AS transaction_at,
+           a.created_at AS opened_at, a.status::text AS alert_status, a.priority, COALESCE(a.assigned_analyst, 'Unassigned') AS assigned_analyst,
+           COALESCE(array_to_string(ARRAY(SELECT jsonb_array_elements_text(a.triggered_rules::jsonb)), ', '), 'api_scoring_alert') AS alert_reason,
+           a.decision::text AS decision, a.risk_score AS fraud_probability,
+           EXTRACT(EPOCH FROM (now() - a.created_at)) / 60.0 AS alert_age_minutes,
+           a.sla_deadline,
+           CASE WHEN a.status::text <> 'CLOSED' AND now() > a.sla_deadline THEN true ELSE false END AS sla_breached,
+           'api_operational'::text AS source_system
+    FROM public.alerts a
+    LEFT JOIN public.scored_transactions st ON st.transaction_id = a.transaction_id
 ), synthetic_alerts AS (
-    SELECT 'SYN-' || left(t.transaction_id::text, 12) AS alert_id, t.transaction_id, t.customer_id, t.amount, t.transaction_at,
+    SELECT 'SYN-' || left(t.transaction_id::text, 12) AS alert_id, t.transaction_id::text AS transaction_id, t.customer_id::text AS customer_id, t.amount, t.transaction_at,
            t.transaction_at + interval '5 minutes' AS opened_at,
            CASE WHEN t.fraud_label = 'fraud' THEN 'OPEN' ELSE 'CLOSED' END AS alert_status,
            CASE WHEN t.amount >= 1000 THEN 5 WHEN t.amount >= 500 THEN 4 WHEN t.fraud_label = 'fraud' THEN 3 ELSE 2 END AS priority,
@@ -77,28 +139,47 @@ WITH real_alerts AS (
            'seeded_reporting_data'::text AS source_system
     FROM fraudops.transaction t
     WHERE NOT EXISTS (SELECT 1 FROM fraudops.fraud_alert)
+      AND NOT EXISTS (SELECT 1 FROM public.alerts)
       AND (t.fraud_label = 'fraud' OR (t.fraud_scenario IS NOT NULL AND t.fraud_scenario <> ''))
 )
-SELECT * FROM real_alerts
+SELECT * FROM warehouse_alerts
+UNION ALL
+SELECT * FROM api_alerts
 UNION ALL
 SELECT * FROM synthetic_alerts;
 
 CREATE OR REPLACE VIEW fraudops_reporting.vw_case_performance AS
-WITH real_cases AS (
-    SELECT fc.fraud_case_id::text AS case_id, fc.case_external_id, fc.customer_id, fc.opened_at, fc.closed_at,
+WITH warehouse_cases AS (
+    SELECT fc.fraud_case_id::text AS case_id, fc.case_external_id::text AS case_external_id, fc.customer_id::text AS customer_id, fc.opened_at, fc.closed_at,
            fc.status::text AS case_status, fc.priority, fc.assigned_to, fc.case_summary,
            count(ca.fraud_alert_id) AS linked_alert_count,
            EXTRACT(EPOCH FROM (COALESCE(fc.closed_at, now()) - fc.opened_at)) / 3600.0 AS investigation_hours,
            CASE WHEN fc.closed_at IS NULL THEN false ELSE true END AS resolved,
            NULL::text AS outcome,
-           'operational'::text AS source_system
+           'warehouse_operational'::text AS source_system
     FROM fraudops.fraud_case fc
     LEFT JOIN fraudops.case_alert ca ON ca.fraud_case_id = fc.fraud_case_id
     GROUP BY fc.fraud_case_id
+), api_cases AS (
+    SELECT c.case_id::text AS case_id,
+           c.case_id::text AS case_external_id,
+           c.customer_id::text AS customer_id,
+           c.created_at AS opened_at,
+           CASE WHEN c.status::text = 'CLOSED' THEN c.updated_at ELSE NULL END AS closed_at,
+           c.status::text AS case_status,
+           c.priority,
+           COALESCE(c.assigned_to, 'Unassigned') AS assigned_to,
+           c.case_summary,
+           jsonb_array_length(c.alert_ids::jsonb) AS linked_alert_count,
+           EXTRACT(EPOCH FROM (COALESCE(c.updated_at, now()) - c.created_at)) / 3600.0 AS investigation_hours,
+           CASE WHEN c.status::text = 'CLOSED' THEN true ELSE false END AS resolved,
+           c.outcome::text AS outcome,
+           'api_operational'::text AS source_system
+    FROM public.cases c
 ), synthetic_cases AS (
     SELECT 'CASE-SYN-' || left(t.customer_id::text, 8) AS case_id,
            'CASE-SYN-' || left(t.customer_id::text, 8) AS case_external_id,
-           t.customer_id,
+           t.customer_id::text AS customer_id,
            min(t.transaction_at) + interval '15 minutes' AS opened_at,
            CASE WHEN bool_or(t.fraud_label <> 'fraud') THEN max(t.transaction_at) + interval '2 hours' ELSE NULL END AS closed_at,
            CASE WHEN bool_or(t.fraud_label = 'fraud') THEN 'OPEN' ELSE 'CLOSED' END AS case_status,
@@ -112,10 +193,13 @@ WITH real_cases AS (
            'seeded_reporting_data'::text AS source_system
     FROM fraudops.transaction t
     WHERE NOT EXISTS (SELECT 1 FROM fraudops.fraud_case)
+      AND NOT EXISTS (SELECT 1 FROM public.cases)
       AND (t.fraud_label = 'fraud' OR (t.fraud_scenario IS NOT NULL AND t.fraud_scenario <> ''))
     GROUP BY t.customer_id
 )
-SELECT * FROM real_cases
+SELECT * FROM warehouse_cases
+UNION ALL
+SELECT * FROM api_cases
 UNION ALL
 SELECT * FROM synthetic_cases;
 
@@ -137,22 +221,58 @@ FROM fraudops_reporting.vw_case_performance
 GROUP BY 1;
 
 CREATE OR REPLACE VIEW fraudops_reporting.vw_rule_performance AS
-SELECT
-    fr.rule_code,
-    fr.rule_name,
-    fr.severity,
-    count(re.rule_execution_id) AS executions,
-    count(*) FILTER (WHERE re.triggered) AS triggered_count,
-    count(*) FILTER (WHERE re.triggered AND t.fraud_label = 'fraud') AS confirmed_fraud_count,
-    count(*) FILTER (WHERE re.triggered AND t.fraud_label <> 'fraud') AS false_positive_count,
-    CASE WHEN count(*) FILTER (WHERE re.triggered) > 0
-         THEN count(*) FILTER (WHERE re.triggered AND t.fraud_label <> 'fraud')::numeric / count(*) FILTER (WHERE re.triggered)
-         ELSE 0 END AS false_positive_rate,
-    COALESCE(sum(t.amount) FILTER (WHERE re.triggered AND t.fraud_label = 'fraud'), 0) AS estimated_prevented_loss
-FROM fraudops.fraud_rule fr
-LEFT JOIN fraudops.rule_execution re ON re.fraud_rule_id = fr.fraud_rule_id
-LEFT JOIN fraudops.transaction t ON t.transaction_id = re.transaction_id
-GROUP BY fr.rule_code, fr.rule_name, fr.severity;
+WITH operational_rule_performance AS (
+    SELECT
+        fr.rule_code,
+        fr.rule_name,
+        fr.severity,
+        count(re.rule_execution_id) AS executions,
+        count(*) FILTER (WHERE re.triggered) AS triggered_count,
+        count(*) FILTER (WHERE re.triggered AND t.fraud_label = 'fraud') AS confirmed_fraud_count,
+        count(*) FILTER (WHERE re.triggered AND t.fraud_label <> 'fraud') AS false_positive_count,
+        CASE WHEN count(*) FILTER (WHERE re.triggered) > 0
+             THEN count(*) FILTER (WHERE re.triggered AND t.fraud_label <> 'fraud')::numeric / count(*) FILTER (WHERE re.triggered)
+             ELSE 0 END AS false_positive_rate,
+        COALESCE(sum(t.amount) FILTER (WHERE re.triggered AND t.fraud_label = 'fraud'), 0) AS estimated_prevented_loss,
+        'warehouse_operational'::text AS source_system
+    FROM fraudops.fraud_rule fr
+    LEFT JOIN fraudops.rule_execution re ON re.fraud_rule_id = fr.fraud_rule_id
+    LEFT JOIN fraudops.transaction t ON t.transaction_id = re.transaction_id
+    GROUP BY fr.rule_code, fr.rule_name, fr.severity
+), scenario_rule_map AS (
+    SELECT *
+    FROM (VALUES
+        ('BEHAVIOR_DEVIATION', 'behavior_deviation'),
+        ('CARD_TESTING', 'card_testing'),
+        ('IMPOSSIBLE_TRAVEL', 'impossible_travel'),
+        ('MERCHANT_BURST', 'merchant_fraud_burst'),
+        ('NEW_DEVICE_HIGH_VALUE', 'new_device_takeover'),
+        ('VELOCITY', 'transaction_velocity')
+    ) AS mapping(rule_code, fraud_scenario)
+), seeded_rule_performance AS (
+    SELECT
+        fr.rule_code,
+        fr.rule_name,
+        fr.severity,
+        count(t.transaction_id) AS executions,
+        count(t.transaction_id) AS triggered_count,
+        count(t.transaction_id) FILTER (WHERE t.fraud_label = 'fraud') AS confirmed_fraud_count,
+        count(t.transaction_id) FILTER (WHERE t.fraud_label <> 'fraud') AS false_positive_count,
+        CASE WHEN count(t.transaction_id) > 0
+             THEN count(t.transaction_id) FILTER (WHERE t.fraud_label <> 'fraud')::numeric / count(t.transaction_id)
+             ELSE 0 END AS false_positive_rate,
+        COALESCE(sum(t.amount) FILTER (WHERE t.fraud_label = 'fraud'), 0) AS estimated_prevented_loss,
+        'seeded_reporting_data'::text AS source_system
+    FROM fraudops.fraud_rule fr
+    LEFT JOIN scenario_rule_map srm ON srm.rule_code = fr.rule_code
+    LEFT JOIN fraudops.transaction t ON t.fraud_scenario = srm.fraud_scenario
+    WHERE NOT EXISTS (SELECT 1 FROM fraudops.rule_execution)
+    GROUP BY fr.rule_code, fr.rule_name, fr.severity
+)
+SELECT * FROM operational_rule_performance
+WHERE EXISTS (SELECT 1 FROM fraudops.rule_execution)
+UNION ALL
+SELECT * FROM seeded_rule_performance;
 
 CREATE OR REPLACE VIEW fraudops_reporting.vw_model_performance AS
 SELECT

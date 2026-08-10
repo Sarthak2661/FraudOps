@@ -7,9 +7,9 @@ Create an operational fraud-investigation application with a polished production
 ## Run
 
 ```powershell
-cd C:\Users\sarth\Documents\FraudOps\frontend
-pnpm install
-pnpm run dev
+cd FraudOps\frontend
+npm.cmd install
+npm.cmd run dev
 ```
 
 Open:

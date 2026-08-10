@@ -13,7 +13,6 @@ import mlflow
 import mlflow.sklearn
 import numpy as np
 import pandas as pd
-import yaml
 from sklearn.ensemble import HistGradientBoostingClassifier, IsolationForest, RandomForestClassifier
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
@@ -33,7 +32,8 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
-from fraudops.decisioning import decide_transaction, load_yaml, normalized_rule_score, evaluate_rules
+from fraudops.decisioning import evaluate_rules, load_yaml, normalized_rule_score
+from fraudops.paths import default_feature_path
 
 ID_COLUMNS = {
     "transaction_id",
@@ -328,7 +328,7 @@ def train_and_evaluate(args: argparse.Namespace) -> dict[str, Any]:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Train FraudOps baseline fraud models with chronological splits and MLflow logging.")
-    parser.add_argument("--features", type=Path, default=PROJECT_ROOT / "data" / "curated" / "analytical_features" / "pipeline_run_id=phase3_full_002" / "features.parquet")
+    parser.add_argument("--features", type=Path, default=default_feature_path())
     parser.add_argument("--rules", type=Path, default=PROJECT_ROOT / "configs" / "rules.yaml")
     parser.add_argument("--cost-config", type=Path, default=PROJECT_ROOT / "configs" / "cost_config.yaml")
     parser.add_argument("--output-dir", type=Path, default=PROJECT_ROOT / "reports" / "modeling")

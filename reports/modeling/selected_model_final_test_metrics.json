@@ -8,7 +8,7 @@
   "false_positive_rate": 0.01120162932790224,
   "recall_at_fixed_review_capacity": 0.8611111111111112,
   "expected_financial_cost": 3734.9,
-  "inference_latency_ms_per_record": 0.276337849999436,
+  "inference_latency_ms_per_record": 0.27310965000651777,
   "threshold": 0.44999999999999996,
   "true_positives": 23.0,
   "false_positives": 22.0,

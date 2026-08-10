@@ -1,4 +1,4 @@
-﻿# Release Plan
+# Release Plan
 
 ## Version 1: Fraud Operations MVP
 
@@ -15,7 +15,7 @@ Included scope:
 - Rules and cost-sensitive decision engine
 - FastAPI scoring, alert, case, model, and rule endpoints
 - React analyst console for queue, investigation, case, timeline, and workbench flows
-- PostgreSQL reporting views for Power BI management reporting
+- PostgreSQL reporting views for Power BI management reporting, including API alert/case bridge rows
 - Documentation, metric dictionary, tests, and local runbook
 
 Version 1 readiness checklist:
@@ -30,21 +30,20 @@ Version 1 readiness checklist:
 
 Known limits:
 
-- API state is stored in local SQLite for now
 - Power BI Desktop refresh and screenshots are manual
-- Authentication, role-based permissions, CI, deployment, and monitoring are future scope
+- Authentication, role-based permissions, deployment, and monitoring are future scope
 
 ## Version 2: Orchestration and Streaming Foundation
 
-Version 2 should cover phases 10-12.
+Version 2 adds the local orchestration and streaming foundation for phases 10-12.
 
-Planned scope:
+Included scope:
 
-- Airflow orchestration through Docker profiles
-- Scheduled DAGs for ingestion, features, training, threshold optimization, and reporting
-- Local streaming foundation, likely Kafka plus Kafka UI
-- Event-style scoring or transaction ingestion path
-- Stronger operational observability around scheduled jobs
+- Airflow orchestration through Docker Compose profiles
+- Scheduled or manual DAGs for ingestion, features, training, threshold optimization, and reporting
+- Local Kafka and Kafka UI profile with topic conventions and sample transaction events
+- Event-style scoring path documented through Kafka topics and JSONL sample events
+- Airflow UI, retries, task logs, and pipeline validation artifacts for scheduled-job observability
 - README screenshots for Airflow and streaming workflows
 
 ## Version 3: Feedback, CI, Security, and AWS Deployment
@@ -57,7 +56,7 @@ Planned scope:
 - Monitoring for data drift, prediction drift, and performance drift
 - Champion-challenger model comparison and auditable promotion
 - Broader unit, data, integration, and regression tests
-- Ruff, pytest, coverage, dependency scan, and Docker checks in GitHub Actions
+- Expand GitHub Actions with coverage, dependency scanning, and Docker checks
 - Security assumptions and controls documented
 - AWS deployment with S3, EC2, optional RDS, CloudWatch, and Terraform
 

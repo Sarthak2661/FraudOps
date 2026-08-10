@@ -1,4 +1,4 @@
-﻿# Power BI Metric Dictionary
+# Power BI Metric Dictionary
 
 ## Connection
 
@@ -104,4 +104,3 @@ As of the Phase 9 validation run:
 - Rejected records: `0`
 - Failed data-quality records: `0`
 - Source-to-curated reconciliation: `true`
-

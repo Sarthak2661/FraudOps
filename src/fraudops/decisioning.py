@@ -2,13 +2,14 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
 import pandas as pd
 import yaml
+
+from fraudops.paths import default_feature_path
 
 DECISIONS = {"APPROVE", "STEP_UP_AUTHENTICATION", "MANUAL_REVIEW", "HOLD_OR_DECLINE"}
 
@@ -164,7 +165,7 @@ def apply_analyst_capacity(decisions: pd.DataFrame, analyst_daily_capacity: int)
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Run FraudOps rules and cost-sensitive decision engine.")
-    parser.add_argument("--features", type=Path, default=Path("data/curated/analytical_features/pipeline_run_id=phase3_full_002/features.parquet"))
+    parser.add_argument("--features", type=Path, default=default_feature_path())
     parser.add_argument("--rules", type=Path, default=Path("configs/rules.yaml"))
     parser.add_argument("--cost-config", type=Path, default=Path("configs/cost_config.yaml"))
     parser.add_argument("--model-probability", type=float, default=None)

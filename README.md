@@ -1,4 +1,4 @@
-﻿# FraudOps
+# FraudOps
 
 FraudOps is a local fraud-operations platform for banking transaction risk scoring, analyst review, case management, and management reporting. It uses generated banking data only; no real customer records are required.
 
@@ -10,9 +10,35 @@ FraudOps is a local fraud-operations platform for banking transaction risk scori
 - Feature engineering produces point-in-time-safe behavioural, device, merchant, and transaction features.
 - Baseline models are trained with chronological splits and tracked with MLflow.
 - A configurable rules engine combines model probability, rule signals, analyst capacity, and cost-sensitive decisioning.
-- FastAPI exposes scoring, transaction lookup, alerts, cases, model metadata, and rules.
+- FastAPI exposes scoring, transaction lookup, alerts, cases, model metadata, and rules, with API scoring state stored in PostgreSQL by default.
 - The React analyst console provides alert queue, investigation, case management, customer timeline, and analyst workbench views.
 - Power BI reporting views summarize executive, operations, rule, model, analyst, fraud-loss, and data-quality metrics.
+
+## Current Boundaries
+
+- The API stores live scored transactions, alerts, and cases in PostgreSQL by default through `FRAUDOPS_API_DATABASE_URL`.
+- SQLite is still available for isolated tests or lightweight local runs by setting FRAUDOPS_API_DATABASE_URL=sqlite:///api/fraudops_api.db.
+- Power BI connects to PostgreSQL reporting views. Alert and case views now combine warehouse operational rows, API operational rows, and seeded reporting rows when both operational sources are empty.
+- Model binaries are intentionally excluded from Git. After a fresh clone, run `python scripts\train_baseline_models.py` before relying on model-backed scoring artifacts. `/v1/models/current` reports whether scoring is using a trained artifact or fallback probability.
+- The project is ready for a local walkthrough, but production deployment work is still future scope: authentication, secrets management, observability, API-to-BI reporting integration, and hosted infrastructure.
+
+## Architecture
+
+```mermaid
+flowchart LR
+    A["Synthetic banking data"] --> B["Raw parquet batches"]
+    B --> C["Validation and quarantine"]
+    C --> D["Curated PostgreSQL tables"]
+    D --> E["Point-in-time features"]
+    E --> F["Baseline ML models and MLflow"]
+    E --> G["Configurable rules engine"]
+    F --> H["Cost-sensitive decisioning"]
+    G --> H
+    H --> I["FastAPI scoring service"]
+    I --> J["React analyst console"]
+    D --> K["Power BI reporting views"]
+    H --> K
+```
 
 ## Local Runbook
 
@@ -25,7 +51,7 @@ docker compose up -d fraud-postgres
 Activate Python and install dependencies:
 
 ```powershell
-py -3.13 -m venv .venv
+py -3.14 -m venv .venv
 .\.venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
 ```
@@ -73,6 +99,16 @@ Run tests:
 python -m pytest tests -q
 ```
 
+Run CI checks locally:
+
+```powershell
+ruff check .
+python -m pytest tests -q
+cd frontend
+npm.cmd ci
+npm.cmd run build
+```
+
 Train baseline models:
 
 ```powershell
@@ -95,6 +131,36 @@ Schema: fraudops_reporting
 ```
 
 
+## Orchestration And Streaming
+
+Version 2 local scaffolding includes Airflow DAGs, Kafka, Kafka UI, and job-observability runbooks.
+
+Start Airflow when you want scheduled pipeline runs:
+
+```powershell
+docker compose --profile airflow up -d fraud-postgres airflow-init airflow-webserver airflow-scheduler
+```
+
+Open Airflow:
+
+```text
+http://127.0.0.1:8080
+```
+
+Start Kafka and Kafka UI when you want the event-based scoring path:
+
+```powershell
+docker compose --profile streaming up -d kafka kafka-ui
+```
+
+Open Kafka UI:
+
+```text
+http://127.0.0.1:8081
+```
+
+Full local instructions are in `docs/phase10_12_orchestration_streaming.md`.
+
 ## Power BI Dashboard
 
 The Power BI project lives at:
@@ -107,10 +173,11 @@ Version 1 includes these completed report pages:
 
 - Executive Overview
 - Fraud Operations
-- Rule Performance
 - Model Performance
 - Analyst Performance
 - Data Quality
+
+Rule Performance is implemented in the report, but its screenshot is intentionally excluded from the README until the refreshed visual is re-exported with non-zero rule metrics.
 
 The report connects to PostgreSQL through the `fraudops_reporting` schema on:
 
@@ -119,16 +186,33 @@ Server: 127.0.0.1:55433
 Database: fraudops
 ```
 
-Screenshot exports are intentionally deferred for now. When screenshots are ready, save them in:
+Screenshot exports are saved in:
 
 ```text
 reports/powerbi/screenshots/
 ```
-## Current Boundaries
 
-- The API currently stores live scored alerts and cases in a local SQLite file under `api/`.
-- Power BI connects to PostgreSQL reporting views. Until API state is moved into PostgreSQL, the reporting views include seeded operational rows when PostgreSQL alert and case tables are empty.
-- The project is ready for a local walkthrough, but production deployment work is still future scope: authentication, secrets management, CI, observability, API persistence migration, and hosted infrastructure.
+### Dashboard Screenshots
+
+Executive Overview
+
+![Executive Overview](reports/powerbi/screenshots/executive_overview.png)
+
+Fraud Operations
+
+![Fraud Operations](reports/powerbi/screenshots/fraud_operations.png)
+
+Model Performance
+
+![Model Performance](reports/powerbi/screenshots/model_performance.png)
+
+Analyst Performance
+
+![Analyst Performance](reports/powerbi/screenshots/analyst_performance.png)
+
+Data Quality
+
+![Data Quality](reports/powerbi/screenshots/data_quality.png)
 
 ## Documentation Map
 
@@ -148,4 +232,3 @@ reports/powerbi/screenshots/
 ## License
 
 MIT License. See LICENSE.
-

@@ -130,10 +130,16 @@ class CaseResponse(BaseModel):
 
 class ModelCurrentResponse(BaseModel):
     model_name: str
+    model_status: Literal["READY", "FALLBACK"]
+    scoring_mode: Literal["model_artifact", "fallback_default_probability"]
     threshold: float | None
     feature_count: int
     artifact_path: str | None
+    artifact_exists: bool
+    trained_model_available: bool
+    fallback_probability: float | None = None
     metrics: dict[str, Any]
+    message: str
 
 
 class RuleResponse(BaseModel):

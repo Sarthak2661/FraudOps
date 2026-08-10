@@ -7,7 +7,15 @@ from sqlalchemy import JSON, Column, DateTime, Float, Integer, MetaData, String,
 from sqlalchemy.engine import Engine
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
-API_DATABASE_URL = os.getenv("FRAUDOPS_API_DATABASE_URL", f"sqlite:///{PROJECT_ROOT / 'api' / 'fraudops_api.db'}")
+DEFAULT_POSTGRES_URL = (
+    "postgresql+psycopg://"
+    f"{os.getenv('FRAUDOPS_POSTGRES_USER', 'fraudops_user')}:"
+    f"{os.getenv('FRAUDOPS_POSTGRES_PASSWORD', 'fraudops_password')}@"
+    f"{os.getenv('FRAUDOPS_POSTGRES_HOST', '127.0.0.1')}:"
+    f"{os.getenv('FRAUDOPS_POSTGRES_PORT', '55433')}/"
+    f"{os.getenv('FRAUDOPS_POSTGRES_DB', 'fraudops')}"
+)
+API_DATABASE_URL = os.getenv("FRAUDOPS_API_DATABASE_URL", DEFAULT_POSTGRES_URL)
 
 metadata = MetaData()
 

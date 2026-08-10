@@ -14,7 +14,7 @@ Create a repeatable raw-to-curated transaction pipeline with an auditable qualit
 ## Run the Pipeline
 
 ```powershell
-cd C:\Users\sarth\Documents\FraudOps
+cd FraudOps
 python scripts/run_batch_ingestion.py
 ```
 

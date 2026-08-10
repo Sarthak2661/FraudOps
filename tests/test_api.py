@@ -75,3 +75,15 @@ def test_case_workflow(tmp_path: Path) -> None:
     assert resolved.status_code == 200
     assert resolved.json()["status"] == "CLOSED"
     assert resolved.json()["outcome"] == "CONFIRMED_FRAUD"
+
+
+def test_current_model_reports_artifact_status(tmp_path: Path) -> None:
+    client = make_client(tmp_path)
+    response = client.get("/v1/models/current")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["model_status"] in {"READY", "FALLBACK"}
+    assert body["scoring_mode"] in {"model_artifact", "fallback_default_probability"}
+    assert isinstance(body["artifact_exists"], bool)
+    assert isinstance(body["trained_model_available"], bool)
+    assert body["message"]

@@ -51,6 +51,10 @@ frontend/pnpm-lock.yaml
 reports/powerbi/**/*.pbix
 reports/powerbi/**/.pbi/
 reports/powerbi/backup_before_dashboard_pages_*/
-reports/powerbi/screenshots/*.png
-reports/powerbi/screenshots/*.jpg
-reports/powerbi/screenshots/*.jpeg
+# Airflow local runtime state.
+airflow/logs/*
+!airflow/logs/.gitkeep
+airflow/*.db
+airflow/airflow.cfg
+airflow/webserver_config.py
+reports/orchestration/
