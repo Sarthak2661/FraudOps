@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import sys
 import uuid
 from datetime import timedelta
@@ -8,7 +7,6 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
-import joblib
 import pandas as pd
 from sqlalchemy import Engine, insert, select
 
@@ -19,15 +17,11 @@ if str(SRC_DIR) not in sys.path:
 
 from api._support import json_list, now_utc, row_to_dict
 from api.database import alerts, scored_transactions
-from api.schemas import ModelCurrentResponse, RuleResponse, ScoreResponse, ScoreTransactionRequest, TransactionResponse
-from fraudops.decisioning import decide_transaction, load_yaml
+from api.model_service import DEFAULT_FALLBACK_PROBABILITY, load_cost_config, load_model_bundle, load_rules_config
+from api.schemas import ScoreResponse, ScoreTransactionRequest, TransactionResponse
+from fraudops.decisioning import decide_transaction
 
 FEATURE_PATH = PROJECT_ROOT / "data" / "curated" / "analytical_features" / "pipeline_run_id=phase3_full_002" / "features.parquet"
-MODEL_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model.joblib"
-FINAL_METRICS_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model_final_test_metrics.json"
-RULES_PATH = PROJECT_ROOT / "configs" / "rules.yaml"
-COST_CONFIG_PATH = PROJECT_ROOT / "configs" / "cost_config.yaml"
-DEFAULT_FALLBACK_PROBABILITY = 0.01
 
 
 @lru_cache(maxsize=1)
@@ -37,23 +31,6 @@ def load_features() -> pd.DataFrame:
     frame = pd.read_parquet(FEATURE_PATH)
     frame["transaction_at"] = pd.to_datetime(frame["transaction_at"], utc=True)
     return frame
-
-
-@lru_cache(maxsize=1)
-def load_model_bundle() -> dict[str, Any] | None:
-    if not MODEL_PATH.exists():
-        return None
-    return joblib.load(MODEL_PATH)
-
-
-@lru_cache(maxsize=1)
-def load_rules_config() -> dict[str, Any]:
-    return load_yaml(RULES_PATH)
-
-
-@lru_cache(maxsize=1)
-def load_cost_config() -> dict[str, Any]:
-    return load_yaml(COST_CONFIG_PATH)
 
 
 def feature_for_request(request: ScoreTransactionRequest) -> dict[str, Any]:
@@ -212,51 +189,3 @@ def get_transaction(engine: Engine, transaction_id: str) -> TransactionResponse 
                 source="curated_features",
             )
     return None
-
-
-def current_model() -> ModelCurrentResponse:
-    artifact_exists = MODEL_PATH.exists()
-    bundle = load_model_bundle()
-    metrics = json.loads(FINAL_METRICS_PATH.read_text(encoding="utf-8")) if FINAL_METRICS_PATH.exists() else {}
-    if bundle:
-        return ModelCurrentResponse(
-            model_name="random_forest_balanced",
-            model_status="READY",
-            scoring_mode="model_artifact",
-            threshold=float(bundle.get("threshold")),
-            feature_count=len(bundle.get("features", [])),
-            artifact_path=str(MODEL_PATH),
-            artifact_exists=artifact_exists,
-            trained_model_available=True,
-            fallback_probability=None,
-            metrics=metrics,
-            message="Using the trained model artifact for scoring.",
-        )
-    return ModelCurrentResponse(
-        model_name="unavailable",
-        model_status="FALLBACK",
-        scoring_mode="fallback_default_probability",
-        threshold=None,
-        feature_count=0,
-        artifact_path=str(MODEL_PATH) if artifact_exists else None,
-        artifact_exists=artifact_exists,
-        trained_model_available=False,
-        fallback_probability=DEFAULT_FALLBACK_PROBABILITY,
-        metrics=metrics,
-        message="Trained model artifact is not available. Run python scripts\\train_baseline_models.py to regenerate reports/modeling/selected_model.joblib.",
-    )
-
-
-def rules() -> list[RuleResponse]:
-    return [
-        RuleResponse(
-            rule_id=item["rule_id"],
-            name=item["name"],
-            description=item.get("description", ""),
-            severity=item.get("severity", "medium"),
-            active=bool(item.get("active", True)),
-            risk_points=float(item.get("risk_points", 0)),
-            decision_override=item.get("decision_override"),
-        )
-        for item in load_rules_config().get("rules", [])
-    ]

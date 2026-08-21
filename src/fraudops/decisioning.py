@@ -147,6 +147,12 @@ def decide_transaction(
     }
 
 
+def fallback_model_probability(transaction: dict[str, Any] | pd.Series) -> float:
+    merchant_signal = float(transaction.get("merchant_fraud_rate_30d", 0.0)) * 0.4
+    amount_signal = float(float(transaction.get("amount_to_customer_avg_ratio", 1.0)) > 5) * 0.4
+    return max(0.01, min(0.99, merchant_signal + amount_signal))
+
+
 def apply_analyst_capacity(decisions: pd.DataFrame, analyst_daily_capacity: int) -> pd.DataFrame:
     frame = decisions.copy()
     manual_mask = frame["decision"].eq("MANUAL_REVIEW")
@@ -182,8 +188,7 @@ def main() -> None:
     row = features.iloc[-1] if args.transaction_id is None else features.loc[features["transaction_id"].eq(args.transaction_id)].iloc[0]
     probability = args.model_probability
     if probability is None:
-        probability = float(row.get("merchant_fraud_rate_30d", 0.0)) * 0.4 + float(row.get("amount_to_customer_avg_ratio", 1.0) > 5) * 0.4
-        probability = max(0.01, min(0.99, probability))
+        probability = fallback_model_probability(row)
     result = decide_transaction(row.to_dict(), probability, rules_config, cost_config)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2), encoding="utf-8")

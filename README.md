@@ -79,6 +79,12 @@ $env:FRAUDOPS_API_DATABASE_URL="postgresql+psycopg://fraudops_user:fraudops_pass
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
+Optional local API-key boundary:
+
+```powershell
+$env:FRAUDOPS_API_KEY="replace-with-local-demo-key"
+```
+
 Open the API docs at:
 
 ```text
@@ -100,6 +106,37 @@ http://127.0.0.1:5173/
 ```
 
 If that port is already busy, Vite will print the next available URL.
+
+## Local Runbook For macOS/Linux
+
+Start PostgreSQL:
+
+```bash
+docker compose up -d fraud-postgres
+```
+
+Create and activate Python:
+
+```bash
+python3.14 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
+
+Run the API:
+
+```bash
+export FRAUDOPS_API_DATABASE_URL="postgresql+psycopg://fraudops_user:fraudops_password@127.0.0.1:55433/fraudops"
+python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
+```
+
+Run the analyst console:
+
+```bash
+cd frontend
+npm ci
+npm run dev
+```
 
 ## Useful Checks
 
@@ -225,6 +262,16 @@ Analyst Performance
 Data Quality
 
 ![Data Quality](reports/powerbi/screenshots/data_quality.png)
+
+## Application Screenshots
+
+FastAPI Swagger Docs
+
+![FastAPI Swagger Docs](reports/app_screenshots/fastapi_docs.png)
+
+React Analyst Console
+
+![React Analyst Console](reports/app_screenshots/react_analyst_console.png)
 
 ## Documentation Map
 

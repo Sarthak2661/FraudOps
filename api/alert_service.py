@@ -10,12 +10,13 @@ from api.database import alerts
 from api.schemas import AlertResponse
 
 
+def _ensure_utc(value: datetime | str) -> datetime:
+    timestamp = datetime.fromisoformat(value.replace("Z", "+00:00")) if isinstance(value, str) else value
+    return timestamp.replace(tzinfo=UTC) if timestamp.tzinfo is None else timestamp
+
+
 def alert_response(row: dict[str, Any]) -> AlertResponse:
-    created_at = row["created_at"]
-    if isinstance(created_at, str):
-        created_at = datetime.fromisoformat(created_at.replace("Z", "+00:00"))
-    if created_at.tzinfo is None:
-        created_at = created_at.replace(tzinfo=UTC)
+    created_at = _ensure_utc(row["created_at"])
     age_minutes = max(0, int((now_utc() - created_at).total_seconds() // 60))
     return AlertResponse(
         alert_id=row["alert_id"],

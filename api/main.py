@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import logging
+import os
 import uuid
 from collections.abc import Callable
 from contextlib import asynccontextmanager
@@ -23,19 +24,21 @@ from api.schemas import (
     ScoreResponse,
     ScoreTransactionRequest,
 )
-from api.alerts import get_alert, list_alerts
-from api.cases import (
+from api.alert_service import get_alert, list_alerts
+from api.case_service import (
     add_case_action,
     create_case,
     get_case,
     patch_case,
     resolve_case,
 )
-from api.scoring import current_model, get_transaction, rules, score_transaction
+from api.model_service import current_model, rules
+from api.scoring_service import get_transaction, score_transaction
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s correlation_id=%(correlation_id)s %(message)s")
 logger = logging.getLogger("fraudops.api")
 engine = get_engine()
+OPEN_AUTH_PATHS = {"/health", "/docs", "/openapi.json", "/redoc"}
 
 
 @asynccontextmanager
@@ -63,6 +66,13 @@ app.add_middleware(
 async def correlation_id_middleware(request: Request, call_next: Callable) -> Response:
     correlation_id = request.headers.get("x-correlation-id") or str(uuid.uuid4())
     request.state.correlation_id = correlation_id
+    api_key = os.getenv("FRAUDOPS_API_KEY")
+    if api_key and request.url.path not in OPEN_AUTH_PATHS and request.headers.get("x-api-key") != api_key:
+        return JSONResponse(
+            status_code=401,
+            content={"error": "unauthorized", "detail": "Missing or invalid API key", "correlation_id": correlation_id},
+            headers={"x-correlation-id": correlation_id},
+        )
     try:
         response = await call_next(request)
     except Exception:

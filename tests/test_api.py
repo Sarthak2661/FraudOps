@@ -16,7 +16,7 @@ if str(PROJECT_ROOT / "src") not in sys.path:
 os.environ.setdefault("FRAUDOPS_API_DATABASE_URL", "sqlite:///:memory:")
 
 from api import main as api_main
-from api import scoring as api_scoring
+from api import scoring_service
 from api.database import initialize_database
 
 
@@ -38,7 +38,7 @@ def test_health_and_docs(tmp_path: Path) -> None:
 
 def test_score_is_idempotent_and_creates_single_alert(tmp_path: Path, monkeypatch) -> None:
     client = make_client(tmp_path)
-    monkeypatch.setattr(api_scoring, "predict_probability", lambda feature_row: 0.92)
+    monkeypatch.setattr(scoring_service, "predict_probability", lambda feature_row: 0.92)
     payload = {
         "transaction_id": "api-test-txn-001",
         "customer_id": "cust-api",
@@ -80,9 +80,23 @@ def test_invalid_score_request_returns_useful_error(tmp_path: Path) -> None:
     assert body["correlation_id"]
 
 
+def test_api_key_boundary_is_enforced_when_configured(tmp_path: Path, monkeypatch) -> None:
+    monkeypatch.setenv("FRAUDOPS_API_KEY", "local-test-key")
+    client = make_client(tmp_path)
+    payload = {"transaction_id": "api-test-auth-001", "customer_id": "cust-api", "amount": 100.0, "currency": "USD"}
+
+    rejected = client.post("/v1/transactions/score", json=payload)
+    accepted = client.post("/v1/transactions/score", json=payload, headers={"x-api-key": "local-test-key"})
+
+    assert rejected.status_code == 401
+    assert rejected.json()["error"] == "unauthorized"
+    assert accepted.status_code == 200
+    monkeypatch.delenv("FRAUDOPS_API_KEY", raising=False)
+
+
 def test_case_workflow(tmp_path: Path, monkeypatch) -> None:
     client = make_client(tmp_path)
-    monkeypatch.setattr(api_scoring, "predict_probability", lambda feature_row: 0.88)
+    monkeypatch.setattr(scoring_service, "predict_probability", lambda feature_row: 0.88)
     score = client.post(
         "/v1/transactions/score",
         json={"transaction_id": "api-test-txn-002", "customer_id": "cust-case", "amount": 500},

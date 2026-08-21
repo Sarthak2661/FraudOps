@@ -1,5 +1,6 @@
 [tool.ruff.lint.per-file-ignores]
-"api/scoring.py" = ["E402"]
+"api/model_service.py" = ["E402"]
+"api/scoring_service.py" = ["E402"]
 "scripts/*.py" = ["E402"]
 "src/fraudops/modeling.py" = ["E402"]
 "tests/*.py" = ["E402"]

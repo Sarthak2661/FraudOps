@@ -82,6 +82,24 @@ def test_customer_average_uses_only_prior_transactions() -> None:
                 "fraud_label": "unknown",
                 "fraud_scenario": "",
             },
+            {
+                "transaction_id": "txn-3",
+                "transaction_external_id": "TXN-3",
+                "customer_id": "cust-1",
+                "account_id": "acct-1",
+                "card_id": "card-1",
+                "device_id": "dev-1",
+                "merchant_id": "merch-1",
+                "transaction_at": "2026-07-01T12:00:00Z",
+                "amount": 10000.0,
+                "currency": "USD",
+                "merchant_country": "US",
+                "merchant_city": "New York",
+                "channel": "card_present",
+                "status": "AUTHORIZED",
+                "fraud_label": "unknown",
+                "fraud_scenario": "",
+            },
         ]
     )
 
@@ -97,3 +115,7 @@ def test_customer_average_uses_only_prior_transactions() -> None:
     assert second["customer_avg_amount_7d"] == 100.0
     assert second["transactions_last_1h"] == 1
     assert second["amount_to_customer_avg_ratio"] == 3.0
+
+    third = features.loc[features["transaction_id"].eq("txn-3")].iloc[0]
+    assert third["customer_avg_amount_7d"] == 200.0
+    assert third["amount_to_customer_avg_ratio"] == 50.0
