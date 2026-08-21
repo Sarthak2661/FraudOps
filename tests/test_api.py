@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import sys
 from pathlib import Path
 
@@ -12,7 +13,10 @@ if str(PROJECT_ROOT) not in sys.path:
 if str(PROJECT_ROOT / "src") not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT / "src"))
 
+os.environ.setdefault("FRAUDOPS_API_DATABASE_URL", "sqlite:///:memory:")
+
 from api import main as api_main
+from api import scoring as api_scoring
 from api.database import initialize_database
 
 
@@ -32,14 +36,14 @@ def test_health_and_docs(tmp_path: Path) -> None:
     assert client.get("/docs").status_code == 200
 
 
-def test_score_is_idempotent_and_creates_single_alert(tmp_path: Path) -> None:
+def test_score_is_idempotent_and_creates_single_alert(tmp_path: Path, monkeypatch) -> None:
     client = make_client(tmp_path)
+    monkeypatch.setattr(api_scoring, "predict_probability", lambda feature_row: 0.92)
     payload = {
         "transaction_id": "api-test-txn-001",
         "customer_id": "cust-api",
         "amount": 920.0,
         "currency": "USD",
-        "model_probability_override": 0.92,
     }
     first = client.post("/v1/transactions/score", json=payload)
     second = client.post("/v1/transactions/score", json=payload)
@@ -51,6 +55,22 @@ def test_score_is_idempotent_and_creates_single_alert(tmp_path: Path) -> None:
     assert len(alerts) == 1
 
 
+def test_score_rejects_public_probability_override(tmp_path: Path) -> None:
+    client = make_client(tmp_path)
+    response = client.post(
+        "/v1/transactions/score",
+        json={
+            "transaction_id": "api-test-txn-override",
+            "customer_id": "cust-api",
+            "amount": 920.0,
+            "currency": "USD",
+            "model_probability_override": 0.92,
+        },
+    )
+    assert response.status_code == 422
+    assert response.json()["error"] == "validation_error"
+
+
 def test_invalid_score_request_returns_useful_error(tmp_path: Path) -> None:
     client = make_client(tmp_path)
     response = client.post("/v1/transactions/score", json={"transaction_id": "bad", "amount": -1})
@@ -60,11 +80,12 @@ def test_invalid_score_request_returns_useful_error(tmp_path: Path) -> None:
     assert body["correlation_id"]
 
 
-def test_case_workflow(tmp_path: Path) -> None:
+def test_case_workflow(tmp_path: Path, monkeypatch) -> None:
     client = make_client(tmp_path)
+    monkeypatch.setattr(api_scoring, "predict_probability", lambda feature_row: 0.88)
     score = client.post(
         "/v1/transactions/score",
-        json={"transaction_id": "api-test-txn-002", "customer_id": "cust-case", "amount": 500, "model_probability_override": 0.88},
+        json={"transaction_id": "api-test-txn-002", "customer_id": "cust-case", "amount": 500},
     ).json()
     case = client.post("/v1/cases", json={"customer_id": "cust-case", "alert_ids": [score["alert_id"]], "assigned_to": "analyst1"})
     assert case.status_code == 200

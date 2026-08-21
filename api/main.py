@@ -23,19 +23,15 @@ from api.schemas import (
     ScoreResponse,
     ScoreTransactionRequest,
 )
-from api.service import (
+from api.alerts import get_alert, list_alerts
+from api.cases import (
     add_case_action,
     create_case,
-    current_model,
-    get_alert,
     get_case,
-    get_transaction,
-    list_alerts,
     patch_case,
     resolve_case,
-    rules,
-    score_transaction,
 )
+from api.scoring import current_model, get_transaction, rules, score_transaction
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name)s correlation_id=%(correlation_id)s %(message)s")
 logger = logging.getLogger("fraudops.api")

@@ -9,6 +9,7 @@ Expose transaction scoring and fraud case-management through versioned APIs.
 ```powershell
 cd FraudOps
 .\.venv\Scripts\Activate.ps1
+$env:FRAUDOPS_API_DATABASE_URL="postgresql+psycopg://fraudops_user:fraudops_password@127.0.0.1:55433/fraudops"
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 

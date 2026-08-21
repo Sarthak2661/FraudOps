@@ -1,3 +1,3 @@
-{"event_id":"evt-000001","transaction_id":"stream-txn-000001","customer_id":"stream-cust-001","amount":42.50,"currency":"USD","channel":"card_not_present","merchant_country":"US","model_probability_override":0.18}
-{"event_id":"evt-000002","transaction_id":"stream-txn-000002","customer_id":"stream-cust-002","amount":920.00,"currency":"USD","channel":"mobile_wallet","merchant_country":"GB","model_probability_override":0.91}
-{"event_id":"evt-000003","transaction_id":"stream-txn-000003","customer_id":"stream-cust-003","amount":1260.00,"currency":"USD","channel":"card_not_present","merchant_country":"SG","model_probability_override":0.88}
+{"event_id":"evt-000001","transaction_id":"stream-txn-000001","customer_id":"stream-cust-001","amount":42.50,"currency":"USD","channel":"card_not_present","merchant_country":"US"}
+{"event_id":"evt-000002","transaction_id":"stream-txn-000002","customer_id":"stream-cust-002","amount":920.00,"currency":"USD","channel":"mobile_wallet","merchant_country":"GB"}
+{"event_id":"evt-000003","transaction_id":"stream-txn-000003","customer_id":"stream-cust-003","amount":1260.00,"currency":"USD","channel":"card_not_present","merchant_country":"SG"}

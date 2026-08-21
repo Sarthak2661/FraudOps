@@ -1,5 +1,7 @@
 # FraudOps
 
+[![CI](https://github.com/Sarthak2661/FraudOps/actions/workflows/ci.yml/badge.svg)](https://github.com/Sarthak2661/FraudOps/actions/workflows/ci.yml)
+
 FraudOps is a local fraud-operations platform for banking transaction risk scoring, analyst review, case management, and management reporting. It uses generated banking data only; no real customer records are required.
 
 ## What Works Today
@@ -20,7 +22,7 @@ FraudOps is a local fraud-operations platform for banking transaction risk scori
 - SQLite is still available for isolated tests or lightweight local runs by setting FRAUDOPS_API_DATABASE_URL=sqlite:///api/fraudops_api.db.
 - Power BI connects to PostgreSQL reporting views. Alert and case views now combine warehouse operational rows, API operational rows, and seeded reporting rows when both operational sources are empty.
 - Model binaries are intentionally excluded from Git. After a fresh clone, run `python scripts\train_baseline_models.py` before relying on model-backed scoring artifacts. `/v1/models/current` reports whether scoring is using a trained artifact or fallback probability.
-- The project is ready for a local walkthrough, but production deployment work is still future scope: authentication, secrets management, observability, API-to-BI reporting integration, and hosted infrastructure.
+- The project is ready for a local walkthrough, but production deployment work is still future scope: authentication, secrets management, production observability, fully unified production reporting, and hosted infrastructure.
 
 ## Architecture
 
@@ -41,6 +43,13 @@ flowchart LR
 ```
 
 ## Local Runbook
+
+Prerequisites:
+
+- Docker Desktop running before any `docker compose` command
+- Python 3.14
+- Node.js 24 with `npm.cmd`
+- Power BI Desktop for the reporting project
 
 Start PostgreSQL:
 
@@ -66,6 +75,7 @@ Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 Run the API:
 
 ```powershell
+$env:FRAUDOPS_API_DATABASE_URL="postgresql+psycopg://fraudops_user:fraudops_password@127.0.0.1:55433/fraudops"
 python -m uvicorn api.main:app --host 127.0.0.1 --port 8000
 ```
 
@@ -102,6 +112,8 @@ python -m pytest tests -q
 Run CI checks locally:
 
 ```powershell
+python -m pip install pip-audit==2.10.1
+pip-audit -r requirements.txt --ignore-vuln PYSEC-2026-3552
 ruff check .
 python -m pytest tests -q
 cd frontend

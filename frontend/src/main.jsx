@@ -76,12 +76,11 @@ function Workbench({ alerts, model, rules }) {
 
 function ScorePanel({ onScored }) {
   const [amount, setAmount] = React.useState("920");
-  const [probability, setProbability] = React.useState("0.82");
   async function score() {
-    const result = await api.score({ transaction_id: `ui-${Date.now()}`, customer_id: "ui-customer", amount: Number(amount), currency: "USD", model_probability_override: Number(probability) });
+    const result = await api.score({ transaction_id: `ui-${Date.now()}`, customer_id: "ui-customer", amount: Number(amount), currency: "USD" });
     onScored(result);
   }
-  return <div className="scorePanel"><input value={amount} onChange={e => setAmount(e.target.value)} /><input value={probability} onChange={e => setProbability(e.target.value)} /><button onClick={score}>Score Transaction</button></div>;
+  return <div className="scorePanel"><input value={amount} onChange={e => setAmount(e.target.value)} /><button onClick={score}>Score Transaction</button></div>;
 }
 
 function App() {

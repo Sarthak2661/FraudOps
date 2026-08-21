@@ -1,21 +1,11 @@
 from __future__ import annotations
 
 import os
-from pathlib import Path
 
 from sqlalchemy import JSON, Column, DateTime, Float, Integer, MetaData, String, Table, Text, create_engine, func
 from sqlalchemy.engine import Engine
 
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_POSTGRES_URL = (
-    "postgresql+psycopg://"
-    f"{os.getenv('FRAUDOPS_POSTGRES_USER', 'fraudops_user')}:"
-    f"{os.getenv('FRAUDOPS_POSTGRES_PASSWORD', 'fraudops_password')}@"
-    f"{os.getenv('FRAUDOPS_POSTGRES_HOST', '127.0.0.1')}:"
-    f"{os.getenv('FRAUDOPS_POSTGRES_PORT', '55433')}/"
-    f"{os.getenv('FRAUDOPS_POSTGRES_DB', 'fraudops')}"
-)
-API_DATABASE_URL = os.getenv("FRAUDOPS_API_DATABASE_URL", DEFAULT_POSTGRES_URL)
+REQUIRED_DATABASE_ENV = "FRAUDOPS_API_DATABASE_URL"
 
 metadata = MetaData()
 
@@ -81,7 +71,14 @@ case_actions = Table(
 
 
 def get_engine(database_url: str | None = None) -> Engine:
-    url = database_url or API_DATABASE_URL
+    if database_url is None:
+        try:
+            database_url = os.environ[REQUIRED_DATABASE_ENV]
+        except KeyError as exc:
+            raise RuntimeError(
+                f"{REQUIRED_DATABASE_ENV} is required. Set it explicitly instead of relying on local demo credentials."
+            ) from exc
+    url = database_url
     connect_args = {"check_same_thread": False} if url.startswith("sqlite") else {}
     return create_engine(url, connect_args=connect_args, future=True)
 

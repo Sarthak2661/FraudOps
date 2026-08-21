@@ -15,6 +15,10 @@ FraudOps is built for local development with generated banking data. The reposit
 - Model, rule, and threshold metadata tracked in configuration and database tables
 - Generated data, local databases, dependency folders, model binaries, and build outputs ignored by git
 
+## Dependency Audit Note
+
+CI runs `pip-audit` against the pinned Python requirements. The audit currently ignores `PYSEC-2026-3552` because `mlflow==3.15.1` is the latest available MLflow release and requires `cryptography<50`, while the advisory fix starts at `cryptography==50.0.0`. Remove the ignore as soon as MLflow supports the fixed cryptography major version.
+
 ## Local Development Credentials
 
 The project includes placeholder PostgreSQL credentials for local Docker development. Replace them before any shared or hosted deployment.

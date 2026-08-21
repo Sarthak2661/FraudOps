@@ -26,6 +26,8 @@ class HealthResponse(BaseModel):
 
 
 class ScoreTransactionRequest(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
     transaction_id: str = Field(..., min_length=3)
     customer_id: str | None = None
     card_id: str | None = None
@@ -37,7 +39,6 @@ class ScoreTransactionRequest(BaseModel):
     channel: str = "card_not_present"
     merchant_country: str = "US"
     transaction_at: datetime | None = None
-    model_probability_override: float | None = Field(default=None, ge=0, le=1)
 
 
 class ScoreResponse(BaseModel):
