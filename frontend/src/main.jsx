@@ -73,16 +73,31 @@ function modelLabel(value) {
   return value ? String(value) : "-";
 }
 
+function scoreLabel(value) {
+  return Number.isFinite(value) ? value.toFixed(2) : "-";
+}
+
+function decisionContext(riskScore, threshold, decision) {
+  if (!Number.isFinite(riskScore) || !Number.isFinite(threshold)) return "";
+  const decisionText = String(decision || "").replaceAll("_", " ");
+  return `Above ${scoreLabel(threshold)} threshold; cost rules selected ${decisionText}.`;
+}
+
 function StatusPill({ value }) {
   return <span className={`pill ${String(value).toLowerCase()}`}>{String(value).replaceAll("_", " ")}</span>;
 }
 
-function RiskBar({ value }) {
+function RiskBar({ value, threshold }) {
   const pct = Math.round((value || 0) * 100);
+  const thresholdPct = Math.max(0, Math.min(100, Math.round((threshold || 0) * 100)));
   return (
-    <div className="risk" aria-label={`Risk ${pct}%`}>
-      <span style={{ width: `${pct}%` }} />
-      <b>{pct}</b>
+    <div className="riskWrap">
+      <div className="risk" aria-label={`Risk ${pct}%, threshold ${thresholdPct}%`}>
+        <span style={{ width: `${pct}%` }} />
+        {Number.isFinite(threshold) && <i style={{ left: `${thresholdPct}%` }} title={`Threshold ${thresholdPct}%`} />}
+        <b>{pct}</b>
+      </div>
+      {Number.isFinite(threshold) && <small>threshold {scoreLabel(threshold)}</small>}
     </div>
   );
 }
@@ -119,7 +134,7 @@ function TopNotice({ apiState, error }) {
   );
 }
 
-function AlertQueue({ alerts, selectedAlert, setSelectedAlert, refresh, loading, usingSamples }) {
+function AlertQueue({ alerts, selectedAlert, setSelectedAlert, refresh, loading, usingSamples, threshold }) {
   return (
     <section className="panel fill">
       <div className="toolbar">
@@ -161,11 +176,16 @@ function AlertQueue({ alerts, selectedAlert, setSelectedAlert, refresh, loading,
                   onClick={() => setSelectedAlert(alert)}
                 >
                   <td data-label="Alert ID">{alert.alert_id}</td>
-                  <td data-label="Risk"><RiskBar value={alert.risk_score} /></td>
+                  <td data-label="Risk"><RiskBar value={alert.risk_score} threshold={threshold} /></td>
                   <td data-label="Amount">{money(alert.amount)}</td>
                   <td data-label="Priority">{alert.priority}</td>
                   <td data-label="Customer">{alert.customer_id || "-"}</td>
-                  <td data-label="Decision"><StatusPill value={alert.decision} /></td>
+                  <td data-label="Decision">
+                    <StatusPill value={alert.decision} />
+                    {decisionContext(alert.risk_score, threshold, alert.decision) && (
+                      <small className="decisionNote">{decisionContext(alert.risk_score, threshold, alert.decision)}</small>
+                    )}
+                  </td>
                   <td data-label="Age">{alert.alert_age_minutes}m</td>
                   <td data-label="Status"><StatusPill value={alert.status} /></td>
                   <td data-label="Analyst">{alert.assigned_analyst || "Unassigned"}</td>
@@ -403,14 +423,16 @@ function ScorePanel({ onScored }) {
   );
 }
 
-function LastScored({ result }) {
+function LastScored({ result, threshold }) {
   if (!result) return null;
   return (
     <div className="lastScored">
       <CheckCircle2 size={18} />
       <span>
-        Last scored <b>{result.transaction_id}</b>: <b>{Math.round(result.risk_score * 100)} risk</b>, {result.decision.replaceAll("_", " ")}
-        {result.alert_id ? `, alert ${result.alert_id}` : ", no alert"}
+        Last scored <b>{result.transaction_id}</b>: <b>{scoreLabel(result.risk_score)}</b> risk
+        {Number.isFinite(threshold) ? ` against ${scoreLabel(threshold)} threshold` : ""}, {result.decision.replaceAll("_", " ")}
+        {result.alert_id ? `, alert ${result.alert_id}` : ", no alert"}.
+        {decisionContext(result.risk_score, threshold, result.decision) && <em>{decisionContext(result.risk_score, threshold, result.decision)}</em>}
       </span>
     </div>
   );
@@ -500,7 +522,7 @@ function App() {
           <ScorePanel onScored={onScored} />
         </header>
         <TopNotice apiState={apiState} error={error} />
-        <LastScored result={lastScored} />
+        <LastScored result={lastScored} threshold={model?.threshold} />
         {tab === "queue" && (
           <AlertQueue
             alerts={alerts}
@@ -509,6 +531,7 @@ function App() {
             refresh={refresh}
             loading={loading}
             usingSamples={usingSamples}
+            threshold={model?.threshold}
           />
         )}
         {tab === "investigation" && <Investigation alert={selectedAlert} />}

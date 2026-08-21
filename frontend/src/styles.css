@@ -85,6 +85,8 @@ header p, .toolbar p { margin: 4px 0 0; color: #657487; }
 .notice.warning { background: #fff8e8; border-color: #f2d08a; color: #7a4b00; }
 .notice.info { background: #edf6ff; border-color: #b8d8f4; color: #225d86; }
 .lastScored { background: #eaf7f0; border-color: #bfe4cd; color: #17633c; }
+.lastScored span { display: flex; flex-wrap: wrap; gap: 4px; align-items: baseline; }
+.lastScored em { color: #426450; font-size: 12px; font-style: normal; }
 
 .panel { background: #fff; border: 1px solid #d8e0e8; border-radius: 8px; padding: 16px; min-width: 0; box-shadow: 0 1px 2px rgba(17, 24, 39, .04); }
 .panel.fill { flex: 1; }
@@ -118,9 +120,13 @@ td { padding: 10px; border-bottom: 1px solid #edf1f5; font-size: 13px; white-spa
 tr { cursor: pointer; }
 tr:hover, tr.selected { background: #eef7f4; }
 
+.riskWrap { display: grid; gap: 3px; width: max-content; }
+.riskWrap small { color: #687789; font-size: 11px; line-height: 1; }
 .risk { width: 92px; height: 22px; border-radius: 5px; background: #e9eef3; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; }
 .risk span { position: absolute; left: 0; top: 0; bottom: 0; background: #d85c4a; }
+.risk i { position: absolute; top: 0; bottom: 0; width: 2px; background: #111827; opacity: .7; }
 .risk b { position: relative; font-size: 12px; color: #111827; }
+.decisionNote { display: block; max-width: 360px; margin-top: 4px; color: #687789; font-size: 11px; line-height: 1.35; white-space: normal; }
 .pill { display: inline-flex; align-items: center; min-height: 24px; padding: 3px 8px; border-radius: 999px; font-size: 12px; font-weight: 650; background: #eef2f7; color: #3b4754; text-transform: capitalize; }
 .pill.manual_review, .pill.open, .pill.escalated, .pill.ready { background: #fff1d6; color: #7a4b00; }
 .pill.hold_or_decline, .pill.confirmed_fraud { background: #ffe1de; color: #8a2218; }
@@ -195,5 +201,9 @@ dd { margin: 0; font-weight: 650; min-width: 0; overflow-wrap: anywhere; }
     color: #687789;
     font-size: 12px;
     font-weight: 700;
+  }
+  .decisionNote {
+    grid-column: 2;
+    max-width: none;
   }
 }
