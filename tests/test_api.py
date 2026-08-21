@@ -16,6 +16,7 @@ if str(PROJECT_ROOT / "src") not in sys.path:
 os.environ.setdefault("FRAUDOPS_API_DATABASE_URL", "sqlite:///:memory:")
 
 from api import main as api_main
+from api import model_service
 from api import scoring_service
 from api.database import initialize_database
 
@@ -34,6 +35,19 @@ def test_health_and_docs(tmp_path: Path) -> None:
     assert response.json()["status"] == "ok"
     assert response.headers["x-correlation-id"] == "test-corr"
     assert client.get("/docs").status_code == 200
+
+
+def test_local_vite_ports_are_allowed_by_cors(tmp_path: Path) -> None:
+    client = make_client(tmp_path)
+    response = client.options(
+        "/v1/models/current",
+        headers={
+            "origin": "http://127.0.0.1:5176",
+            "access-control-request-method": "GET",
+        },
+    )
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == "http://127.0.0.1:5176"
 
 
 def test_score_is_idempotent_and_creates_single_alert(tmp_path: Path, monkeypatch) -> None:
@@ -122,3 +136,18 @@ def test_current_model_reports_artifact_status(tmp_path: Path) -> None:
     assert isinstance(body["artifact_exists"], bool)
     assert isinstance(body["trained_model_available"], bool)
     assert body["message"]
+
+
+def test_current_model_uses_model_selection_name(tmp_path: Path, monkeypatch) -> None:
+    selection_path = tmp_path / "model_selection.json"
+    selection_path.write_text('{"selected_model": "hist_gradient_boosting"}', encoding="utf-8")
+    monkeypatch.setattr(model_service, "MODEL_SELECTION_PATH", selection_path)
+    monkeypatch.setattr(model_service, "MODEL_PATH", tmp_path / "selected_model.joblib")
+    monkeypatch.setattr(model_service, "FINAL_METRICS_PATH", tmp_path / "metrics.json")
+    monkeypatch.setattr(model_service, "load_model_bundle", lambda: {"threshold": 0.05, "features": ["amount", "velocity"]})
+
+    response = model_service.current_model()
+
+    assert response.model_name == "hist_gradient_boosting"
+    assert response.threshold == 0.05
+    assert response.feature_count == 2

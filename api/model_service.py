@@ -17,6 +17,7 @@ from api.schemas import ModelCurrentResponse, RuleResponse
 from fraudops.decisioning import load_yaml
 
 MODEL_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model.joblib"
+MODEL_SELECTION_PATH = PROJECT_ROOT / "reports" / "modeling" / "model_selection.json"
 FINAL_METRICS_PATH = PROJECT_ROOT / "reports" / "modeling" / "selected_model_final_test_metrics.json"
 RULES_PATH = PROJECT_ROOT / "configs" / "rules.yaml"
 COST_CONFIG_PATH = PROJECT_ROOT / "configs" / "cost_config.yaml"
@@ -40,13 +41,20 @@ def load_cost_config() -> dict[str, Any]:
     return load_yaml(COST_CONFIG_PATH)
 
 
+def selected_model_name() -> str:
+    if not MODEL_SELECTION_PATH.exists():
+        return "unknown_trained_model"
+    selection = json.loads(MODEL_SELECTION_PATH.read_text(encoding="utf-8"))
+    return str(selection.get("selected_model") or "unknown_trained_model")
+
+
 def current_model() -> ModelCurrentResponse:
     artifact_exists = MODEL_PATH.exists()
     bundle = load_model_bundle()
     metrics = json.loads(FINAL_METRICS_PATH.read_text(encoding="utf-8")) if FINAL_METRICS_PATH.exists() else {}
     if bundle:
         return ModelCurrentResponse(
-            model_name="random_forest_balanced",
+            model_name=selected_model_name(),
             model_status="READY",
             scoring_mode="model_artifact",
             threshold=float(bundle.get("threshold")),

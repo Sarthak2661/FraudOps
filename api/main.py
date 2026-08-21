@@ -39,6 +39,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(name
 logger = logging.getLogger("fraudops.api")
 engine = get_engine()
 OPEN_AUTH_PATHS = {"/health", "/docs", "/openapi.json", "/redoc"}
+CORS_ORIGINS = [
+    origin.strip()
+    for origin in os.getenv("FRAUDOPS_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
+    if origin.strip()
+]
+CORS_ORIGIN_REGEX = os.getenv("FRAUDOPS_CORS_ORIGIN_REGEX", r"http://(localhost|127\.0\.0\.1):\d+")
 
 
 @asynccontextmanager
@@ -56,7 +62,8 @@ app = FastAPI(
 )
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=CORS_ORIGINS,
+    allow_origin_regex=CORS_ORIGIN_REGEX,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
