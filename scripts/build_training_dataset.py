@@ -31,6 +31,7 @@ def main() -> None:
         (features["transaction_at"] >= pd.Timestamp(args.start_date, tz="UTC"))
         & (features["transaction_at"] < pd.Timestamp(args.end_date, tz="UTC"))
     ].copy()
+    training = training.sort_values(["transaction_at", "feature_pipeline_run_id"]).drop_duplicates("transaction_id", keep="last")
     write_single_parquet(training, args.output)
     print(f"Wrote {len(training)} training rows to {args.output}")
 

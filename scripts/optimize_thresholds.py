@@ -10,6 +10,13 @@ COMPARISON_PATH = PROJECT_ROOT / "reports" / "modeling" / "model_comparison_vali
 OUTPUT_PATH = PROJECT_ROOT / "reports" / "modeling" / "threshold_recommendation.json"
 
 
+def display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(PROJECT_ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 def main() -> None:
     if not COMPARISON_PATH.exists():
         raise FileNotFoundError(f"Run model training first: {COMPARISON_PATH}")
@@ -29,10 +36,10 @@ def main() -> None:
         "recommended_threshold": threshold,
         "analyst_daily_capacity": 500,
         "selection_basis": "lowest validation expected financial cost when available; otherwise best PR-AUC",
-        "source_file": str(COMPARISON_PATH),
+        "source_file": display_path(COMPARISON_PATH),
     }
     OUTPUT_PATH.parent.mkdir(parents=True, exist_ok=True)
-    OUTPUT_PATH.write_text(json.dumps(recommendation, indent=2), encoding="utf-8")
+    OUTPUT_PATH.write_text(json.dumps(recommendation, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(recommendation, indent=2))
 
 

@@ -54,6 +54,18 @@ Check scheduler logs:
 docker logs fraudops-airflow-scheduler --tail 100
 ```
 
+Run a cold local DAG verification from one-off Airflow containers:
+
+```powershell
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_batch_ingestion 2026-08-21
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_feature_generation 2026-08-22
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_reporting_refresh 2026-08-21
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_model_training 2026-08-23
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_threshold_optimization 2026-08-23
+```
+
+Local Airflow uses SQLite metadata and SequentialExecutor for laptop-friendly development. Avoid running multiple `airflow dags test` commands at the same time with this profile, because concurrent CLI tests can lock the local metadata database. The web UI still records the run history, task logs, and retry states.
+
 Stop Airflow services:
 
 ```powershell
@@ -88,6 +100,34 @@ Publish sample transaction events:
 docker exec -i fraudops-kafka /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic fraudops.transactions.raw < streaming/sample_transaction_events.jsonl
 ```
 
+Run the Kafka scoring consumer while the FastAPI service is running:
+
+```powershell
+$env:FRAUDOPS_API_BASE_URL="http://127.0.0.1:8000"
+python streaming\score_transactions_consumer.py --max-messages 3
+```
+
+Inspect scored events:
+
+```powershell
+docker exec fraudops-kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fraudops.transactions.scored --from-beginning --max-messages 3
+```
+
+Inspect alert events:
+
+```powershell
+docker exec fraudops-kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fraudops.alerts.created --from-beginning --max-messages 3
+```
+
+Verified local flow:
+
+1. Publish `streaming/sample_transaction_events.jsonl` to `fraudops.transactions.raw`.
+2. Run `python streaming\score_transactions_consumer.py --max-messages 3`.
+3. Inspect `fraudops.transactions.scored` for scored API responses.
+4. Inspect `fraudops.alerts.created` for alert-created events from high-risk transactions.
+
+The sample verification produced three scored transactions and two alert-created events.
+
 ## Observability
 
 Airflow provides the first local observability layer:
@@ -107,13 +147,20 @@ reports/orchestration/
 reports/modeling/
 ```
 
+Screenshots are stored under:
+
+```text
+reports/app_screenshots/airflow_dags.png
+reports/app_screenshots/kafka_ui_topics.png
+```
+
 ## When To Run What Locally
 
 1. Start `core` when you only need PostgreSQL or Power BI refreshes.
 2. Start `airflow` when you want scheduled ingestion, features, training, threshold, or reporting workflows.
-3. Start `streaming` when you want to inspect Kafka topics and event payloads.
+3. Start `streaming` when you want to inspect Kafka topics and run the event-based scoring path.
 4. Start app servers separately when testing the analyst console and scoring API.
 
 ## Current Boundary
 
-The Kafka profile proves the local broker, UI, topic design, and sample event path. The durable scoring consumer that reads Kafka events and calls FastAPI is intentionally left as the next implementation step so dependency and retry semantics can be designed cleanly.
+The Kafka profile proves the local broker, UI, topic design, sample event path, and Python scoring consumer. The consumer is a local demonstration worker, not a production stream-processing service: production hardening would still add durable dead-letter handling, structured retry policies, schema registry compatibility, and consumer metrics.

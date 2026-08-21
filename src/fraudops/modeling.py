@@ -51,6 +51,13 @@ TIME_COLUMNS = {"transaction_at"}
 LEAKAGE_COLUMNS = {"label_source", "chargeback_date", "analyst_confirmed_at", "label_available_at"}
 
 
+def display_path(path: Path) -> str:
+    try:
+        return path.resolve().relative_to(PROJECT_ROOT).as_posix()
+    except ValueError:
+        return path.as_posix()
+
+
 @dataclass(frozen=True)
 class SplitData:
     train: pd.DataFrame
@@ -252,7 +259,7 @@ def train_and_evaluate(args: argparse.Namespace) -> dict[str, Any]:
         "features": columns,
     }
     split_path = args.output_dir / "split_summary.json"
-    split_path.write_text(json.dumps(split_summary, indent=2), encoding="utf-8")
+    split_path.write_text(json.dumps(split_summary, indent=2) + "\n", encoding="utf-8")
 
     for model_name, model in models.items():
         start = time.perf_counter()
@@ -298,7 +305,7 @@ def train_and_evaluate(args: argparse.Namespace) -> dict[str, Any]:
     latency_ms = (time.perf_counter() - start) * 1000 / max(1, len(splits.test))
     test_metrics = metrics_for(test_y, test_scores, splits.test["transaction_amount"], thresholds[selected_model_name], cost_config, latency_ms)
     test_path = args.output_dir / "selected_model_final_test_metrics.json"
-    test_path.write_text(json.dumps(test_metrics, indent=2), encoding="utf-8")
+    test_path.write_text(json.dumps(test_metrics, indent=2) + "\n", encoding="utf-8")
 
     selected_artifact_path = args.output_dir / "selected_model.joblib"
     if selected_model is not None:
@@ -308,12 +315,12 @@ def train_and_evaluate(args: argparse.Namespace) -> dict[str, Any]:
         "selected_model": selected_model_name,
         "selection_reason": selected_reason,
         "validation_threshold": thresholds[selected_model_name],
-        "validation_comparison_path": str(comparison_path),
-        "final_test_metrics_path": str(test_path),
-        "selected_model_artifact": str(selected_artifact_path) if selected_model is not None else None,
+        "validation_comparison_path": display_path(comparison_path),
+        "final_test_metrics_path": display_path(test_path),
+        "selected_model_artifact": display_path(selected_artifact_path) if selected_model is not None else None,
     }
     selection_path = args.output_dir / "model_selection.json"
-    selection_path.write_text(json.dumps(selection_doc, indent=2), encoding="utf-8")
+    selection_path.write_text(json.dumps(selection_doc, indent=2) + "\n", encoding="utf-8")
 
     with mlflow.start_run(run_name=f"selected_final_test_{selected_model_name}"):
         mlflow.log_params({"selected_model": selected_model_name, "threshold": thresholds[selected_model_name], "feature_version": args.feature_version})

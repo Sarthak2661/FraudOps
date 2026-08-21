@@ -21,7 +21,10 @@ with DAG(
     )
     validate_labels = project_bash("validate_labels", f"{PYTHON} scripts/validate_training_labels.py --dataset data/curated/training_dataset.parquet")
     chronological_split = project_bash("chronological_split", "echo chronological split is handled inside train_baseline_models.py")
-    train_baseline_models = project_bash("train_logistic_random_forest_gradient_boosting", f"{PYTHON} scripts/train_baseline_models.py")
+    train_baseline_models = project_bash(
+        "train_logistic_random_forest_gradient_boosting",
+        f"{PYTHON} scripts/train_baseline_models.py --features data/curated/training_dataset.parquet",
+    )
     evaluate_models = project_bash("evaluate_models", f"{PYTHON} -c \"from pathlib import Path; assert Path('reports/modeling/model_comparison_validation.csv').exists(); print('model comparison exists')\"")
     log_to_mlflow = project_bash("log_to_mlflow", "echo MLflow logging is handled inside train_baseline_models.py")
     register_candidate_model = project_bash("register_candidate_model", f"{PYTHON} -c \"from pathlib import Path; assert Path('reports/modeling/selected_model.joblib').exists(); print('candidate model artifact exists')\"")

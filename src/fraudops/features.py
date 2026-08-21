@@ -15,6 +15,47 @@ COUNTRY_COORDS = {
     "SG": (1.3521, 103.8198),
 }
 
+FEATURE_COLUMNS = [
+    "transaction_id",
+    "transaction_external_id",
+    "customer_id",
+    "account_id",
+    "card_id",
+    "device_id",
+    "merchant_id",
+    "transaction_at",
+    "fraud_label",
+    "fraud_scenario",
+    "feature_pipeline_run_id",
+    "transaction_amount",
+    "transaction_hour",
+    "is_weekend",
+    "is_card_present",
+    "is_international",
+    "is_new_device",
+    "is_new_merchant",
+    "ip_country_mismatch",
+    "customer_avg_amount_7d",
+    "customer_avg_amount_30d",
+    "amount_to_customer_avg_ratio",
+    "transactions_last_10m",
+    "transactions_last_1h",
+    "amount_last_24h",
+    "unique_countries_last_7d",
+    "time_since_previous_transaction",
+    "distance_from_previous_transaction",
+    "failed_attempts_last_24h",
+    "device_age_days",
+    "customers_on_device_30d",
+    "cards_on_device_30d",
+    "device_transaction_velocity",
+    "device_fraud_rate_history",
+    "merchant_transaction_count_30d",
+    "merchant_fraud_rate_30d",
+    "merchant_chargeback_rate",
+    "merchant_category_risk",
+]
+
 
 def haversine_km(country_a: str, country_b: str) -> float | None:
     if not country_a or not country_b or country_a not in COUNTRY_COORDS or country_b not in COUNTRY_COORDS:
@@ -112,6 +153,8 @@ def build_point_in_time_features(
         frame["label_source"] = ""
     if "fraud_scenario" not in frame.columns:
         frame["fraud_scenario"] = ""
+    if frame.empty:
+        return pd.DataFrame(columns=FEATURE_COLUMNS)
 
     customer_cols = customers[["customer_id", "home_country", "home_city", "customer_segment", "risk_tier"]]
     device_cols = devices[["device_id", "first_seen_at", "trusted"]].rename(
@@ -176,44 +219,4 @@ def build_point_in_time_features(
     frame = frame.fillna(value=defaults)
     frame["feature_pipeline_run_id"] = pipeline_run_id
 
-    feature_columns = [
-        "transaction_id",
-        "transaction_external_id",
-        "customer_id",
-        "account_id",
-        "card_id",
-        "device_id",
-        "merchant_id",
-        "transaction_at",
-        "fraud_label",
-        "fraud_scenario",
-        "feature_pipeline_run_id",
-        "transaction_amount",
-        "transaction_hour",
-        "is_weekend",
-        "is_card_present",
-        "is_international",
-        "is_new_device",
-        "is_new_merchant",
-        "ip_country_mismatch",
-        "customer_avg_amount_7d",
-        "customer_avg_amount_30d",
-        "amount_to_customer_avg_ratio",
-        "transactions_last_10m",
-        "transactions_last_1h",
-        "amount_last_24h",
-        "unique_countries_last_7d",
-        "time_since_previous_transaction",
-        "distance_from_previous_transaction",
-        "failed_attempts_last_24h",
-        "device_age_days",
-        "customers_on_device_30d",
-        "cards_on_device_30d",
-        "device_transaction_velocity",
-        "device_fraud_rate_history",
-        "merchant_transaction_count_30d",
-        "merchant_fraud_rate_30d",
-        "merchant_chargeback_rate",
-        "merchant_category_risk",
-    ]
-    return frame[feature_columns].sort_values("transaction_at").reset_index(drop=True)
+    return frame[FEATURE_COLUMNS].sort_values("transaction_at").reset_index(drop=True)

@@ -83,10 +83,11 @@ def main() -> None:
         write_single_parquet(quality_results, quality_path)
 
         feature_input = accepted.copy()
-        if args.feature_start_date:
-            feature_input = feature_input[feature_input["transaction_at"] >= pd.Timestamp(args.feature_start_date, tz="UTC")]
-        if args.feature_end_date:
-            feature_input = feature_input[feature_input["transaction_at"] < pd.Timestamp(args.feature_end_date, tz="UTC")]
+        feature_input["transaction_at"] = pd.to_datetime(feature_input["transaction_at"], utc=True, errors="coerce")
+        feature_start = pd.Timestamp(args.feature_start_date, tz="UTC") if args.feature_start_date else None
+        feature_end = pd.Timestamp(args.feature_end_date, tz="UTC") if args.feature_end_date else None
+        if feature_end is not None:
+            feature_input = feature_input[feature_input["transaction_at"] < feature_end]
 
         features = build_point_in_time_features(
             transactions=feature_input,
@@ -95,6 +96,10 @@ def main() -> None:
             merchants=merchants,
             pipeline_run_id=pipeline_run_id,
         )
+        if feature_start is not None:
+            features = features[features["transaction_at"] >= feature_start]
+        if feature_end is not None:
+            features = features[features["transaction_at"] < feature_end]
         feature_path = args.curated_dir / "analytical_features" / f"pipeline_run_id={pipeline_run_id}" / "features.parquet"
         write_single_parquet(features, feature_path)
 

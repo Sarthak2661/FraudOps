@@ -42,7 +42,7 @@ Included scope:
 - Airflow orchestration through Docker Compose profiles
 - Scheduled or manual DAGs for ingestion, features, training, threshold optimization, and reporting
 - Local Kafka and Kafka UI profile with topic conventions and sample transaction events
-- Event-style scoring path documented through Kafka topics and JSONL sample events
+- Python Kafka scoring consumer that calls FastAPI and publishes scored and alert-created events
 - Airflow UI, retries, task logs, and pipeline validation artifacts for scheduled-job observability
 - README screenshots for Airflow and streaming workflows
 

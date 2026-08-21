@@ -1,6 +1,6 @@
 # FraudOps Streaming Path
 
-The streaming profile provides a local Kafka broker and Kafka UI for event-based transaction scoring experiments.
+The streaming profile provides a local Kafka broker, Kafka UI, and a Python scoring consumer for event-based transaction scoring experiments.
 
 ## Topics
 
@@ -36,12 +36,33 @@ Publish sample events:
 docker exec -i fraudops-kafka /opt/kafka/bin/kafka-console-producer.sh --bootstrap-server localhost:9092 --topic fraudops.transactions.raw < streaming/sample_transaction_events.jsonl
 ```
 
-Consume sample events:
+Run the scoring consumer in another terminal while the FastAPI service is running:
 
 ```powershell
-docker exec fraudops-kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fraudops.transactions.raw --from-beginning --max-messages 3
+$env:FRAUDOPS_API_BASE_URL="http://127.0.0.1:8000"
+python streaming\score_transactions_consumer.py --max-messages 3
 ```
 
-## Scoring Worker Status
+If the API is protected with `FRAUDOPS_API_KEY`, set the same value before starting the consumer:
 
-Version 2 includes the local Kafka broker, topic conventions, sample events, and Kafka UI. A durable Python consumer that reads `fraudops.transactions.raw`, calls FastAPI `/v1/transactions/score`, and publishes scored responses is the next implementation step.
+```powershell
+$env:FRAUDOPS_API_KEY="replace-with-local-demo-key"
+```
+
+Consume scored events:
+
+```powershell
+docker exec fraudops-kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fraudops.transactions.scored --from-beginning --max-messages 3
+```
+
+Consume alert events:
+
+```powershell
+docker exec fraudops-kafka /opt/kafka/bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic fraudops.alerts.created --from-beginning --max-messages 3
+```
+
+## Scoring Worker
+
+`streaming/score_transactions_consumer.py` reads `fraudops.transactions.raw`, calls FastAPI `/v1/transactions/score`, publishes scored responses to `fraudops.transactions.scored`, and publishes alert-created events to `fraudops.alerts.created` when scoring creates an alert.
+
+The worker strips non-API fields such as `event_id` and `model_probability_override` before calling the public scoring endpoint, so Kafka events use the same request validation and API-key boundary as direct HTTP scoring.

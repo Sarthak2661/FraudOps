@@ -1,7 +1,7 @@
 {
-  "model_name": "random_forest_balanced",
-  "recommended_threshold": 0.4499999999999999,
+  "model_name": "hist_gradient_boosting",
+  "recommended_threshold": 0.05,
   "analyst_daily_capacity": 500,
   "selection_basis": "lowest validation expected financial cost when available; otherwise best PR-AUC",
-  "source_file": "/opt/airflow/project/reports/modeling/model_comparison_validation.csv"
+  "source_file": "reports/modeling/model_comparison_validation.csv"
 }

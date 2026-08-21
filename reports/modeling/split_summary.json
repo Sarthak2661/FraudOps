@@ -2,22 +2,22 @@
   "feature_version": "phase4_features_v1",
   "data_period": {
     "train": [
-      "2026-05-14T19:47:21+00:00",
-      "2026-06-19T18:37:21+00:00"
+      "2026-07-01T00:01:21+00:00",
+      "2026-07-08T17:15:21+00:00"
     ],
     "validation": [
-      "2026-06-19T18:47:21+00:00",
-      "2026-07-02T06:45:21+00:00"
+      "2026-07-08T17:59:21+00:00",
+      "2026-07-11T09:43:21+00:00"
     ],
     "final_test_held_out": [
-      "2026-07-02T07:32:21+00:00",
+      "2026-07-11T09:56:21+00:00",
       "2026-07-13T19:41:21+00:00"
     ]
   },
-  "training_record_count": 6000,
-  "validation_record_count": 2000,
-  "final_test_record_count": 2000,
-  "training_fraud_rate": 0.02,
+  "training_record_count": 1314,
+  "validation_record_count": 438,
+  "final_test_record_count": 439,
+  "training_fraud_rate": 0.02207001522070015,
   "features": [
     "transaction_amount",
     "transaction_hour",

@@ -182,7 +182,7 @@ Schema: fraudops_reporting
 
 ## Orchestration And Streaming
 
-Version 2 local scaffolding includes Airflow DAGs, Kafka, Kafka UI, and job-observability runbooks.
+Version 2 local scaffolding includes Airflow DAGs, Kafka, Kafka UI, a Python Kafka scoring consumer, and job-observability runbooks.
 
 Start Airflow when you want scheduled pipeline runs:
 
@@ -208,7 +208,15 @@ Open Kafka UI:
 http://127.0.0.1:8081
 ```
 
+Run the local Kafka scoring worker after publishing sample raw events:
+
+```powershell
+python streaming\score_transactions_consumer.py --max-messages 3
+```
+
 Full local instructions are in `docs/phase10_12_orchestration_streaming.md`.
+
+Local verification has been run against the Compose profiles. The Airflow DAGs import, execute with task logs and retry history, and the Kafka path publishes scored and alert-created events after calling the FastAPI scoring API.
 
 ## Power BI Dashboard
 
@@ -272,6 +280,14 @@ FastAPI Swagger Docs
 React Analyst Console
 
 ![React Analyst Console](reports/app_screenshots/react_analyst_console.png)
+
+Airflow DAGs
+
+![Airflow DAGs](reports/app_screenshots/airflow_dags.png)
+
+Kafka UI
+
+![Kafka UI](reports/app_screenshots/kafka_ui_topics.png)
 
 ## Documentation Map
 

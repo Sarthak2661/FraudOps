@@ -58,6 +58,8 @@ services:
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
       AIRFLOW__WEBSERVER__SECRET_KEY: fraudops-local-dev-secret
+      AIRFLOW__WEBSERVER__WORKERS: 1
+      AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300
       FRAUDOPS_PROJECT_ROOT: /opt/airflow/project
       FRAUDOPS_POSTGRES_HOST: fraud-postgres
       FRAUDOPS_POSTGRES_PORT: 5432

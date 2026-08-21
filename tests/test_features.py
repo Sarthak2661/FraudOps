@@ -119,3 +119,34 @@ def test_customer_average_uses_only_prior_transactions() -> None:
     third = features.loc[features["transaction_id"].eq("txn-3")].iloc[0]
     assert third["customer_avg_amount_7d"] == 200.0
     assert third["amount_to_customer_avg_ratio"] == 50.0
+
+
+def test_empty_feature_window_returns_schema() -> None:
+    features = build_point_in_time_features(
+        transactions=pd.DataFrame(
+            columns=[
+                "transaction_id",
+                "transaction_external_id",
+                "customer_id",
+                "account_id",
+                "card_id",
+                "device_id",
+                "merchant_id",
+                "transaction_at",
+                "amount",
+                "currency",
+                "merchant_country",
+                "channel",
+                "status",
+                "fraud_label",
+            ]
+        ),
+        customers=pd.DataFrame(columns=["customer_id", "home_country", "home_city", "customer_segment", "risk_tier"]),
+        devices=pd.DataFrame(columns=["device_id", "first_seen_at", "trusted"]),
+        merchants=pd.DataFrame(columns=["merchant_id", "merchant_category_code", "merchant_category", "risk_tier"]),
+        pipeline_run_id="empty-window",
+    )
+
+    assert features.empty
+    assert "customer_avg_amount_30d" in features.columns
+    assert "amount_to_customer_avg_ratio" in features.columns
