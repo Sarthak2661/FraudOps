@@ -24,6 +24,7 @@ DAG files live in `airflow/dags/`.
 | `fraudops_model_training` | Training dataset validation, baseline training, MLflow artifact checks | Manual |
 | `fraudops_threshold_optimization` | Threshold recommendation from validation model comparison | Manual |
 | `fraudops_reporting_refresh` | Publish and validate PostgreSQL reporting views | Daily |
+| `fraudops_full_pipeline` | End-to-end local container walkthrough for ingestion, features, training, thresholds, and reporting | Manual |
 
 ## Airflow Local Commands
 
@@ -57,6 +58,7 @@ docker logs fraudops-airflow-scheduler --tail 100
 Run a cold local DAG verification from one-off Airflow containers:
 
 ```powershell
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_full_pipeline 2026-08-22
 docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_batch_ingestion 2026-08-21
 docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_feature_generation 2026-08-22
 docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_reporting_refresh 2026-08-21

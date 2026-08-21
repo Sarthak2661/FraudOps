@@ -41,10 +41,12 @@ Included scope:
 
 - Airflow orchestration through Docker Compose profiles
 - Scheduled or manual DAGs for ingestion, features, training, threshold optimization, and reporting
+- A manual end-to-end Airflow DAG that runs the local pipeline inside the Airflow container
 - Local Kafka and Kafka UI profile with topic conventions and sample transaction events
 - Python Kafka scoring consumer that calls FastAPI and publishes scored and alert-created events
 - Airflow UI, retries, task logs, and pipeline validation artifacts for scheduled-job observability
 - README screenshots for Airflow and streaming workflows
+- Model card, data card, and synthetic-data-only architecture decision record
 
 ## Version 3: Feedback, CI, Security, and AWS Deployment
 

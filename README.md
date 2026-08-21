@@ -1,6 +1,11 @@
 # FraudOps
 
 [![CI](https://github.com/Sarthak2661/FraudOps/actions/workflows/ci.yml/badge.svg)](https://github.com/Sarthak2661/FraudOps/actions/workflows/ci.yml)
+[![Python 3.14](https://img.shields.io/badge/python-3.14-blue)](https://www.python.org/)
+[![PostgreSQL 17](https://img.shields.io/badge/postgresql-17-4169E1)](https://www.postgresql.org/)
+[![Dependencies Pinned](https://img.shields.io/badge/dependencies-pinned-brightgreen)](requirements.txt)
+[![Security Audit](https://img.shields.io/badge/security-pip--audit-brightgreen)](.github/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 FraudOps is a local fraud-operations platform for banking transaction risk scoring, analyst review, case management, and management reporting. It uses generated banking data only; no real customer records are required.
 
@@ -15,6 +20,8 @@ FraudOps is a local fraud-operations platform for banking transaction risk scori
 - FastAPI exposes scoring, transaction lookup, alerts, cases, model metadata, and rules, with API scoring state stored in PostgreSQL by default.
 - The React analyst console provides alert queue, investigation, case management, customer timeline, and analyst workbench views.
 - Power BI reporting views summarize executive, operations, rule, model, analyst, fraud-loss, and data-quality metrics.
+- Airflow includes a single end-to-end container DAG for ingestion, features, training, threshold optimization, and reporting.
+- Kafka includes a local scoring consumer that calls FastAPI and publishes scored and alert-created events.
 
 ## Current Boundaries
 
@@ -214,6 +221,12 @@ Run the local Kafka scoring worker after publishing sample raw events:
 python streaming\score_transactions_consumer.py --max-messages 3
 ```
 
+Run the full Airflow pipeline inside the Airflow container:
+
+```powershell
+docker compose --profile airflow run --rm airflow-scheduler airflow dags test fraudops_full_pipeline 2026-08-22
+```
+
 Full local instructions are in `docs/phase10_12_orchestration_streaming.md`.
 
 Local verification has been run against the Compose profiles. The Airflow DAGs import, execute with task logs and retry history, and the Kafka path publishes scored and alert-created events after calling the FastAPI scoring API.
@@ -295,6 +308,8 @@ Kafka UI
 - `docs/phase3_batch_ingestion_quality.md`: ingestion, validation, rejected records, and pipeline audit
 - `docs/phase4_exploration_features.md`: exploratory analysis and point-in-time features
 - `docs/feature_dictionary.md`: feature definitions and leakage notes
+- `docs/data_card.md`: synthetic dataset scope, quality controls, and limitations
+- `docs/model_card.md`: model scope, metrics, risks, and monitoring recommendations
 - `docs/phase5_baseline_models_mlflow.md`: model training and experiment tracking
 - `docs/phase6_rules_decision_engine.md`: rules, risk scores, and decisions
 - `docs/phase7_fastapi_service.md`: API endpoints and scoring flow
@@ -303,6 +318,7 @@ Kafka UI
 - `docs/powerbi_metric_dictionary.md`: metric definitions and SQL lineage
 - `docs/release_plan.md`: version 1, 2, and 3 scope
 - `docs/security_notes.md`: local security assumptions and deployment controls
+- `docs/adr/0001-synthetic-data-only.md`: decision record for using generated data only
 
 ## License
 
