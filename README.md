@@ -29,7 +29,8 @@ FraudOps is a local fraud-operations platform for banking transaction risk scori
 - SQLite is still available for isolated tests or lightweight local runs by setting FRAUDOPS_API_DATABASE_URL=sqlite:///api/fraudops_api.db.
 - Power BI connects to PostgreSQL reporting views. Alert and case views now combine warehouse operational rows, API operational rows, and seeded reporting rows when both operational sources are empty.
 - Model binaries are intentionally excluded from Git. After a fresh clone, run `python scripts\train_baseline_models.py` before relying on model-backed scoring artifacts. `/v1/models/current` reports whether scoring is using a trained artifact or fallback probability.
-- The project is ready for a local walkthrough, but production deployment work is still future scope: authentication, secrets management, production observability, fully unified production reporting, and hosted infrastructure.
+- Model artifacts are loaded with `joblib` and should be generated locally from this repository or treated as trusted files only.
+- An optional API key exists for local demonstration through `FRAUDOPS_API_KEY`; real authentication, authorization, RBAC, secrets management, production observability, fully unified production reporting, and hosted infrastructure remain future scope.
 
 ## Architecture
 
@@ -91,6 +92,8 @@ Optional local API-key boundary:
 ```powershell
 $env:FRAUDOPS_API_KEY="replace-with-local-demo-key"
 ```
+
+This is a lightweight local boundary for demos. Production authentication, analyst roles, and permission checks are future scope.
 
 Open the API docs at:
 

@@ -19,7 +19,7 @@ def get_database_url() -> str:
     if url:
         return url
     host = os.getenv("DATABASE_HOST", "localhost")
-    port = os.getenv("DATABASE_PORT", "5433")
+    port = os.getenv("DATABASE_PORT", "55433")
     name = os.getenv("DATABASE_NAME", "fraudops")
     user = os.getenv("DATABASE_USER", "fraudops_user")
     password = os.getenv("DATABASE_PASSWORD", "fraudops_password")
@@ -55,4 +55,3 @@ if context.is_offline_mode():
     run_migrations_offline()
 else:
     run_migrations_online()
-

@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_DB: fraudops
       POSTGRES_USER: fraudops_user
-      POSTGRES_PASSWORD: fraudops_password
+      POSTGRES_PASSWORD: ${FRAUDOPS_POSTGRES_PASSWORD:-fraudops_password}
     ports:
       - "55433:5432"
     volumes:
@@ -29,7 +29,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
-      AIRFLOW__WEBSERVER__SECRET_KEY: fraudops-local-dev-secret
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${FRAUDOPS_AIRFLOW_SECRET_KEY:-fraudops-local-dev-secret}
     volumes:
       - ./:/opt/airflow/project
       - ./airflow/dags:/opt/airflow/dags
@@ -44,7 +44,7 @@ services:
       /opt/airflow/fraudops_venv/bin/python -m pip install --upgrade pip &&
       /opt/airflow/fraudops_venv/bin/python -m pip install -r /opt/airflow/project/requirements.txt &&
       airflow db migrate &&
-      (airflow users create --username admin --password admin --firstname FraudOps --lastname Admin --role Admin --email admin@example.com || true)'"
+      (airflow users create --username admin --password ${FRAUDOPS_AIRFLOW_ADMIN_PASSWORD:-admin} --firstname FraudOps --lastname Admin --role Admin --email admin@example.com || true)'"
 
   airflow-webserver:
     image: apache/airflow:2.10.5-python3.12
@@ -57,7 +57,7 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
-      AIRFLOW__WEBSERVER__SECRET_KEY: fraudops-local-dev-secret
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${FRAUDOPS_AIRFLOW_SECRET_KEY:-fraudops-local-dev-secret}
       AIRFLOW__WEBSERVER__WORKERS: 1
       AIRFLOW__WEBSERVER__WEB_SERVER_MASTER_TIMEOUT: 300
       FRAUDOPS_PROJECT_ROOT: /opt/airflow/project
@@ -65,8 +65,8 @@ services:
       FRAUDOPS_POSTGRES_PORT: 5432
       FRAUDOPS_POSTGRES_DB: fraudops
       FRAUDOPS_POSTGRES_USER: fraudops_user
-      FRAUDOPS_POSTGRES_PASSWORD: fraudops_password
-      FRAUDOPS_API_DATABASE_URL: postgresql+psycopg://fraudops_user:fraudops_password@fraud-postgres:5432/fraudops
+      FRAUDOPS_POSTGRES_PASSWORD: ${FRAUDOPS_POSTGRES_PASSWORD:-fraudops_password}
+      FRAUDOPS_API_DATABASE_URL: postgresql+psycopg://fraudops_user:${FRAUDOPS_POSTGRES_PASSWORD:-fraudops_password}@fraud-postgres:5432/fraudops
     ports:
       - "8080:8080"
     volumes:
@@ -92,14 +92,14 @@ services:
       AIRFLOW__CORE__EXECUTOR: SequentialExecutor
       AIRFLOW__CORE__LOAD_EXAMPLES: "false"
       AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
-      AIRFLOW__WEBSERVER__SECRET_KEY: fraudops-local-dev-secret
+      AIRFLOW__WEBSERVER__SECRET_KEY: ${FRAUDOPS_AIRFLOW_SECRET_KEY:-fraudops-local-dev-secret}
       FRAUDOPS_PROJECT_ROOT: /opt/airflow/project
       FRAUDOPS_POSTGRES_HOST: fraud-postgres
       FRAUDOPS_POSTGRES_PORT: 5432
       FRAUDOPS_POSTGRES_DB: fraudops
       FRAUDOPS_POSTGRES_USER: fraudops_user
-      FRAUDOPS_POSTGRES_PASSWORD: fraudops_password
-      FRAUDOPS_API_DATABASE_URL: postgresql+psycopg://fraudops_user:fraudops_password@fraud-postgres:5432/fraudops
+      FRAUDOPS_POSTGRES_PASSWORD: ${FRAUDOPS_POSTGRES_PASSWORD:-fraudops_password}
+      FRAUDOPS_API_DATABASE_URL: postgresql+psycopg://fraudops_user:${FRAUDOPS_POSTGRES_PASSWORD:-fraudops_password}@fraud-postgres:5432/fraudops
     volumes:
       - ./:/opt/airflow/project
       - ./airflow/dags:/opt/airflow/dags
